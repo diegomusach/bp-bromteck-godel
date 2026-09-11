@@ -6,7 +6,7 @@ export const VALID_USERS = [
 ];
 
 export const BLACK_PUMA_BENCHMARK = {
-  competitorName: "BP (theblackpuma.com)",
+  competitorName: "Plataforma BP",
   currentClient: "EDEMSA (Empresa Distribuidora de Electricidad de Mendoza S.A.)",
   initialFocus: "Red de Baja Tensión (Micro-Nivel por Cliente/Inmueble)",
   capabilities: [
