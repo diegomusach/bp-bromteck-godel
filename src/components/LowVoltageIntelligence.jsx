@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { LOW_VOLTAGE_SUPPLIES } from '../data/mockData';
-import { MapPin, Camera, AlertTriangle, CheckCircle, Search, ShieldAlert, FileText, ArrowUpRight, Cpu } from 'lucide-react';
+import { MapPin, Camera, AlertTriangle, CheckCircle, Search, ShieldAlert, FileText, ArrowUpRight, Cpu, Zap, Database } from 'lucide-react';
 
 export default function LowVoltageIntelligence() {
   const [selectedSupply, setSelectedSupply] = useState(LOW_VOLTAGE_SUPPLIES[0]);
@@ -128,6 +128,47 @@ export default function LowVoltageIntelligence() {
             </div>
           </div>
 
+          {/* PROMINENT RECOMENDACIÓN IA & ACCIÓN COMERCIAL BANNER AT TOP */}
+          <div className="glass-panel" style={{
+            padding: '20px',
+            marginBottom: '24px',
+            background: 'linear-gradient(135deg, rgba(16, 185, 129, 0.12) 0%, rgba(6, 182, 212, 0.12) 100%)',
+            border: '2px solid #10b981',
+            boxShadow: '0 0 20px rgba(16, 185, 129, 0.2)'
+          }}>
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '10px', marginBottom: '10px' }}>
+              <h4 style={{ fontSize: '1.05rem', color: '#10b981', fontWeight: 800, display: 'flex', alignItems: 'center', gap: '8px' }}>
+                <Zap size={20} color="#10b981" />
+                <span>💡 RECOMENDACIÓN TÉCNICA & ACCIÓN COMERCIAL SUGERIDA</span>
+              </h4>
+              <div style={{ fontSize: '0.9rem', color: '#6ee7b7', fontWeight: 800, background: 'rgba(16, 185, 129, 0.2)', padding: '4px 12px', borderRadius: '20px' }}>
+                Recuperación Estimada: ${selectedSupply.potentialRecoveryUSD.toLocaleString()} USD
+              </div>
+            </div>
+
+            <p style={{ fontSize: '1rem', color: '#ecfdf5', lineHeight: '1.6', fontWeight: 600 }}>
+              {selectedSupply.recommendedAction}
+            </p>
+
+            {/* RED INPUT BADGE */}
+            <div style={{
+              marginTop: '12px',
+              padding: '8px 12px',
+              background: 'rgba(239, 68, 68, 0.15)',
+              border: '1px solid #ef4444',
+              borderRadius: '8px',
+              fontSize: '0.82rem',
+              color: '#fca5a5',
+              fontWeight: 700,
+              display: 'flex',
+              alignItems: 'center',
+              gap: '6px'
+            }}>
+              <Database size={16} />
+              <span>{selectedSupply.requiredInput || "🔴 INPUT USADO: Google Street View API + Padrón Comercial ERP (SAP) de EDEMSA + Foto de Inspección de Campo"}</span>
+            </div>
+          </div>
+
           {/* Sub Navigation */}
           <div style={{ display: 'flex', gap: '10px', marginBottom: '20px' }}>
             <button
@@ -190,19 +231,6 @@ export default function LowVoltageIntelligence() {
                   <p style={{ fontSize: '0.9rem', color: '#e2e8f0', lineHeight: '1.5' }}>
                     {selectedSupply.streetViewNote}
                   </p>
-                </div>
-
-                <div className="glass-panel" style={{ padding: '16px', background: 'rgba(239, 68, 68, 0.05)', border: '1px solid rgba(239, 68, 68, 0.2)' }}>
-                  <h5 style={{ fontSize: '0.85rem', color: '#fca5a5', marginBottom: '6px', display: 'flex', alignItems: 'center', gap: '6px' }}>
-                    <AlertTriangle size={14} />
-                    <span>Acción Comercial Recomendada</span>
-                  </h5>
-                  <p style={{ fontSize: '0.9rem', color: '#fee2e2', lineHeight: '1.5' }}>
-                    {selectedSupply.recommendedAction}
-                  </p>
-                  <div style={{ marginTop: '10px', fontSize: '0.8rem', color: '#10b981', fontWeight: 600 }}>
-                    Recuperación Estimada: ${selectedSupply.potentialRecoveryUSD.toLocaleString()} USD
-                  </div>
                 </div>
               </div>
             </div>
