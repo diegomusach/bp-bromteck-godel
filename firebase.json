@@ -1,5 +1,6 @@
 {
   "hosting": {
+    "site": "bp-bromteck",
     "public": "dist",
     "ignore": [
       "firebase.json",
