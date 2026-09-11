@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { LOW_VOLTAGE_SUPPLIES } from '../data/mockData';
-import { MapPin, Camera, AlertTriangle, CheckCircle, Search, ShieldAlert, FileText, ArrowUpRight, Cpu, Zap, Database, Upload, RefreshCw } from 'lucide-react';
+import { MapPin, Camera, AlertTriangle, CheckCircle, Search, ShieldAlert, FileText, ArrowUpRight, Cpu, Zap, Database, Upload, Download } from 'lucide-react';
+import { generateActaPdf } from '../utils/pdfGenerator';
 
 export default function LowVoltageIntelligence() {
   const [selectedSupply, setSelectedSupply] = useState(LOW_VOLTAGE_SUPPLIES[0]);
@@ -29,6 +30,18 @@ export default function LowVoltageIntelligence() {
       const url = URL.createObjectURL(file);
       setCustomPhotoUrl(url);
     }
+  };
+
+  const handleDownloadPdf = () => {
+    generateActaPdf({
+      suministroId: selectedSupply.id,
+      clientName: selectedSupply.clientName,
+      address: selectedSupply.address,
+      tariff: selectedSupply.tariff,
+      debtAmount: selectedSupply.debtAmount,
+      requiredInput: selectedSupply.requiredInput,
+      actionText: selectedSupply.recommendedAction
+    });
   };
 
   const currentPhoto = customPhotoUrl || selectedSupply.facadeUrl;
@@ -216,12 +229,19 @@ export default function LowVoltageIntelligence() {
               </button>
             </div>
 
-            {/* Custom Photo Upload Button for Inspector */}
-            <label className="glass-pill badge-info" style={{ cursor: 'pointer', padding: '6px 12px', fontSize: '0.8rem', display: 'flex', alignItems: 'center', gap: '6px' }}>
-              <Upload size={14} />
-              <span>📷 Cargar Foto de Inspector / Campo</span>
-              <input type="file" accept="image/*" capture="environment" onChange={handleCustomPhotoUpload} style={{ display: 'none' }} />
-            </label>
+            <div style={{ display: 'flex', gap: '8px' }}>
+              <button onClick={handleDownloadPdf} className="btn-secondary" style={{ padding: '6px 12px', fontSize: '0.8rem' }}>
+                <Download size={14} />
+                <span>📄 Descargar PDF Acta ECNR</span>
+              </button>
+
+              {/* Custom Photo Upload Button for Inspector */}
+              <label className="glass-pill badge-info" style={{ cursor: 'pointer', padding: '6px 12px', fontSize: '0.8rem', display: 'flex', alignItems: 'center', gap: '6px' }}>
+                <Upload size={14} />
+                <span>📷 Cargar Foto de Inspector</span>
+                <input type="file" accept="image/*" capture="environment" onChange={handleCustomPhotoUpload} style={{ display: 'none' }} />
+              </label>
+            </div>
           </div>
 
           {/* Facade View */}

@@ -8,6 +8,7 @@ import UtilitiesRoadmapCatalog from './components/UtilitiesRoadmapCatalog';
 import TechnicalLossRAG from './components/TechnicalLossRAG';
 import ExecutiveMobileReport from './components/ExecutiveMobileReport';
 import ProductionRoadmapModule from './components/ProductionRoadmapModule';
+import PublicLightingAuditModule from './components/PublicLightingAuditModule';
 
 export default function App() {
   const [currentUser, setCurrentUser] = useState(null);
@@ -35,6 +36,10 @@ export default function App() {
       }}>
         {activeTab === 'production-roadmap' && (
           <ProductionRoadmapModule />
+        )}
+
+        {activeTab === 'public-lighting' && (
+          <PublicLightingAuditModule />
         )}
 
         {activeTab === 'benchmark' && (

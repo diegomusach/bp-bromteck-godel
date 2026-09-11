@@ -1,5 +1,5 @@
 import React from 'react';
-import { Zap, ShieldAlert, Cpu, Bot, Smartphone, LogOut, UserCheck, Layers, Wrench, Rocket } from 'lucide-react';
+import { Zap, ShieldAlert, Cpu, Bot, Smartphone, LogOut, UserCheck, Layers, Wrench, Rocket, Lightbulb } from 'lucide-react';
 
 export default function Navbar({ activeTab, setActiveTab, currentUser, onLogout }) {
   return (
@@ -69,18 +69,33 @@ export default function Navbar({ activeTab, setActiveTab, currentUser, onLogout 
           </button>
 
           <button
-            onClick={() => setActiveTab('benchmark')}
+            onClick={() => setActiveTab('engineering')}
             className="glass-pill"
             style={{
               cursor: 'pointer',
               padding: '8px 14px',
-              background: activeTab === 'benchmark' ? 'rgba(0, 242, 254, 0.18)' : 'transparent',
-              borderColor: activeTab === 'benchmark' ? 'var(--color-primary)' : 'rgba(255, 255, 255, 0.08)',
-              color: activeTab === 'benchmark' ? '#00f2fe' : 'var(--text-muted)'
+              background: activeTab === 'engineering' ? 'rgba(0, 242, 254, 0.18)' : 'transparent',
+              borderColor: activeTab === 'engineering' ? 'var(--color-primary)' : 'rgba(255, 255, 255, 0.08)',
+              color: activeTab === 'engineering' ? '#00f2fe' : 'var(--text-muted)'
             }}
           >
-            <Cpu size={16} />
-            <span>BP Benchmark</span>
+            <Wrench size={16} />
+            <span>Soluciones Concretas EPRE & Redes</span>
+          </button>
+
+          <button
+            onClick={() => setActiveTab('public-lighting')}
+            className="glass-pill"
+            style={{
+              cursor: 'pointer',
+              padding: '8px 14px',
+              background: activeTab === 'public-lighting' ? 'rgba(245, 158, 11, 0.2)' : 'transparent',
+              borderColor: activeTab === 'public-lighting' ? '#f59e0b' : 'rgba(255, 255, 255, 0.08)',
+              color: activeTab === 'public-lighting' ? '#fde047' : 'var(--text-muted)'
+            }}
+          >
+            <Lightbulb size={16} />
+            <span>Alumbrado Público (AP)</span>
           </button>
 
           <button
@@ -99,18 +114,18 @@ export default function Navbar({ activeTab, setActiveTab, currentUser, onLogout 
           </button>
 
           <button
-            onClick={() => setActiveTab('engineering')}
+            onClick={() => setActiveTab('benchmark')}
             className="glass-pill"
             style={{
               cursor: 'pointer',
               padding: '8px 14px',
-              background: activeTab === 'engineering' ? 'rgba(0, 242, 254, 0.18)' : 'transparent',
-              borderColor: activeTab === 'engineering' ? 'var(--color-primary)' : 'rgba(255, 255, 255, 0.08)',
-              color: activeTab === 'engineering' ? '#00f2fe' : 'var(--text-muted)'
+              background: activeTab === 'benchmark' ? 'rgba(0, 242, 254, 0.18)' : 'transparent',
+              borderColor: activeTab === 'benchmark' ? 'var(--color-primary)' : 'rgba(255, 255, 255, 0.08)',
+              color: activeTab === 'benchmark' ? '#00f2fe' : 'var(--text-muted)'
             }}
           >
-            <Wrench size={16} />
-            <span>Soluciones Concretas EPRE & Redes</span>
+            <Cpu size={16} />
+            <span>BP Benchmark</span>
           </button>
 
           <button
