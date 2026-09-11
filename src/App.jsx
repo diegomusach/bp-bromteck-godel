@@ -41,7 +41,7 @@ export default function App() {
         )}
 
         {activeTab === 'engineering' && (
-          <PragmaticEngineeringModule />
+          <PragmaticEngineeringModule currentUser={currentUser} />
         )}
 
         {activeTab === 'catalog' && (
