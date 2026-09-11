@@ -1,0 +1,52 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    
+    // Helper functions for anti-hack protection
+    function isAuthenticated() {
+      return request.auth != null;
+    }
+    
+    function isAuthorizedUser() {
+      return isAuthenticated() && 
+        (request.auth.uid == 'dmusach' || request.auth.uid == 'alejandro' || request.auth.uid == 'acubino' ||
+         request.auth.token.email in ['dmusach@bromteck.com', 'acubino@bromteck.com']);
+    }
+
+    function isValidTimestamp(field) {
+      return request.resource.data[field] is timestamp || request.resource.data[field] is string;
+    }
+
+    // Default deny all access
+    match /{document=**} {
+      allow read, write: if false;
+    }
+
+    // Suministros de Baja Tensión (Low Voltage Supplies)
+    match /supplies/{supplyId} {
+      allow read: if true; // Public read for dashboard display
+      allow write: if isAuthorizedUser();
+    }
+
+    // Actas ECNR Res. 129/18
+    match /actas/{actaId} {
+      allow read: if isAuthorizedUser();
+      allow create, update: if isAuthorizedUser() && isValidTimestamp('createdAt');
+      allow delete: if false; // Audit logs can never be deleted
+    }
+
+    // Comentarios Colaborativos (Diego & Alejandro)
+    match /comments/{commentId} {
+      allow read: if true;
+      allow create: if isAuthorizedUser() && request.resource.data.text.size() > 0 && request.resource.data.text.size() < 2000;
+      allow update, delete: if isAuthorizedUser() && request.auth.uid == resource.data.userId;
+    }
+
+    // Trunks & Branches Management
+    match /branches/{branchId} {
+      allow read: if true;
+      allow create, update: if isAuthorizedUser();
+      allow delete: if false;
+    }
+  }
+}

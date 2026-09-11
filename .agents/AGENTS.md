@@ -1,10 +1,13 @@
-# Workspace Rules for BP Bromteck
+# BP Bromteck — Project Rules
 
-## MANDATORY RESPONSE ENDING RULE
-At the very end of EVERY single response, ALWAYS provide the following 3 items formatted in a clean, highlighted block:
+## Project Scope
+This project is **BP Bromteck** (BlackPuma vs Bromteck BP comparison, Low Voltage Intelligence, EDEMSA Loss Reduction & AP Auditing).
 
-1. **Link de Acceso a la Plataforma Web**: https://monitoreo-activos-bromteck.web.app
-2. **Credenciales de Acceso (Diego & Alejandro)**:
-   - Diego Musach: `dmusach` | Clave: `BP-dmusach-2026`
-   - Alejandro Cubino: `alejandro` | Clave: `BP-alejandro-2026`
-3. **Link al Repositorio GitHub**: https://github.com/diegomusach/bp-bromteck-godel
+## Mandatory Message Footer Rule
+ALWAYS include the following ultra-compact footer AT THE END OF EVERY SINGLE MESSAGE for BP Bromteck:
+
+---
+**Link para ingresar:** [bp-bromteck.web.app](https://bp-bromteck.web.app)  
+**Credenciales (Diego y Alejandro):** Diego: `dmusach` (`BP-dmusach-2026`) | Alejandro: `alejandro` / `acubino` (`BP-alejandro-2026`)  
+**Link a GitHub:** [github.com/diegomusach/bp-bromteck-godel](https://github.com/diegomusach/bp-bromteck-godel)  
+---

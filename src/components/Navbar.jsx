@@ -1,7 +1,26 @@
-import React from 'react';
-import { Zap, ShieldAlert, Cpu, Bot, Smartphone, LogOut, UserCheck, Layers, Wrench, Rocket, Lightbulb } from 'lucide-react';
+import React, { useState } from 'react';
+import { Zap, ShieldAlert, Cpu, Bot, Smartphone, LogOut, UserCheck, Layers, Wrench, Rocket, Lightbulb, Menu, X, GitBranch } from 'lucide-react';
 
 export default function Navbar({ activeTab, setActiveTab, currentUser, onLogout }) {
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
+  const handleTabSelect = (tab) => {
+    setActiveTab(tab);
+    setMobileMenuOpen(false);
+  };
+
+  const navItems = [
+    { id: 'production-roadmap', label: '🚀 Pasos a Producción Real', icon: Rocket, color: '#10b981', isHighlighted: true },
+    { id: 'engineering', label: 'Soluciones Concretas EPRE & Redes', icon: Wrench },
+    { id: 'public-lighting', label: 'Alumbrado Público (AP)', icon: Lightbulb, color: '#fde047' },
+    { id: 'low-voltage', label: 'Baja Tensión & Hurto IA', icon: ShieldAlert },
+    { id: 'branches', label: 'Trunks & Branches DB', icon: GitBranch, color: '#a855f7' },
+    { id: 'benchmark', label: 'BP Benchmark', icon: Cpu },
+    { id: 'catalog', label: '30 Soluciones & Roadmaps', icon: Layers },
+    { id: 'rag', label: 'RAG Pérdidas Técnicas', icon: Bot },
+    { id: 'mobile', label: 'Reporte Móvil Exec', icon: Smartphone }
+  ];
+
   return (
     <header className="glass-panel" style={{
       borderRadius: '0',
@@ -41,7 +60,7 @@ export default function Navbar({ activeTab, setActiveTab, currentUser, onLogout 
                 BP Bromteck
               </span>
               <span className="glass-pill badge-info" style={{ fontSize: '0.7rem' }}>
-                EDEMSA Platform v1.0
+                EDEMSA Platform
               </span>
             </div>
             <span style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>
@@ -50,131 +69,49 @@ export default function Navbar({ activeTab, setActiveTab, currentUser, onLogout 
           </div>
         </div>
 
-        {/* Tab Navigation */}
-        <nav style={{ display: 'flex', alignItems: 'center', gap: '8px', overflowX: 'auto', padding: '4px' }}>
-          <button
-            onClick={() => setActiveTab('production-roadmap')}
-            className="glass-pill"
-            style={{
-              cursor: 'pointer',
-              padding: '8px 14px',
-              background: activeTab === 'production-roadmap' ? 'rgba(16, 185, 129, 0.25)' : 'rgba(16, 185, 129, 0.1)',
-              borderColor: activeTab === 'production-roadmap' ? '#10b981' : 'rgba(16, 185, 129, 0.3)',
-              color: '#10b981',
-              fontWeight: 700
-            }}
-          >
-            <Rocket size={16} color="#10b981" />
-            <span>🚀 Pasos a Producción Real</span>
-          </button>
+        {/* Desktop Tab Navigation */}
+        <nav className="nav-desktop-links">
+          {navItems.map((item) => {
+            const Icon = item.icon;
+            const isActive = activeTab === item.id;
+            
+            let bg = 'transparent';
+            let border = 'rgba(255, 255, 255, 0.08)';
+            let color = isActive ? '#00f2fe' : 'var(--text-muted)';
 
-          <button
-            onClick={() => setActiveTab('engineering')}
-            className="glass-pill"
-            style={{
-              cursor: 'pointer',
-              padding: '8px 14px',
-              background: activeTab === 'engineering' ? 'rgba(0, 242, 254, 0.18)' : 'transparent',
-              borderColor: activeTab === 'engineering' ? 'var(--color-primary)' : 'rgba(255, 255, 255, 0.08)',
-              color: activeTab === 'engineering' ? '#00f2fe' : 'var(--text-muted)'
-            }}
-          >
-            <Wrench size={16} />
-            <span>Soluciones Concretas EPRE & Redes</span>
-          </button>
+            if (item.isHighlighted) {
+              bg = isActive ? 'rgba(16, 185, 129, 0.25)' : 'rgba(16, 185, 129, 0.1)';
+              border = isActive ? '#10b981' : 'rgba(16, 185, 129, 0.3)';
+              color = '#10b981';
+            } else if (isActive) {
+              bg = 'rgba(0, 242, 254, 0.18)';
+              border = 'var(--color-primary)';
+            } else if (item.color && isActive) {
+              color = item.color;
+            }
 
-          <button
-            onClick={() => setActiveTab('public-lighting')}
-            className="glass-pill"
-            style={{
-              cursor: 'pointer',
-              padding: '8px 14px',
-              background: activeTab === 'public-lighting' ? 'rgba(245, 158, 11, 0.2)' : 'transparent',
-              borderColor: activeTab === 'public-lighting' ? '#f59e0b' : 'rgba(255, 255, 255, 0.08)',
-              color: activeTab === 'public-lighting' ? '#fde047' : 'var(--text-muted)'
-            }}
-          >
-            <Lightbulb size={16} />
-            <span>Alumbrado Público (AP)</span>
-          </button>
-
-          <button
-            onClick={() => setActiveTab('low-voltage')}
-            className="glass-pill"
-            style={{
-              cursor: 'pointer',
-              padding: '8px 14px',
-              background: activeTab === 'low-voltage' ? 'rgba(0, 242, 254, 0.18)' : 'transparent',
-              borderColor: activeTab === 'low-voltage' ? 'var(--color-primary)' : 'rgba(255, 255, 255, 0.08)',
-              color: activeTab === 'low-voltage' ? '#00f2fe' : 'var(--text-muted)'
-            }}
-          >
-            <ShieldAlert size={16} />
-            <span>Baja Tensión & Hurto IA</span>
-          </button>
-
-          <button
-            onClick={() => setActiveTab('benchmark')}
-            className="glass-pill"
-            style={{
-              cursor: 'pointer',
-              padding: '8px 14px',
-              background: activeTab === 'benchmark' ? 'rgba(0, 242, 254, 0.18)' : 'transparent',
-              borderColor: activeTab === 'benchmark' ? 'var(--color-primary)' : 'rgba(255, 255, 255, 0.08)',
-              color: activeTab === 'benchmark' ? '#00f2fe' : 'var(--text-muted)'
-            }}
-          >
-            <Cpu size={16} />
-            <span>BP Benchmark</span>
-          </button>
-
-          <button
-            onClick={() => setActiveTab('catalog')}
-            className="glass-pill"
-            style={{
-              cursor: 'pointer',
-              padding: '8px 14px',
-              background: activeTab === 'catalog' ? 'rgba(0, 242, 254, 0.18)' : 'transparent',
-              borderColor: activeTab === 'catalog' ? 'var(--color-primary)' : 'rgba(255, 255, 255, 0.08)',
-              color: activeTab === 'catalog' ? '#00f2fe' : 'var(--text-muted)'
-            }}
-          >
-            <Layers size={16} />
-            <span>30 Soluciones & Roadmaps</span>
-          </button>
-
-          <button
-            onClick={() => setActiveTab('rag')}
-            className="glass-pill"
-            style={{
-              cursor: 'pointer',
-              padding: '8px 14px',
-              background: activeTab === 'rag' ? 'rgba(0, 242, 254, 0.18)' : 'transparent',
-              borderColor: activeTab === 'rag' ? 'var(--color-primary)' : 'rgba(255, 255, 255, 0.08)',
-              color: activeTab === 'rag' ? '#00f2fe' : 'var(--text-muted)'
-            }}
-          >
-            <Bot size={16} />
-            <span>RAG Pérdidas Técnicas</span>
-          </button>
-
-          <button
-            onClick={() => setActiveTab('mobile')}
-            className="glass-pill"
-            style={{
-              cursor: 'pointer',
-              padding: '8px 14px',
-              background: activeTab === 'mobile' ? 'rgba(0, 242, 254, 0.18)' : 'transparent',
-              borderColor: activeTab === 'mobile' ? 'var(--color-primary)' : 'rgba(255, 255, 255, 0.08)',
-              color: activeTab === 'mobile' ? '#00f2fe' : 'var(--text-muted)'
-            }}
-          >
-            <Smartphone size={16} />
-            <span>Reporte Móvil Exec</span>
-          </button>
+            return (
+              <button
+                key={item.id}
+                onClick={() => handleTabSelect(item.id)}
+                className="glass-pill"
+                style={{
+                  cursor: 'pointer',
+                  padding: '8px 14px',
+                  background: bg,
+                  borderColor: border,
+                  color: color,
+                  fontWeight: item.isHighlighted ? 700 : 500
+                }}
+              >
+                <Icon size={16} color={item.color || (isActive ? '#00f2fe' : 'currentColor')} />
+                <span>{item.label}</span>
+              </button>
+            );
+          })}
         </nav>
 
-        {/* User Info & Actions */}
+        {/* User Info & Actions + Mobile Menu Toggle */}
         <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
           <div className="glass-pill" style={{ borderColor: 'rgba(0, 242, 254, 0.3)', padding: '6px 12px' }}>
             <UserCheck size={14} color="#00f2fe" />
@@ -190,10 +127,59 @@ export default function Navbar({ activeTab, setActiveTab, currentUser, onLogout 
             title="Cerrar Sesión"
           >
             <LogOut size={14} />
-            <span>Salir</span>
+            <span className="nav-desktop-links">Salir</span>
+          </button>
+
+          {/* Hamburger Toggle Button for Mobile Screens */}
+          <button
+            type="button"
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            className="btn-secondary nav-mobile-toggle"
+            style={{ padding: '8px', borderRadius: '10px' }}
+            aria-label="Abrir menú de navegación"
+          >
+            {mobileMenuOpen ? <X size={20} color="#00f2fe" /> : <Menu size={20} color="#00f2fe" />}
           </button>
         </div>
+
+        {/* Mobile Navigation Drawer */}
+        {mobileMenuOpen && (
+          <nav className="nav-mobile-drawer">
+            <div style={{ fontSize: '0.75rem', color: 'var(--text-subtle)', textTransform: 'uppercase', letterSpacing: '0.05em', marginBottom: '4px', fontWeight: 600 }}>
+              Seleccionar Módulo:
+            </div>
+            {navItems.map((item) => {
+              const Icon = item.icon;
+              const isActive = activeTab === item.id;
+              return (
+                <button
+                  key={item.id}
+                  onClick={() => handleTabSelect(item.id)}
+                  className="glass-panel"
+                  style={{
+                    padding: '12px 16px',
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: '12px',
+                    width: '100%',
+                    textAlign: 'left',
+                    background: isActive ? 'rgba(0, 242, 254, 0.15)' : 'rgba(15, 23, 42, 0.6)',
+                    borderColor: isActive ? '#00f2fe' : 'rgba(255, 255, 255, 0.08)',
+                    color: isActive ? '#00f2fe' : 'var(--text-main)',
+                    fontWeight: isActive ? 700 : 500,
+                    borderRadius: '10px',
+                    cursor: 'pointer'
+                  }}
+                >
+                  <Icon size={18} color={item.color || (isActive ? '#00f2fe' : '#94a3b8')} />
+                  <span>{item.label}</span>
+                </button>
+              );
+            })}
+          </nav>
+        )}
       </div>
     </header>
   );
 }
+

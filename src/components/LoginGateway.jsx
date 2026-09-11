@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
-import { Lock, User, Zap, KeyRound, ChevronRight, AlertCircle, UserCheck } from 'lucide-react';
+import { Lock, User, Zap, KeyRound, ChevronRight, AlertCircle, UserCheck, ShieldCheck } from 'lucide-react';
 import { VALID_USERS } from '../data/mockData';
+import { sanitizeInput, createSessionToken, checkLoginRateLimit, recordFailedLogin, clearLoginAttempts } from '../utils/security';
 
 export default function LoginGateway({ onLoginSuccess }) {
   const [username, setUsername] = useState('');
@@ -9,14 +10,30 @@ export default function LoginGateway({ onLoginSuccess }) {
 
   const handleLogin = (e) => {
     e.preventDefault();
+
+    // Check anti-bruteforce rate limit
+    const rateCheck = checkLoginRateLimit();
+    if (!rateCheck.allowed) {
+      setError(rateCheck.message);
+      return;
+    }
+
+    const cleanUser = sanitizeInput(username.trim().toLowerCase());
+    const cleanPass = password;
+
     const found = VALID_USERS.find(
-      (u) => u.username.toLowerCase() === username.trim().toLowerCase() && u.pass === password
+      (u) => u.username.toLowerCase() === cleanUser && u.pass === cleanPass
     );
+
     if (found) {
       setError('');
-      onLoginSuccess(found);
+      clearLoginAttempts();
+      const sessionToken = createSessionToken(found);
+      const authenticatedUser = { ...found, sessionToken };
+      onLoginSuccess(authenticatedUser);
     } else {
-      setError('Credenciales inválidas. Por favor verifica tu usuario y contraseña (dmusach o alejandro).');
+      recordFailedLogin();
+      setError('Credenciales inválidas o incompletas. Verificá tu usuario y contraseña (dmusach o alejandro).');
     }
   };
 

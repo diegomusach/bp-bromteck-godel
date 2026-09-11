@@ -9,6 +9,7 @@ import TechnicalLossRAG from './components/TechnicalLossRAG';
 import ExecutiveMobileReport from './components/ExecutiveMobileReport';
 import ProductionRoadmapModule from './components/ProductionRoadmapModule';
 import PublicLightingAuditModule from './components/PublicLightingAuditModule';
+import BranchingTrunkModule from './components/BranchingTrunkModule';
 
 export default function App() {
   const [currentUser, setCurrentUser] = useState(null);
@@ -27,19 +28,17 @@ export default function App() {
         onLogout={() => setCurrentUser(null)}
       />
 
-      <main style={{
-        flex: 1,
-        maxWidth: '1400px',
-        width: '100%',
-        margin: '0 auto',
-        padding: '24px 20px 60px 20px'
-      }}>
+      <main className="app-main-content">
         {activeTab === 'production-roadmap' && (
           <ProductionRoadmapModule />
         )}
 
         {activeTab === 'public-lighting' && (
           <PublicLightingAuditModule />
+        )}
+
+        {activeTab === 'branches' && (
+          <BranchingTrunkModule currentUser={currentUser} />
         )}
 
         {activeTab === 'benchmark' && (

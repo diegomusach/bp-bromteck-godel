@@ -84,7 +84,7 @@ export default function LowVoltageIntelligence() {
       </div>
 
       {/* Main Grid: Selector on Left, Inspection Details on Right */}
-      <div style={{ display: 'grid', gridTemplateColumns: 'minmax(300px, 360px) 1fr', gap: '24px', alignItems: 'start' }}>
+      <div className="responsive-grid-2col" style={{ alignItems: 'start' }}>
         
         {/* Supplies List */}
         <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
