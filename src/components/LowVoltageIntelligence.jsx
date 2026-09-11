@@ -1,12 +1,13 @@
 import React, { useState } from 'react';
 import { LOW_VOLTAGE_SUPPLIES } from '../data/mockData';
-import { MapPin, Camera, AlertTriangle, CheckCircle, Search, ShieldAlert, FileText, ArrowUpRight, Cpu, Zap, Database } from 'lucide-react';
+import { MapPin, Camera, AlertTriangle, CheckCircle, Search, ShieldAlert, FileText, ArrowUpRight, Cpu, Zap, Database, Upload, RefreshCw } from 'lucide-react';
 
 export default function LowVoltageIntelligence() {
   const [selectedSupply, setSelectedSupply] = useState(LOW_VOLTAGE_SUPPLIES[0]);
   const [activeTabSub, setActiveTabSub] = useState('facade');
   const [dispatched, setDispatched] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
+  const [customPhotoUrl, setCustomPhotoUrl] = useState(null);
 
   const filteredSupplies = LOW_VOLTAGE_SUPPLIES.filter(
     (s) =>
@@ -21,6 +22,16 @@ export default function LowVoltageIntelligence() {
       setDispatched(false);
     }, 4000);
   };
+
+  const handleCustomPhotoUpload = (e) => {
+    const file = e.target.files[0];
+    if (file) {
+      const url = URL.createObjectURL(file);
+      setCustomPhotoUrl(url);
+    }
+  };
+
+  const currentPhoto = customPhotoUrl || selectedSupply.facadeUrl;
 
   return (
     <div style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
@@ -71,7 +82,10 @@ export default function LowVoltageIntelligence() {
           {filteredSupplies.map((sup) => (
             <div
               key={sup.id}
-              onClick={() => setSelectedSupply(sup)}
+              onClick={() => {
+                setSelectedSupply(sup);
+                setCustomPhotoUrl(null);
+              }}
               className="glass-panel glass-panel-hover"
               style={{
                 padding: '16px',
@@ -170,35 +184,44 @@ export default function LowVoltageIntelligence() {
           </div>
 
           {/* Sub Navigation */}
-          <div style={{ display: 'flex', gap: '10px', marginBottom: '20px' }}>
-            <button
-              onClick={() => setActiveTabSub('facade')}
-              className="glass-pill"
-              style={{
-                cursor: 'pointer',
-                padding: '6px 14px',
-                background: activeTabSub === 'facade' ? 'rgba(0, 242, 254, 0.15)' : 'transparent',
-                borderColor: activeTabSub === 'facade' ? '#00f2fe' : 'rgba(255,255,255,0.1)',
-                color: activeTabSub === 'facade' ? '#00f2fe' : 'var(--text-muted)'
-              }}
-            >
-              <Camera size={14} />
-              <span>Análisis de Fachada & Google Street View</span>
-            </button>
-            <button
-              onClick={() => setActiveTabSub('ai')}
-              className="glass-pill"
-              style={{
-                cursor: 'pointer',
-                padding: '6px 14px',
-                background: activeTabSub === 'ai' ? 'rgba(0, 242, 254, 0.15)' : 'transparent',
-                borderColor: activeTabSub === 'ai' ? '#00f2fe' : 'rgba(255,255,255,0.1)',
-                color: activeTabSub === 'ai' ? '#00f2fe' : 'var(--text-muted)'
-              }}
-            >
-              <Cpu size={14} />
-              <span>Conclusiones IA & Cuestionamiento</span>
-            </button>
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '10px', marginBottom: '20px' }}>
+            <div style={{ display: 'flex', gap: '10px' }}>
+              <button
+                onClick={() => setActiveTabSub('facade')}
+                className="glass-pill"
+                style={{
+                  cursor: 'pointer',
+                  padding: '6px 14px',
+                  background: activeTabSub === 'facade' ? 'rgba(0, 242, 254, 0.15)' : 'transparent',
+                  borderColor: activeTabSub === 'facade' ? '#00f2fe' : 'rgba(255,255,255,0.1)',
+                  color: activeTabSub === 'facade' ? '#00f2fe' : 'var(--text-muted)'
+                }}
+              >
+                <Camera size={14} />
+                <span>Análisis de Fachada & Google Street View</span>
+              </button>
+              <button
+                onClick={() => setActiveTabSub('ai')}
+                className="glass-pill"
+                style={{
+                  cursor: 'pointer',
+                  padding: '6px 14px',
+                  background: activeTabSub === 'ai' ? 'rgba(0, 242, 254, 0.15)' : 'transparent',
+                  borderColor: activeTabSub === 'ai' ? '#00f2fe' : 'rgba(255,255,255,0.1)',
+                  color: activeTabSub === 'ai' ? '#00f2fe' : 'var(--text-muted)'
+                }}
+              >
+                <Cpu size={14} />
+                <span>Conclusiones IA & Cuestionamiento</span>
+              </button>
+            </div>
+
+            {/* Custom Photo Upload Button for Inspector */}
+            <label className="glass-pill badge-info" style={{ cursor: 'pointer', padding: '6px 12px', fontSize: '0.8rem', display: 'flex', alignItems: 'center', gap: '6px' }}>
+              <Upload size={14} />
+              <span>📷 Cargar Foto de Inspector / Campo</span>
+              <input type="file" accept="image/*" capture="environment" onChange={handleCustomPhotoUpload} style={{ display: 'none' }} />
+            </label>
           </div>
 
           {/* Facade View */}
@@ -206,18 +229,18 @@ export default function LowVoltageIntelligence() {
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '20px' }}>
               <div className="scanner-overlay" style={{ borderRadius: '12px', overflow: 'hidden', border: '1px solid rgba(0, 242, 254, 0.3)', position: 'relative' }}>
                 <img
-                  src={selectedSupply.facadeUrl}
-                  alt="Street View Facade"
-                  style={{ width: '100%', height: '240px', objectFit: 'cover', display: 'block' }}
+                  src={currentPhoto}
+                  alt="Street View Facade or Inspector Photo"
+                  style={{ width: '100%', height: '260px', objectFit: 'cover', display: 'block' }}
                 />
                 <div style={{
                   position: 'absolute', bottom: 0, left: 0, right: 0,
                   background: 'linear-gradient(to top, rgba(9, 13, 22, 0.95), transparent)',
                   padding: '12px 16px'
                 }}>
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '6px', fontSize: '0.8rem', color: '#00f2fe', fontWeight: 600 }}>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '6px', fontSize: '0.8rem', color: customPhotoUrl ? '#10b981' : '#00f2fe', fontWeight: 600 }}>
                     <Camera size={14} />
-                    <span>Google Street View + Detección de Pilar</span>
+                    <span>{customPhotoUrl ? '📷 Foto de Inspector Capturada en Campo' : 'Google Street View + Detección de Pilar'}</span>
                   </div>
                   <div style={{ fontSize: '0.75rem', color: 'var(--text-muted)', marginTop: '2px' }}>
                     {selectedSupply.zoneType}
