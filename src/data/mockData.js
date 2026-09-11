@@ -1,4 +1,4 @@
-// Mock Data for BP Bromteck (EDEMSA Case Study & Black Puma Benchmark)
+// Mock Data for BP Bromteck (EDEMSA Case Study & BP Benchmark)
 
 export const VALID_USERS = [
   { username: 'dmusach', name: 'Diego Musach', role: 'Director de Producto & Estrategia', pass: 'BP-dmusach-2026' },
@@ -6,7 +6,7 @@ export const VALID_USERS = [
 ];
 
 export const BLACK_PUMA_BENCHMARK = {
-  competitorName: "Black Puma (theblackpuma.com)",
+  competitorName: "BP (theblackpuma.com)",
   currentClient: "EDEMSA (Empresa Distribuidora de Electricidad de Mendoza S.A.)",
   initialFocus: "Red de Baja Tensión (Micro-Nivel por Cliente/Inmueble)",
   capabilities: [

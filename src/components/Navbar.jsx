@@ -64,7 +64,7 @@ export default function Navbar({ activeTab, setActiveTab, currentUser, onLogout 
             }}
           >
             <Cpu size={16} />
-            <span>Black Puma Benchmark</span>
+            <span>BP Benchmark</span>
           </button>
 
           <button

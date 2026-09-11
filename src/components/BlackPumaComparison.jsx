@@ -25,10 +25,10 @@ export default function BlackPumaComparison({ onNavigate }) {
           </div>
 
           <h2 style={{ fontSize: '2.2rem', marginBottom: '14px' }} className="gradient-text">
-            Ingeniería Inversa: Black Puma vs. BP Bromteck
+            Ingeniería Inversa: BP vs. BP Bromteck
           </h2>
           <p style={{ color: 'var(--text-muted)', fontSize: '1.05rem', lineHeight: '1.6', marginBottom: '24px' }}>
-            Analizamos la propuesta actual de <strong>Black Puma</strong> (<a href="https://theblackpuma.com/" target="_blank" rel="noreferrer" style={{ color: '#00f2fe', textDecoration: 'none' }}>theblackpuma.com <ExternalLink size={12} /></a>) desarrollada para <strong>EDEMSA</strong> (Baja Tensión) y establecemos el mapa de desarrollo para igualar y superar sus capacidades operativas.
+            Analizamos la propuesta actual de <strong>BP</strong> (<a href="https://theblackpuma.com/" target="_blank" rel="noreferrer" style={{ color: '#00f2fe', textDecoration: 'none' }}>theblackpuma.com <ExternalLink size={12} /></a>) desarrollada para <strong>EDEMSA</strong> (Baja Tensión) y establecemos el mapa de desarrollo para igualar y superar sus capacidades operativas.
           </p>
 
           <div style={{ display: 'flex', flexWrap: 'wrap', gap: '16px' }}>
@@ -69,7 +69,7 @@ export default function BlackPumaComparison({ onNavigate }) {
             <TrendingUp size={20} color="#8b5cf6" />
           </div>
           <h3 style={{ fontSize: '1.4rem' }} className="gradient-text">9.7 / 10</h3>
-          <p style={{ color: 'var(--text-muted)', fontSize: '0.85rem' }}>Supera a Black Puma por IA Visual y RAG</p>
+          <p style={{ color: 'var(--text-muted)', fontSize: '0.85rem' }}>Supera a BP por IA Visual y RAG</p>
         </div>
       </div>
 
@@ -77,7 +77,7 @@ export default function BlackPumaComparison({ onNavigate }) {
       <div className="glass-panel" style={{ padding: '28px' }}>
         <h3 style={{ fontSize: '1.3rem', marginBottom: '20px', display: 'flex', alignItems: 'center', gap: '10px' }}>
           <Zap color="#00f2fe" size={22} />
-          Matriz de Capacidades: Black Puma vs. BP Bromteck
+          Matriz de Capacidades: BP vs. BP Bromteck
         </h3>
 
         <div style={{ overflowX: 'auto' }}>
@@ -85,7 +85,7 @@ export default function BlackPumaComparison({ onNavigate }) {
             <thead>
               <tr style={{ borderBottom: '1px solid rgba(255, 255, 255, 0.12)', color: 'var(--text-muted)', fontSize: '0.85rem' }}>
                 <th style={{ padding: '12px 16px' }}>Funcionalidad Estratégica</th>
-                <th style={{ padding: '12px 16px' }}>Estado Actual en Black Puma</th>
+                <th style={{ padding: '12px 16px' }}>Estado Actual en BP</th>
                 <th style={{ padding: '12px 16px' }}>Valor Agregado BP Bromteck</th>
                 <th style={{ padding: '12px 16px', textTransform: 'center' }}>Nivel de Ventaja</th>
               </tr>
@@ -102,7 +102,7 @@ export default function BlackPumaComparison({ onNavigate }) {
                   <td style={{ padding: '16px', color: 'var(--text-muted)', fontSize: '0.9rem', maxWidth: '240px' }}>
                     {cap.blackPumaStatus}
                     <div style={{ marginTop: '6px', fontSize: '0.75rem', color: '#94a3b8' }}>
-                      Score Black Puma: <strong>{cap.scoreBP}/10</strong>
+                      Score BP: <strong>{cap.scoreBP}/10</strong>
                     </div>
                   </td>
                   <td style={{ padding: '16px', color: '#e2e8f0', fontSize: '0.9rem', maxWidth: '320px' }}>
