@@ -135,7 +135,28 @@ export const DEEP_UTILITIES_IDEAS = [
     materialsOrMethod: "Fórmula: ECNR (kWh) = Carga Estimada (kW) × 300 hs/mes × Meses de Irregularidad × Coeficiente de Recargo EPRE.",
     deliverable: "PDF de Acta ECNR con validez probatoria y liquidación retroactiva instantánea.",
     requiredInput: "🔴 INPUT USADO: Padrón Comercial ERP (SAP/OpenGIS) + Foto de Acometida tomada por el Inspector en Campo + Cuadro Tarifario EPRE Mendoza Vigente",
-    inputSourceType: "ERP Comercial + App Móvil de Campo"
+    inputSourceType: "ERP Comercial + App Móvil de Campo",
+    implementationRequirements: {
+      hardware: "Dispositivo móvil (Android / iOS) con cámara para inspector de campo.",
+      software: "API REST Conector a SAP/ERP Comercial de EDEMSA + Cuadro Tarifario EPRE en JSON.",
+      personnel: "1 Analista Comercial + 1 Inspector de Fraude (Camilo o Enrique)."
+    },
+    initialComments: [
+      {
+        id: "c1",
+        user: "alejandro",
+        authorName: "Alejandro Cubino",
+        timestamp: "11 Sep 2026, 11:30",
+        text: "Diego, estuve revisando el cuadro tarifario EPRE N° 129/18. Podemos cargar la fórmula de liquidación retroactiva para que cuando la cuadrilla saque la foto calcule automáticamente los kWh a facturar."
+      },
+      {
+        id: "c2",
+        user: "dmusach",
+        authorName: "Diego Musach",
+        timestamp: "11 Sep 2026, 11:45",
+        text: "Perfecto Alejandro. Con esto cerramos el acta de fraude en menos de 24 hs en lugar de esperar semanas el informe técnico."
+      }
+    ]
   },
   {
     id: 2,
@@ -146,7 +167,21 @@ export const DEEP_UTILITIES_IDEAS = [
     materialsOrMethod: "Equipo TDR portátil + App Móvil Android de recepción por Bluetooth.",
     deliverable: "Localización exacta de la derivación oculta sin necesidad de picar la mampostería preventivamente.",
     requiredInput: "🔴 INPUT USADO: Señales de TDR (Reflectometría de Dominio Temporal de Radiofrecuencia) desde Hardware Portátil de Pinza de Red",
-    inputSourceType: "Hardware TDR en Red de Calle + App Móvil Bluetooth"
+    inputSourceType: "Hardware TDR en Red de Calle + App Móvil Bluetooth",
+    implementationRequirements: {
+      hardware: "Kit de Pinza TDR Bluetooth de reflectometría portátil.",
+      software: "Módulo de procesamiento de señal en App Móvil Android.",
+      personnel: "2 Linieros de inspección técnica en vehículo utilitario."
+    },
+    initialComments: [
+      {
+        id: "c3",
+        user: "alejandro",
+        authorName: "Alejandro Cubino",
+        timestamp: "11 Sep 2026, 12:05",
+        text: "Probamos el pulso de reflectometría TDR en cable coaxial. Si hay un puente en T empotrado detrás de la pared, la variación de impedancia salta inmediatamente en la app."
+      }
+    ]
   },
   {
     id: 3,
@@ -157,7 +192,21 @@ export const DEEP_UTILITIES_IDEAS = [
     materialsOrMethod: "Cable Al Preensamblado 3x95/50mm², Conectores IPC estancos Niled/Sicame, Prensacables de amarre de resina sintética.",
     deliverable: "Cómputo métrico e inventario de materiales de obra (BOM) para licitación o compra directa.",
     requiredInput: "🔴 INPUT USADO: Archivos GIS / SHP de Trazado de Red de EDEMSA + Mediciones de Tensión RMS (Caída ΔV%) en Subestación SET",
-    inputSourceType: "GIS Corporativo EDEMSA + Telemetría de Red"
+    inputSourceType: "GIS Corporativo EDEMSA + Telemetría de Red",
+    implementationRequirements: {
+      hardware: "Analizador de calidad de red trifásico en barra de SET.",
+      software: "Exportador de capas vectoriales SHP/GIS a la Plataforma Bromteck.",
+      personnel: "Proyectista de Redes + Cuadrilla de montaje de baja tensión."
+    },
+    initialComments: [
+      {
+        id: "c4",
+        user: "alejandro",
+        authorName: "Alejandro Cubino",
+        timestamp: "11 Sep 2026, 12:15",
+        text: "Tengo las especificaciones de Sicame para conectores IPC de perforación. Con el preensamblado 3x95/50 reducimos 14% de pérdida técnica por efecto Joule."
+      }
+    ]
   },
   {
     id: 4,
@@ -168,7 +217,13 @@ export const DEEP_UTILITIES_IDEAS = [
     materialsOrMethod: "Matching de código de suministro GIS vs API Google Street View + Padrón Comercial.",
     deliverable: "Listado priorizado de suministros T1-R a re-categorizar con aumento del 25% en ingresos recurrentes por factura.",
     requiredInput: "🔴 INPUT USADO: API Google Street View / Static Maps + Padrón Comercial de Tarifas T1-R de Facturación EDEMSA",
-    inputSourceType: "Google Street View API + Base SQL Comercial"
+    inputSourceType: "Google Street View API + Base SQL Comercial",
+    implementationRequirements: {
+      hardware: "Servidor / Clúster de procesamiento en nube.",
+      software: "Google Cloud Maps API Key (Street View Static) + Conector SQL Padrón T1.",
+      personnel: "1 Analista de Datos Comercial."
+    },
+    initialComments: []
   },
   {
     id: 5,
@@ -179,7 +234,13 @@ export const DEEP_UTILITIES_IDEAS = [
     materialsOrMethod: "Medición con pinza amperométrica Bluetooth en SET + Algoritmo de permutación combinatoria.",
     deliverable: "Reducción de la corriente de neutro de 110A a menos de 15A y eliminación del riesgo de sobrecalentamiento del transformador.",
     requiredInput: "🔴 INPUT USADO: Lectura de Corrientes RMS por Fase (Ir, Is, It, In) con Pinza Amperométrica Bluetooth + Matriz de Suministros por Ramal",
-    inputSourceType: "Pinza Amperométrica de Campo + Padrón de Acometidas"
+    inputSourceType: "Pinza Amperométrica de Campo + Padrón de Acometidas",
+    implementationRequirements: {
+      hardware: "Pinza Amperométrica Bluetooth conectada a celular de campo.",
+      software: "Algoritmo de balance de neutro en la Plataforma BP Bromteck.",
+      personnel: "Cuadrilla de mantenimiento de Baja Tensión."
+    },
+    initialComments: []
   },
   {
     id: 6,
@@ -190,7 +251,13 @@ export const DEEP_UTILITIES_IDEAS = [
     materialsOrMethod: "Dispositivo comprobador de impedancia de bucle + App Móvil de acta de fraude.",
     deliverable: "Identificación inmediata de la inversión de bornes con registro de foto georreferenciada para el expediente legal.",
     requiredInput: "🔴 INPUT USADO: Impedancia de Bucle (Fase-Neutro / Neutro-Tierra) medida por comprobador de pilar + Foto del Bornero",
-    inputSourceType: "Comprobador de Enchufe/Pilar + App Móvil"
+    inputSourceType: "Comprobador de Enchufe/Pilar + App Móvil",
+    implementationRequirements: {
+      hardware: "Comprobador portátil de polaridad e impedancia de pilar.",
+      software: "App de Inspección con geolocalización GPS obligatoria.",
+      personnel: "Inspector técnico de pérdidas comercial."
+    },
+    initialComments: []
   },
   {
     id: 7,
@@ -201,7 +268,13 @@ export const DEEP_UTILITIES_IDEAS = [
     materialsOrMethod: "Computer Vision sobre fotos de cuadrilla / Street View + Mapeo GIS de postación.",
     deliverable: "Padrón auditado de postes alquilados y facturación mensual de canon a los ISPs de la zona.",
     requiredInput: "🔴 INPUT USADO: Fotografías de Recorrido de Postes / Google Street View + Capa GIS de Infraestructura de Postación",
-    inputSourceType: "Computer Vision de Fotos de Postes + GIS Corporativo"
+    inputSourceType: "Computer Vision de Fotos de Postes + GIS Corporativo",
+    implementationRequirements: {
+      hardware: "Cámara HD / Smartphone montado en vehículo de recorrido.",
+      software: "Modelo de visión por computadora detector de cables de fibra.",
+      personnel: "1 Gestor de Nuevos Negocios / Cooperativas."
+    },
+    initialComments: []
   },
   {
     id: 8,
@@ -212,7 +285,13 @@ export const DEEP_UTILITIES_IDEAS = [
     materialsOrMethod: "Kit de materiales estandarizado según Norma ET-201 EDEMSA + Convenio de financiamiento en factura.",
     deliverable: "Regularización del pilar con cobro financiado en 12 cuotas dentro de la boleta de luz.",
     requiredInput: "🔴 INPUT USADO: Foto de Frente del Pilar tomada desde la App Móvil + Matriz de Materiales Homologados Norma ET-201 EDEMSA",
-    inputSourceType: "App Móvil de Inspección + Catálogo Técnico ET-201"
+    inputSourceType: "App Móvil de Inspección + Catálogo Técnico ET-201",
+    implementationRequirements: {
+      hardware: "Smartphone con App de Normalización.",
+      software: "Catálogo estandarizado de materiales ET-201.",
+      personnel: "Electricista matriculado / Inspector de obra."
+    },
+    initialComments: []
   },
   {
     id: 9,
@@ -223,7 +302,13 @@ export const DEEP_UTILITIES_IDEAS = [
     materialsOrMethod: "Medidor totalizador trifásico indirecto con TI 400/5A + Transmisión celular 4G/IoT.",
     deliverable: "Mapa de calor de pérdidas masivas y proyecto de pilares comunitarios blindados con financiamiento provincial.",
     requiredInput: "🔴 INPUT USADO: kWh Entregados por Medidor Totalizador de Subestación vs. Suma de kWh Facturados en Sistema Comercial",
-    inputSourceType: "Medidor Totalizador 4G/IoT + Servidor de Facturación"
+    inputSourceType: "Medidor Totalizador 4G/IoT + Servidor de Facturación",
+    implementationRequirements: {
+      hardware: "Medidor totalizador indirecto con conectividad 4G.",
+      software: "Servidor de concentrador de telemedición AMI.",
+      personnel: "Equipo de Pérdidas No Técnicas & Responsabilidad Social."
+    },
+    initialComments: []
   },
   {
     id: 10,
@@ -234,7 +319,13 @@ export const DEEP_UTILITIES_IDEAS = [
     materialsOrMethod: "Algoritmo de medición de distancia de seguridad electromagnética (Norma AEA 95101).",
     deliverable: "Expediente legal de intimación al propietario para la demolición o aislamiento obligatorio del tramo.",
     requiredInput: "🔴 INPUT USADO: Imágenes Satelitales de Alta Resolución / Street View + Capa Vectorial GIS de Líneas Eléctricas (AEA 95101)",
-    inputSourceType: "Imágenes Satelitales/Street View + GIS de Redes"
+    inputSourceType: "Imágenes Satelitales/Street View + GIS de Redes",
+    implementationRequirements: {
+      hardware: "Estación de trabajo GIS.",
+      software: "Capa vectorial GIS de líneas + Modelo de distancia AEA.",
+      personnel: "Abogado corporativo + Agrimensor / Inspector."
+    },
+    initialComments: []
   }
 ];
 
