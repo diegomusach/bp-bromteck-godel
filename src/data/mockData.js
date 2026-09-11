@@ -1,4 +1,4 @@
-// Mock Data for BP Bromteck - Godel Platform (EDEMSA Case Study & Black Puma Benchmark)
+// Mock Data for BP Bromteck (EDEMSA Case Study & Black Puma Benchmark)
 
 export const VALID_USERS = [
   { username: 'dmusach', name: 'Diego Musach', role: 'Director de Producto & Estrategia', pass: 'BP-dmusach-2026' },
@@ -30,7 +30,7 @@ export const BLACK_PUMA_BENCHMARK = {
       feature: "Detección Visual de Hurto / Conexiones Clandestinas ('Colgarse')",
       blackPumaStatus: "No implementado / Análisis solo a nivel de datos.",
       bromteckAdvantage: "IA Visual de Fachadas (Google Street View + fotos de frente): cuestiona a la IA si hay acometidas irregulares o reformas no declaradas.",
-      statusBadge: "Exclusivo Bromteck",
+      statusBadge: "Exclusivo BP Bromteck",
       scoreBP: 2,
       scoreBromteck: 9.9
     },
@@ -38,7 +38,7 @@ export const BLACK_PUMA_BENCHMARK = {
       feature: "Diagnóstico RAG de Pérdidas Técnicas (Red de Baja Tensión)",
       blackPumaStatus: "Reportes genéricos sin especificación de conductores o materiales.",
       bromteckAdvantage: "Asistente RAG con recomendaciones técnicas concretas (*Qué cambia, Dónde y Cómo*): calibre de cables Al preensamblado, balanceo de fases y transformadores.",
-      statusBadge: "Exclusivo Bromteck",
+      statusBadge: "Exclusivo BP Bromteck",
       scoreBP: 3,
       scoreBromteck: 9.7
     }
@@ -117,6 +117,6 @@ export const RAG_KNOWLEDGE_BASE = [
   },
   {
     query: "¿De qué otra manera podemos cuestionar a la IA si el cliente va a colgarse o robar energía?",
-    response: "**Protocolo de Cuestionamiento Visual & Predictivo Bromteck Godel**:\n\n1. **Análisis de Diferencia de Fachada**: La IA compara la imagen satelital/Street View histórica con la foto del frente tomada por el inspector. Detecta agregados de estructuras, marquesinas comerciales o aperturas de pilar no registradas.\n2. **Inconsistencia Térmica/Carga vs. Facturación**: Cuestiona si la actividad económica aparente de la zona (ej. rotisería, cámara frigorífica) es sostenible con el consumo KWh facturado.\n3. **Patrón de Morosidad Reincidente**: Cruza si los períodos de corte por morosidad coinciden con caídas repentinas a cero sin baja de servicio física."
+    response: "**Protocolo de Cuestionamiento Visual & Predictivo BP Bromteck**:\n\n1. **Análisis de Diferencia de Fachada**: La IA compara la imagen satelital/Street View histórica con la foto del frente tomada por el inspector. Detecta agregados de estructuras, marquesinas comerciales o aperturas de pilar no registradas.\n2. **Inconsistencia Térmica/Carga vs. Facturación**: Cuestiona si la actividad económica aparente de la zona (ej. rotisería, cámara frigorífica) es sostenible con el consumo KWh facturado.\n3. **Patrón de Morosidad Reincidente**: Cruza si los períodos de corte por morosidad coinciden con caídas repentinas a cero sin baja de servicio física."
   }
 ];

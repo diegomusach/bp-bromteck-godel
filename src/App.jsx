@@ -56,7 +56,7 @@ export default function App() {
         background: 'rgba(7, 10, 18, 0.8)'
       }}>
         <div>
-          BP Bromteck — Plataforma Godel v2.4 | Prioridad 1: Baja Tensión EDEMSA | © 2026 Bromteck Inc.
+          BP Bromteck — Prioridad 1: Baja Tensión EDEMSA | © 2026 Bromteck Inc.
         </div>
       </footer>
     </div>

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ShieldCheck, Lock, User, Zap, KeyRound, ChevronRight, AlertCircle } from 'lucide-react';
+import { Lock, User, Zap, KeyRound, ChevronRight, AlertCircle } from 'lucide-react';
 import { VALID_USERS } from '../data/mockData';
 
 export default function LoginGateway({ onLoginSuccess }) {
@@ -36,7 +36,7 @@ export default function LoginGateway({ onLoginSuccess }) {
       position: 'relative',
       overflow: 'hidden'
     }}>
-      {/* Dynamic background elements */}
+      {/* Background glow */}
       <div style={{
         position: 'absolute',
         top: '15%',
@@ -46,18 +46,6 @@ export default function LoginGateway({ onLoginSuccess }) {
         background: 'radial-gradient(circle, rgba(0,242,254,0.12) 0%, transparent 70%)',
         borderRadius: '50%',
         filter: 'blur(40px)',
-        zIndex: 0
-      }} />
-
-      <div style={{
-        position: 'absolute',
-        bottom: '15%',
-        right: '20%',
-        width: '400px',
-        height: '400px',
-        background: 'radial-gradient(circle, rgba(139,92,246,0.12) 0%, transparent 70%)',
-        borderRadius: '50%',
-        filter: 'blur(50px)',
         zIndex: 0
       }} />
 
@@ -89,7 +77,7 @@ export default function LoginGateway({ onLoginSuccess }) {
             BP Bromteck
           </h1>
           <p style={{ color: 'var(--text-muted)', fontSize: '0.9rem' }}>
-            Plataforma Godel — Inteligencia en Baja Tensión (EDEMSA)
+            Inteligencia en Baja Tensión & EDEMSA Solutions
           </p>
         </div>
 
@@ -148,12 +136,11 @@ export default function LoginGateway({ onLoginSuccess }) {
           )}
 
           <button type="submit" className="btn-primary" style={{ width: '100%', padding: '12px', marginTop: '6px', fontSize: '1rem' }}>
-            <span>Ingresar a la Plataforma</span>
+            <span>Ingresar a BP Bromteck</span>
             <ChevronRight size={18} />
           </button>
         </form>
 
-        {/* Quick Credentials selector requested by user */}
         <div style={{ marginTop: '28px', paddingTop: '20px', borderTop: '1px solid rgba(255, 255, 255, 0.08)' }}>
           <p style={{ fontSize: '0.75rem', color: 'var(--text-subtle)', marginBottom: '10px', textTransform: 'uppercase', letterSpacing: '0.05em' }}>
             Seleccionar Usuario Configurado:

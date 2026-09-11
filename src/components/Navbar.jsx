@@ -1,7 +1,7 @@
 import React from 'react';
 import { Zap, ShieldAlert, Cpu, Bot, Smartphone, LogOut, UserCheck } from 'lucide-react';
 
-export default function Navbar({ activeTab, setActiveTab, currentUser, onLogout, isMobileView, setIsMobileView }) {
+export default function Navbar({ activeTab, setActiveTab, currentUser, onLogout }) {
   return (
     <header className="glass-panel" style={{
       borderRadius: '0',
@@ -41,7 +41,7 @@ export default function Navbar({ activeTab, setActiveTab, currentUser, onLogout,
                 BP Bromteck
               </span>
               <span className="glass-pill badge-info" style={{ fontSize: '0.7rem' }}>
-                Godel v2.4 — EDEMSA
+                EDEMSA Platform v1.0
               </span>
             </div>
             <span style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>
