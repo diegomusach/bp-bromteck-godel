@@ -1,5 +1,5 @@
 import React from 'react';
-import { Zap, ShieldAlert, Cpu, Bot, Smartphone, LogOut, UserCheck, Layers } from 'lucide-react';
+import { Zap, ShieldAlert, Cpu, Bot, Smartphone, LogOut, UserCheck, Layers, Wrench } from 'lucide-react';
 
 export default function Navbar({ activeTab, setActiveTab, currentUser, onLogout }) {
   return (
@@ -83,6 +83,21 @@ export default function Navbar({ activeTab, setActiveTab, currentUser, onLogout 
           </button>
 
           <button
+            onClick={() => setActiveTab('engineering')}
+            className="glass-pill"
+            style={{
+              cursor: 'pointer',
+              padding: '8px 14px',
+              background: activeTab === 'engineering' ? 'rgba(0, 242, 254, 0.18)' : 'transparent',
+              borderColor: activeTab === 'engineering' ? 'var(--color-primary)' : 'rgba(255, 255, 255, 0.08)',
+              color: activeTab === 'engineering' ? '#00f2fe' : 'var(--text-muted)'
+            }}
+          >
+            <Wrench size={16} />
+            <span>Soluciones Concretas EPRE & Redes</span>
+          </button>
+
+          <button
             onClick={() => setActiveTab('catalog')}
             className="glass-pill"
             style={{
@@ -94,7 +109,7 @@ export default function Navbar({ activeTab, setActiveTab, currentUser, onLogout 
             }}
           >
             <Layers size={16} />
-            <span>20 Soluciones & Roadmaps</span>
+            <span>30 Soluciones & Roadmaps</span>
           </button>
 
           <button

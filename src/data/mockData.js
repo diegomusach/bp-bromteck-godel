@@ -1,4 +1,4 @@
-// Mock Data for BP Bromteck (EDEMSA Case Study & 30 Utilities Solutions)
+// Mock Data for BP Bromteck (EDEMSA Case Study - Profundidad Técnica & Operativa Real)
 
 export const VALID_USERS = [
   { username: 'dmusach', name: 'Diego Musach', role: 'Director de Producto & Estrategia', pass: 'BP-dmusach-2026' },
@@ -121,425 +121,110 @@ export const RAG_KNOWLEDGE_BASE = [
   }
 ];
 
-export const UTILITIES_SOLUTIONS_20 = [
+export const DEEP_UTILITIES_IDEAS = [
   {
     id: 1,
-    category: "Pérdidas No Técnicas & Hurto",
-    title: "1. Detección Visual de Hurto de Energía por IA de Fachada (Google Street View)",
-    target: "Distribuidoras & Cooperativas (Red de Baja Tensión)",
-    description: "Cuestiona a la IA si hay conexiones clandestinas o puentes analizando las imágenes de fachadas históricas de Street View versus fotos de inspección en pilar.",
-    impact: "Recuperación de hasta 22% de energía no facturada en zona T1.",
-    roadmap: [
-      "Fase 1: Ingesta de padrón comercial T1-R / T1-G y georreferenciación de pilares.",
-      "Fase 2: Scraping automatizado de fotos de Google Street View + modelo de clasificación visual.",
-      "Fase 3: Algoritmo de Scoring de Riesgo de Hurto ('Colgarse / Robar').",
-      "Fase 4: Despacho de cuadrillas antifraude con expediente fotográfico digital."
-    ]
+    title: "1. Calculadora de Liquidación Retroactiva ECNR (Res. EPRE Mendoza N° 129/18)",
+    area: "Comercial & Legales EDEMSA",
+    problem: "Las actas de fraude tardan meses en liquidarse porque el cálculo de Energía Consumida No Registrada (ECNR) requiere determinar la carga real estimada (kW), las horas de uso de la tarifa (ej. T1-G 300 hs/mes) y los recargos por reincidencia (1.5x o 2x) manualmente.",
+    solution: "Módulo automático de liquidación ECNR que toma la foto de la acometida fraudulenta, identifica los artefactos instalados (ej. motor 5 HP + 3 heladeras exhibidoras = 8.5 kW), aplica el cuadro tarifario vigente de EDEMSA y emite el acta de deuda retroactiva (hasta 48 meses) lista para cobro comercial.",
+    materialsOrMethod: "Fórmula: ECNR (kWh) = Carga Estimada (kW) × 300 hs/mes × Meses de Irregularidad × Coeficiente de Recargo EPRE.",
+    deliverable: "PDF de Acta ECNR con validez probatoria y liquidación retroactiva instantánea."
   },
   {
     id: 2,
-    category: "Pérdidas Técnicas & Redes",
-    title: "2. Diagnóstico RAG de Pérdidas Técnicas en Baja Tensión ('Qué cambia, Dónde y Cómo')",
-    target: "Áreas de Ingeniería de Distribución",
-    description: "Asistente RAG que analiza caída de tensión y pérdidas por efecto Joule, recomendando calibres exactos de cable (Al 3x95/50mm²) y conectores IPC.",
-    impact: "Reducción directa de pérdidas técnicas en 12% a 18% por alimentador.",
-    roadmap: [
-      "Fase 1: Modelado de red de baja (transformadores de distribución y trazados).",
-      "Fase 2: Identificación de tramos de alta resistencia y caída > 8%.",
-      "Fase 3: RAG con generación de recomendaciones de conductores e insumos.",
-      "Fase 4: Integración con plan Capex quinquenal de la distribuidora."
-    ]
+    title: "2. Detector de Fraude por Puente Clandestino Entubado Detrás del Pilar (ET-201)",
+    area: "Inspección Técnica de Campo (Cuadrillas de Camilo y Enrique)",
+    problem: "Los usuarios comerciales empetran caños por dentro de la mampostería desviando la acometida antes de ingresar a las bornas 1-3 del medidor, haciendo imposible detectar el puente a simple vista sin romper la pared.",
+    solution: "Inyección de señal de radiofrecuencia/reflectometría (TDR) de bajo costo desde la pinza de derivación en la red de calle hacia el pilar. Si la señal encuentra una derivación T antes del medidor, la app móvil alerta 'Puente Empotrado Detectado a 1.2 metros'.",
+    materialsOrMethod: "Equipo TDR portátil + App Móvil Android de recepción por Bluetooth.",
+    deliverable: "Localización exacta de la derivación oculta sin necesidad de picar la mampostería preventivamente."
   },
   {
     id: 3,
-    category: "Gestión Comercial & Cobranzas",
-    title: "3. Mapeo Inteligente de Morosidad Geolocalizada y Riesgo de Impago",
-    target: "Gerencia Comercial y Finanzas",
-    description: "Correlación de deuda histórica y morosidad recurrente con la tipología económica de la manzana o distrito.",
-    impact: "Reducción de mora persistente en 35% mediante gestión focalizada.",
-    roadmap: [
-      "Fase 1: Conexión con sistema ERP / Facturación comercial.",
-      "Fase 2: Clustering geográfico por nivel socioeconómico y tipo de comercio.",
-      "Fase 3: Scoring de riesgo predictivo previo al ciclo de corte.",
-      "Fase 4: Automatización de avisos de deuda y gestión por cuadrilla de zona."
-    ]
+    title: "3. Reemplazo Técnico de Red Desnuda por Preensamblado de Aluminio (3x95/50 + 1x25 mm²)",
+    area: "Ingeniería de Redes & Obras de Baja Tensión",
+    problem: "Líneas antiguas de cobre desnudo de 25mm² sujetas a sulfatación y enganches clandestinos tipo 'gancho arrojadizo', generando cortocircuitos y pérdidas por efecto Joule (I²R) superiores al 18%.",
+    solution: "Cálculo de ingeniería de red para sustitución por conductor de aluminio preensamblado XLPE antirrobo (3x95/50mm² + neutro portante de 50mm² + alumbrado de 25mm²), incluyendo especificación exacta de conectores de perforación de aislamiento (IPC) y prensacables de retención.",
+    materialsOrMethod: "Cable Al Preensamblado 3x95/50mm², Conectores IPC estancos Niled/Sicame, Prensacables de amarre de resina sintética.",
+    deliverable: "Cómputo métrico e inventario de materiales de obra (BOM) para licitación o compra directa."
   },
   {
     id: 4,
-    category: "Recuperación de Tarifa",
-    title: "4. Auditoría Automática de Inconsistencias Tarifarias (Residencial vs. Comercial)",
-    target: "Auditoría Comercial & Inspección",
-    description: "Identifica locales gastronómicos, talleres o comercios funcionando bajo contrato T1-R Residencial mediante datos de mapas y Street View.",
-    impact: "Incremento inmediato del 15% en facturación recurrente por refacturación T1-G / T2.",
-    roadmap: [
-      "Fase 1: Mapeo de actividades económicas en Google Maps / OSM.",
-      "Fase 2: Cruce masivo contra padrón de tarifas residenciales activas.",
-      "Fase 3: Emisión de alertas de discrepancia de uso de potencia.",
-      "Fase 4: Reclasificación tarifaria retroactiva con acta de inspección."
-    ]
+    title: "4. Auditoría de Inconsistencia de Potencia: Contrato T1-Residencial vs. Carga Real",
+    area: "Gestión Comercial & Control de Pérdidas",
+    problem: "Locales comerciales (rotiserías, talleres metalúrgicos, supermercados de barrio) contratados bajo tarifa T1-R (Residencial) pagando tarifa subsidiada mientras consumen potencias trifásicas superiores a 10 kW.",
+    solution: "Cruce automático de imágenes de fachadas en Google Street View (detección de marquesinas, cámaras frigoríficas, persianas comerciales) contra el padrón tarifario de EDEMSA. Emisión de notificación de reclasificación obligatoria a T1-G o T2 Trifásica.",
+    materialsOrMethod: "Matching de código de suministro GIS vs API Google Street View + Padrón Comercial.",
+    deliverable: "Listado priorizado de suministros T1-R a re-categorizar con aumento del 25% en ingresos recurrentes por factura."
   },
   {
     id: 5,
-    category: "Pérdidas Técnicas & Redes",
-    title: "5. Balanceo Dinámico de Fases en Subestaciones de Baja Tensión por IA",
-    target: "Operación de Redes & Mantenimiento",
-    description: "Algoritmo que calcula el desequilibrio de carga en el neutro del transformador y recomienda la reubicación de acometidas en las fases R, S, T.",
-    impact: "Reducción del 25% en sobrecalentamiento de neutro y quemado de trafos.",
-    roadmap: [
-      "Fase 1: Telemetría de corrientes en barra de baja de la subestación.",
-      "Fase 2: Cálculo de corriente de neutro e índice de desbalance.",
-      "Fase 3: Algoritmo genético de reordenamiento óptimo de cargas.",
-      "Fase 4: Orden de trabajo en app móvil para cambio de fase en acometida."
-    ]
+    title: "5. Re-balanceo de Cargas en Neutro de Subestación Transformadora (SET)",
+    area: "Mantenimiento & Operaciones de Distribución",
+    problem: "Desequilibrio severo de corrientes en las tres fases (IR = 180A, IS = 90A, IT = 240A) que provoca circulación de corriente por el neutro (IN > 110A), recalentamiento de la barra de neutro y quema frecuente del transformador de distribución.",
+    solution: "Algoritmo de optimización que analiza los consumos monofásicos de cada pilar en el ramal y genera la orden exacta para la cuadrilla: 'Mover el Suministro #10492 de Fase T a Fase S en la caja de derivación #14'.",
+    materialsOrMethod: "Medición con pinza amperométrica Bluetooth en SET + Algoritmo de permutación combinatoria.",
+    deliverable: "Reducción de la corriente de neutro de 110A a menos de 15A y eliminación del riesgo de sobrecalentamiento del transformador."
   },
   {
     id: 6,
-    category: "Activos & Mantenimiento",
-    title: "6. Monitoreo Predictivo de Salud de Transformadores de Distribución (Trafo Analytics)",
-    target: "Mantenimiento de Infraestructura",
-    description: "Estimación de degradación térmica e historial de picos en transformadores para evitar fallas catastróficas en épocas de alta demanda.",
-    impact: "Evita reemplazos de emergencia ($15,000+ USD por trafo afectado).",
-    roadmap: [
-      "Fase 1: Integración con Smart Meters o concentradores de baja.",
-      "Fase 2: Algoritmo de envejecimiento térmico del aislante (Norma IEEE C57).",
-      "Fase 3: Alerta de riesgo de colapso en períodos estacionales.",
-      "Fase 4: Programa de sustitución o repotenciación programada."
-    ]
+    title: "6. Detección de Inversión de Bornes (Fase-Neutro) en Medidores Electromecánicos",
+    area: "Inspección de Fraude Comercial",
+    problem: "Manipulación habitual donde el usuario invierte la conexión de entrada de fase y neutro en las bornas 1 y 2 del medidor, frenando o invirtiendo el giro del disco magnético sin dejar huellas visibles.",
+    solution: "Testeo rápido de polaridad y corriente de retorno por neutro mediante la app de inspección conectada a un comprobador de enchufe/pilar de baja tensión.",
+    materialsOrMethod: "Dispositivo comprobador de impedancia de bucle + App Móvil de acta de fraude.",
+    deliverable: "Identificación inmediata de la inversión de bornes con registro de foto georreferenciada para el expediente legal."
   },
   {
     id: 7,
-    category: "Pérdidas No Técnicas & Hurto",
-    title: "7. Balance Energético y Detección de Fuga por Macro-Medición en Zonas Vulnerables",
-    target: "Responsabilidad Social & Pérdidas",
-    description: "Medición totalizadora en la salida del transformador versus la suma de medidores cliente para aislar sectores clandestinos.",
-    impact: "Localización exacta de zonas de pérdidas masivas sin recorrer miles de pilares.",
-    roadmap: [
-      "Fase 1: Instalación de medidor totalizador en cabecera de línea.",
-      "Fase 2: Telemetría por 15 minutos y suma de consumos registrados.",
-      "Fase 3: Alerta de brecha energética > 15%.",
-      "Fase 4: Proyecto de regularización mediante pilares blindados comunitarios."
-    ]
+    title: "7. Monetización de Alquiler de Postación a Empresas de Fibra Óptica (Telecom Sharing)",
+    area: "Nuevos Negocios & Cooperativas Eléctricas",
+    problem: "Empresas de Internet (ISPs) y televisión por cable cuelgan kilómetros de fibra óptica sobre los postes de hormigón y madera de la distribuidora/cooperativa sin pagar el canon por poste ni respetar las distancias de seguridad con la baja tensión.",
+    solution: "Escaneo fotográfico automatizado de la postación que cuenta los cables no identificados por poste y genera la intimación comercial a las empresas de telecomunicaciones para cobrar el canon mensual en USD por poste utilizado.",
+    materialsOrMethod: "Computer Vision sobre fotos de cuadrilla / Street View + Mapeo GIS de postación.",
+    deliverable: "Padrón auditado de postes alquilados y facturación mensual de canon a los ISPs de la zona."
   },
   {
     id: 8,
-    category: "Pérdidas No Técnicas & Hurto",
-    title: "8. Auditoría Fotográfica IA de Pilares y Sellos de Medición para Cuadrillas",
-    target: "Inspección Técnica de Campo",
-    description: "App móvil donde el inspector toma foto al pilar; la IA valida precintos rotos, perforaciones o puentes internos en el medidor.",
-    impact: "Disminución del 90% en actas de inspección rechazadas o mal confeccionadas.",
-    roadmap: [
-      "Fase 1: Despliegue de App Móvil para inspectores de campo (Android/iOS).",
-      "Fase 2: Modelo de visión por computadora para detección de precintos y pilar.",
-      "Fase 3: Validación instantánea de regularidad antes de cerrar la orden.",
-      "Fase 4: Expediente digital con validez legal ante el ente regulador."
-    ]
+    title: "8. Normalización de Pilares según Especificación Técnica ET-201 (Mendoza)",
+    area: "Obras Comercial & Atención al Cliente",
+    problem: "Inmuebles con pilares clandestinos o fuera de norma (cajas de chapa oxidadas, caños de bajada rotos de PVC, sin puesta a tierra) que generan pérdidas por fuga a tierra y riesgo de electrocución.",
+    solution: "Plataforma de kit de normalización que ofrece al usuario el pilar regulado (caja doble aislamiento de policarbonato, caño galvanizado 1 1/4\", interruptor termomagnético 2x25A curva C + disyuntor diferencial 30mA + jabalina de puesta a tierra de 1.5m).",
+    materialsOrMethod: "Kit de materiales estandarizado según Norma ET-201 EDEMSA + Convenio de financiamiento en factura.",
+    deliverable: "Regularización del pilar con cobro financiado en 12 cuotas dentro de la boleta de luz."
   },
   {
     id: 9,
-    category: "Operación de Campo",
-    title: "9. Optimizador Inteligente de Rutas de Inspección y Lectura de Cuadrillas",
-    target: "Operaciones & Logística",
-    description: "Agrupa órdenes de trabajo por proximidad geográfica y prioridad de riesgo de hurto, optimizando el recorrido del vehículo de inspección.",
-    impact: "Aumento del 40% en inspecciones realizadas por día por cuadrilla.",
-    roadmap: [
-      "Fase 1: Geolocalización de puntos de inspección priorizados por IA.",
-      "Fase 2: Algoritmo de optimización de ruta (Travelling Salesman con tráfico).",
-      "Fase 3: Asignación automática a dispositivos móviles de cuadrilla.",
-      "Fase 4: Monitoreo en tiempo real del avance del recorrido."
-    ]
+    title: "9. Macro-Medición de Balance Energético en Cabecera de Ramal Periurbano",
+    area: "Control de Pérdidas No Técnicas en Asentamientos",
+    problem: "Pérdidas masivas de energía en barrios populares o asentamientos informales donde se conectan cientos de familias directamente a la línea aérea sin medidor individual.",
+    solution: "Instalación de un medidor totalizador inteligente en la salida del transformador que compara en tiempo real la energía entregada versus la facturada, emitiendo el balance energético por manzana para proyectos de electrificación social.",
+    materialsOrMethod: "Medidor totalizador trifásico indirecto con TI 400/5A + Transmisión celular 4G/IoT.",
+    deliverable: "Mapa de calor de pérdidas masivas y proyecto de pilares comunitarios blindados con financiamiento provincial."
   },
   {
     id: 10,
-    category: "Gestión Comercial & Cobranzas",
-    title: "10. Portal de Autogestión y Convenios de Pago para Usuarios Regularizados",
-    target: "Atención al Cliente & Comercial",
-    description: "Plataforma self-service donde usuarios notificados por hurto pueden acordar facilidades de pago y solicitar normalización de pilar.",
-    impact: "Conversión del 30% de usuarios clandestinos a clientes registrados sin juicio.",
-    roadmap: [
-      "Fase 1: Portal web y WhatsApp Bot autogestionado para el cliente.",
-      "Fase 2: Simulación de planes de pago de deuda acumulada + costo pilar.",
-      "Fase 3: Firma digital de convenio de regularización.",
-      "Fase 4: Solicitud de inspección de habilitación exprés."
-    ]
-  },
-  {
-    id: 11,
-    category: "Smart Grid & Futuro",
-    title: "11. Simulación de Impacto de Carga de Vehículos Eléctricos en Redes de Baja",
-    target: "Planificación de Redes",
-    description: "Evaluación del impacto en la tensión al conectar cargadores residenciales EV (7.4 kW / 22 kW) en ramales de baja existente.",
-    impact: "Prevención de colapsos de red por adopción de electromovilidad.",
-    roadmap: [
-      "Fase 1: Mapeo de cargadores EV instalados o solicitados.",
-      "Fase 2: Simulación de curvas de carga simultáneas en periodo nocturno.",
-      "Fase 3: Identificación de nodos con caídas de tensión por debajo de norma.",
-      "Fase 4: Recomendación de repotenciación o gestión de carga inteligente (V2G)."
-    ]
-  },
-  {
-    id: 12,
-    category: "Calidad de Servicio",
-    title: "12. Monitoreo en Tiempo Real de Calidad de Servicio (Índices SAIDI / SAIFI)",
-    target: "Centro de Control & Regulatorio",
-    description: "Tablero para medir la frecuencia y duración de interrupciones por alimentador y zona geográfica en tiempo real.",
-    impact: "Evita multas millonarias del Ente Regulador Provincial (EPRE / ENRE).",
-    roadmap: [
-      "Fase 1: Integración con reclamos técnicos y datos de medidores inteligentes.",
-      "Fase 2: Cálculo dinámico de minutos de interrupción por usuario (SAIDI).",
-      "Fase 3: Mapas de calor de interrupciones acumuladas.",
-      "Fase 4: Despacho prioritario a zonas al borde del límite de multa."
-    ]
-  },
-  {
-    id: 13,
-    category: "Generación Distribuida",
-    title: "13. Detección de Inyección Solar No Registrada (Generación Distribuida Clandestina)",
-    target: "Nuevas Tecnologías & Comercial",
-    description: "Identifica viviendas con sistemas fotovoltaicos inyectando a la red sin contrato de Usuario-Generador mediante análisis de flujo inverso.",
-    impact: "Eliminación de riesgos de seguridad para linieros por retorno de energía no esperado.",
-    roadmap: [
-      "Fase 1: Identificación de medidores con registros de energía reactiva/inversa inusuales.",
-      "Fase 2: Verificación fotográfica por satélite/Street View de paneles en tejados.",
-      "Fase 3: Notificación de adecuación a la ley de generación distribuida.",
-      "Fase 4: Instalación de medidor bidireccional homologado."
-    ]
-  },
-  {
-    id: 14,
-    category: "Activos & Mantenimiento",
-    title: "14. Mantenimiento Preventivo de Trazas de Red y Poda con Imágenes Satelitales",
-    target: "Operaciones & Mantenimiento de Líneas",
-    description: "Análisis del crecimiento de copas de árboles sobre la traza de líneas de baja y media tensión para planificar cuadrillas de poda.",
-    impact: "Reducción del 45% de cortes por contacto de ramas en tormentas.",
-    roadmap: [
-      "Fase 1: Procesamiento de imágenes de vegetación de alta resolución (NDVI).",
-      "Fase 2: Intersección del buffer de vegetación con las líneas eléctricas georreferenciadas.",
-      "Fase 3: Categorización por nivel de urgencia (Peligro Inminente vs Programable).",
-      "Fase 4: Generación de órdenes de trabajo para equipos de poda."
-    ]
-  },
-  {
-    id: 15,
-    category: "Seguridad & Anti-Robo",
-    title: "15. Sistema de Alerta Temprana por Robo de Cables de Cobre y Transformadores",
-    target: "Seguridad Corporativa & Operaciones",
-    description: "Detección instantánea de caída simultánea de tensión en múltiples nodos sin consumo residual, disparando alarma de vandalismo en curso.",
-    impact: "Reducción de pérdidas millonarias por robo de material estratégico.",
-    roadmap: [
-      "Fase 1: Telemetría de monitoreo de continuidad de línea en baja.",
-      "Fase 2: Algoritmo de distinción entre falla común y desmantelamiento de cable.",
-      "Fase 3: Notificación inmediata en < 60 segundos a patrullas policiales de la zona.",
-      "Fase 4: Protocolo de reposición rápida con cable de aluminio sin valor de reventa."
-    ]
-  },
-  {
-    id: 16,
-    category: "Cooperativas Eléctricas",
-    title: "16. Portal de Transparencia y Rendición de Cuentas para Cooperativas Eléctricas",
-    target: "Consejos de Administración de Cooperativas",
-    description: "Dashboard diseñado para mostrar a los asociados el balance energético, la reducción de pérdidas y el destino de las inversiones.",
-    impact: "Mejora la confianza comunitaria y aprobación de cuotas de capitalización.",
-    roadmap: [
-      "Fase 1: Consolidado de indicadores de pérdidas técnicas y no técnicas.",
-      "Fase 2: Visualización de obras ejecutadas georreferenciadas.",
-      "Fase 3: Publicación de reportes periódicos interactivos para la asamblea.",
-      "Fase 4: Portal accesible para asociados de la cooperativa."
-    ]
-  },
-  {
-    id: 17,
-    category: "Alumbrado Público",
-    title: "17. Auditoría y Control de Enganches Clandestinos en Redes de Alumbrado Público",
-    target: "Gestión Municipal & Cooperativas",
-    description: "Supervisión de circuitos de alumbrado para detectar puestos de venta o viviendas conectadas directamente a las líneas de calle.",
-    impact: "Regularización de cuentas de consumo con municipios y vendedores informales.",
-    roadmap: [
-      "Fase 1: Medición de carga en tableros de comando de alumbrado público.",
-      "Fase 2: Comparativa entre consumo diurno (apagado) y nocturno (encendido).",
-      "Fase 3: Detección de consumos parásitos continuos en la línea de calle.",
-      "Fase 4: Desconexión y regularización comercial."
-    ]
-  },
-  {
-    id: 18,
-    category: "Legales & Facturación",
-    title: "18. Automatización de Cálculo y Reclamación de Energía Consumida No Registrada (ECNR)",
-    target: "Legales & Liquidación Comercial",
-    description: "Generación automatizada del expediente de cobro retroactivo de energía no registrada según el reglamento del ente regulador.",
-    impact: "Acelera el cobro de actas de fraude de 6 meses a menos de 15 días.",
-    roadmap: [
-      "Fase 1: Carga de fórmulas reguladas de cálculo ECNR (promedios, potencias contratadas).",
-      "Fase 2: Generación del acta digital de comprobación de fraude.",
-      "Fase 3: Emisión de la factura especial de recupero con retroactividad.",
-      "Fase 4: Seguimiento del expediente de cobro administrativo o judicial."
-    ]
-  },
-  {
-    id: 19,
-    category: "Inversiones Capex",
-    title: "19. Simulador ROI de Inversiones de Red (Ranking de Obras por Recuperación de KWh)",
-    target: "Gerencia General & Inversiones",
-    description: "Herramienta financiera que prioriza los proyectos de remodelación de red según dólares recuperados por cada dólar invertido.",
-    impact: "Maximiza el impacto del presupuesto Capex en reducción de pérdidas.",
-    roadmap: [
-      "Fase 1: Ingesta del banco de proyectos de obras eléctricas de la distribuidora.",
-      "Fase 2: Estimación del valor KWh de pérdidas a recuperar en cada obra.",
-      "Fase 3: Algoritmo de ranking de VAN / TIR de reducción de pérdidas.",
-      "Fase 4: Planificación del cronograma óptimo de inversión."
-    ]
-  },
-  {
-    id: 20,
-    category: "Atención al Cliente & IA",
-    title: "20. Asistente Virtual IA para Notificaciones de Cortes y Reclamos por Foto",
-    target: "Atención al Cliente & Canales Digitales",
-    description: "Bot inteligente por WhatsApp donde el usuario reporta cables caídos o chispas enviando foto/video con geolocalización automática.",
-    impact: "Despresurización del Call Center en un 60% durante contingencias climáticas.",
-    roadmap: [
-      "Fase 1: Integración de bot IA en WhatsApp Business API.",
-      "Fase 2: Procesamiento de imágenes y video para clasificar la gravedad de la avería.",
-      "Fase 3: Generación automática de reclamo georreferenciado en el sistema OMS.",
-      "Fase 4: Notificación proactiva al usuario cuando la cuadrilla repara la falla."
-    ]
-  },
-  {
-    id: 21,
-    category: "Smart Grid & Hurto",
-    title: "21. Detección de Manipulación en Medidores Inteligentes por Análisis Armónico",
-    target: "Protección de Ingresos & Medición Inteligente",
-    description: "Análisis de micro-interrupciones y armónicos en Smart Meters para detectar la aplicación de imanes potentes o aperturas de tapa no autorizadas.",
-    impact: "Alerta de fraude electromagnético en menos de 5 minutos.",
-    roadmap: [
-      "Fase 1: Ingesta de eventos del sistema AMI (Smart Metering).",
-      "Fase 2: Clasificación por IA de eventos de manipulación de cubierta.",
-      "Fase 3: Scoring inmediato de sospecha de fraude digital.",
-      "Fase 4: Orden de corte digital remoto e inspección de pilar."
-    ]
-  },
-  {
-    id: 22,
-    category: "Activos & Infraestructura",
-    title: "22. Control de Servidumbre y Construcciones Clandestinas bajo Líneas de Baja y Media",
-    target: "Legales & Mantenimiento de Infraestructura",
-    description: "Identificación geoespacial de tinglados, balcones o construcciones peligrosas levantadas debajo de líneas eléctricas sin respetar la distancia de seguridad.",
-    impact: "Prevención de accidentes fatales por electrocución y demandas legales.",
-    roadmap: [
-      "Fase 1: Cruce de capas GIS de líneas con fotos satelitales y Street View.",
-      "Fase 2: Algoritmo de medición de distancia de seguridad electromagnética.",
-      "Fase 3: Notificación legal preventiva al propietario del inmueble.",
-      "Fase 4: Adecuación técnica o colocación de aislamiento en el tramo."
-    ]
-  },
-  {
-    id: 23,
-    category: "Cooperativas & Nuevos Ingresos",
-    title: "23. Auditoría de Postación para Alquiler de Fibra Óptica (Telecom Sharing)",
-    target: "Gerencia de Nuevos Negocios & Cooperativas",
-    description: "Mapeo automatizado de los postes de la cooperativa/distribuidora para inventariar y cobrar canon por tendido de fibra a empresas de internet y cable.",
-    impact: "Creación de una nueva fuente de ingresos recurrentes en USD por alquiler de postes.",
-    roadmap: [
-      "Fase 1: Inventario fotográfico de postes mediante visión de computadora.",
-      "Fase 2: Conteo de cables de terceros no identificados por poste.",
-      "Fase 3: Intimación comercial a empresas de telecomunicaciones de la zona.",
-      "Fase 4: Facturación mensual automatizada de canon de uso de infraestructura."
-    ]
-  },
-  {
-    id: 24,
-    category: "Pérdidas Técnicas & Redes",
-    title: "24. Geolocalización e Identificación Automática de Fases (R, S, T) por Algoritmo",
-    target: "Ingeniería de Redes",
-    description: "Asignación automática de la fase (R, S o T) a la que está conectada cada vivienda sin enviar técnicos al campo ni cortar el suministro.",
-    impact: "Ahorro de miles de horas de trabajo de campo para actualizar el GIS.",
-    roadmap: [
-      "Fase 1: Correlación matemática de micro-variaciones de tensión instantánea.",
-      "Fase 2: Clustering por k-means agrupando medidores por comportamiento de fase.",
-      "Fase 3: Asignación de fase R/S/T en la base de datos del GIS.",
-      "Fase 4: Actualización del gemelo digital de la red de baja tensión."
-    ]
-  },
-  {
-    id: 25,
-    category: "Smart Grid & Futuro",
-    title: "25. Gestión de Baterías Comunitarias (BESS) para Ahorro en Horario Pico",
-    target: "Planificación & Mercado Mayorista",
-    description: "Orquestación de bancos de baterías comunitarios en subestaciones críticas para inyectar energía en el pico estacional y reducir cargos por potencia máxima.",
-    impact: "Reducción drástica del costo de compra de energía en mercado mayorista (CAMMESA).",
-    roadmap: [
-      "Fase 1: Análisis de la curva de demanda pico en la subestación de distribución.",
-      "Fase 2: Dimensionamiento del sistema de baterías BESS.",
-      "Fase 3: Algoritmo de inyección automática durante los 90 minutos de pico.",
-      "Fase 4: Reducción de la potencia máxima facturada a la distribuidora."
-    ]
-  },
-  {
-    id: 26,
-    category: "Alumbrado Público",
-    title: "26. Auditoría Satelital de Luces Encendidas de Día (Fotocélulas Defectuosas)",
-    target: "Alumbrado Público & Municipios",
-    description: "Detección de circuitos de luminarias de calle que quedan encendidas durante el día por fallas en sensores, desperdiciando energía pagada por el municipio.",
-    impact: "Ahorro directo de hasta 12% en el consumo mensual de alumbrado público.",
-    roadmap: [
-      "Fase 1: Monitoreo de curva de carga en tableros de fotocélula de 10:00 a 16:00 hs.",
-      "Fase 2: Alerta de consumo activo en horario de máxima radiación solar.",
-      "Fase 3: Despacho de cuadrilla de recambio de fotocélula por tecnología fotovoltaica.",
-      "Fase 4: Reporte de ahorro de KWh emitido al municipio."
-    ]
-  },
-  {
-    id: 27,
-    category: "Pérdidas No Técnicas & Grandes Usuarios",
-    title: "27. Auditoría de Gran Usuario Industrial / Comercial (Tarifas T2 y T3)",
-    target: "Grandes Clientes & Inspección Especial",
-    description: "Modelado del consumo industrial relacionando volumen de producción de la fábrica con demanda de potencia y energía reactiva para detectar fraudes mayores.",
-    impact: "Recuperación de montos masivos no registrados en pocos clientes clave.",
-    roadmap: [
-      "Fase 1: Integración con telemedición quinqueminutal T2/T3.",
-      "Fase 2: Detección de caídas anómalas de factor de potencia o demanda fuera de turnos.",
-      "Fase 3: Auditoría técnica de transformadores de medida (TI/TV) en celda.",
-      "Fase 4: Ajuste retroactivo de facturación e intimación comercial."
-    ]
-  },
-  {
-    id: 28,
-    category: "Pérdidas Técnicas & Redes",
-    title: "28. Gemelo Digital de Baja Tensión (Digital Twin) para Simulación de Maniobras",
-    target: "Centro de Control & Distribución",
-    description: "Reconstrucción virtual en tiempo real del estado de la red de baja tensión para simular el impacto de tormentas, sobrecargas o transferencias de alimentación.",
-    impact: "Disminución del tiempo de reposición de servicio (MTTR) en 50%.",
-    roadmap: [
-      "Fase 1: Importación de la topología del GIS y datos de clientes.",
-      "Fase 2: Asignación de curvas de carga típicas por usuario y estación.",
-      "Fase 3: Motor de cálculo de flujo de potencia en tiempo real.",
-      "Fase 4: Simulación interactiva de maniobras de reconexión."
-    ]
-  },
-  {
-    id: 29,
-    category: "Calidad de Red & Eficiencia",
-    title: "29. Corrección Automática de Factor de Potencia (Cos φ) en Comercios e Industrias",
-    target: "Calidad de Servicio & Comercial",
-    description: "Identificación e incentivos para que clientes comerciales instalen bancos de capacitores, eliminando energía reactiva y liberando capacidad en la línea de baja.",
-    impact: "Liberación de capacidad de transporte de hasta 15% en alimentadores saturados.",
-    roadmap: [
-      "Fase 1: Detección de medidores con recargos sistemáticos por energía reactiva.",
-      "Fase 2: Generación automática de propuesta de financiamiento de banco de capacitores.",
-      "Fase 3: Descuento en factura durante 12 meses por corrección del Cos φ > 0.95.",
-      "Fase 4: Reducción de temperatura y sobrecarga en la red de baja."
-    ]
-  },
-  {
-    id: 30,
-    category: "Sustentabilidad & Finanzas",
-    title: "30. Certificación de Reducción de Carbono y Venta de Créditos para Cooperativas",
-    target: "Finanzas & Sustentabilidad Corporativa",
-    description: "Certificación de las toneladas de CO2 evitadas al reducir pérdidas técnicas e incorporar energía limpia para comercializar créditos de carbono internacionalmente.",
-    impact: "Obtención de fondos internacionales para financiar nuevas obras de red.",
-    roadmap: [
-      "Fase 1: Medición de kWh recuperados por reducción de pérdidas técnicas.",
-      "Fase 2: Cálculo del factor de emisión evitado (tCO2e/MWh).",
-      "Fase 3: Registro del proyecto ante estándares internacionales (Verra / Gold Standard).",
-      "Fase 4: Venta de créditos de carbono para reinvertir en la cooperativa."
-    ]
+    title: "10. Control de Servidumbre de Paso y Distancia de Seguridad en Edificaciones",
+    area: "Legales & Mantenimiento de Infraestructura de Distribución",
+    problem: "Vecinos o comercios que construyen balcones, tinglados o losas que quedan a menos de 1 metro de los conductores de baja/media tensión, violando la distancia de seguridad de la AEA y provocando cortocircuitos o electrocuciones.",
+    solution: "Mapeo de riesgo geoespacial mediante análisis de imágenes que identifica construcciones invasoras sobre la traza eléctrica e imprime la notificación de intimación legal preventiva.",
+    materialsOrMethod: "Algoritmo de medición de distancia de seguridad electromagnética (Norma AEA 95101).",
+    deliverable: "Expediente legal de intimación al propietario para la demolición o aislamiento obligatorio del tramo."
   }
 ];
+
+export const UTILITIES_SOLUTIONS_20 = DEEP_UTILITIES_IDEAS.map(idea => ({
+  id: idea.id,
+  category: idea.area,
+  title: idea.title,
+  target: idea.area,
+  description: `${idea.problem} ${idea.solution}`,
+  impact: idea.deliverable,
+  roadmap: [
+    `Fase 1: Diagnóstico de problema: ${idea.problem.substring(0, 70)}...`,
+    `Fase 2: Aplicación del método técnico: ${idea.materialsOrMethod}`,
+    `Fase 3: Ejecución de la solución: ${idea.solution.substring(0, 70)}...`,
+    `Fase 4: Emisión del entregable: ${idea.deliverable}`
+  ]
+}));
