@@ -7,10 +7,11 @@ import PragmaticEngineeringModule from './components/PragmaticEngineeringModule'
 import UtilitiesRoadmapCatalog from './components/UtilitiesRoadmapCatalog';
 import TechnicalLossRAG from './components/TechnicalLossRAG';
 import ExecutiveMobileReport from './components/ExecutiveMobileReport';
+import ProductionRoadmapModule from './components/ProductionRoadmapModule';
 
 export default function App() {
   const [currentUser, setCurrentUser] = useState(null);
-  const [activeTab, setActiveTab] = useState('engineering');
+  const [activeTab, setActiveTab] = useState('production-roadmap');
 
   if (!currentUser) {
     return <LoginGateway onLoginSuccess={(user) => setCurrentUser(user)} />;
@@ -32,6 +33,10 @@ export default function App() {
         margin: '0 auto',
         padding: '24px 20px 60px 20px'
       }}>
+        {activeTab === 'production-roadmap' && (
+          <ProductionRoadmapModule />
+        )}
+
         {activeTab === 'benchmark' && (
           <BlackPumaComparison onNavigate={(tab) => setActiveTab(tab)} />
         )}

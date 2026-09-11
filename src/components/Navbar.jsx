@@ -1,5 +1,5 @@
 import React from 'react';
-import { Zap, ShieldAlert, Cpu, Bot, Smartphone, LogOut, UserCheck, Layers, Wrench } from 'lucide-react';
+import { Zap, ShieldAlert, Cpu, Bot, Smartphone, LogOut, UserCheck, Layers, Wrench, Rocket } from 'lucide-react';
 
 export default function Navbar({ activeTab, setActiveTab, currentUser, onLogout }) {
   return (
@@ -52,6 +52,22 @@ export default function Navbar({ activeTab, setActiveTab, currentUser, onLogout 
 
         {/* Tab Navigation */}
         <nav style={{ display: 'flex', alignItems: 'center', gap: '8px', overflowX: 'auto', padding: '4px' }}>
+          <button
+            onClick={() => setActiveTab('production-roadmap')}
+            className="glass-pill"
+            style={{
+              cursor: 'pointer',
+              padding: '8px 14px',
+              background: activeTab === 'production-roadmap' ? 'rgba(16, 185, 129, 0.25)' : 'rgba(16, 185, 129, 0.1)',
+              borderColor: activeTab === 'production-roadmap' ? '#10b981' : 'rgba(16, 185, 129, 0.3)',
+              color: '#10b981',
+              fontWeight: 700
+            }}
+          >
+            <Rocket size={16} color="#10b981" />
+            <span>🚀 Pasos a Producción Real</span>
+          </button>
+
           <button
             onClick={() => setActiveTab('benchmark')}
             className="glass-pill"
