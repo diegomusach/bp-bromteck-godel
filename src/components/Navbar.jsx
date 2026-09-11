@@ -1,5 +1,5 @@
 import React from 'react';
-import { Zap, ShieldAlert, Cpu, Bot, Smartphone, LogOut, UserCheck } from 'lucide-react';
+import { Zap, ShieldAlert, Cpu, Bot, Smartphone, LogOut, UserCheck, Layers } from 'lucide-react';
 
 export default function Navbar({ activeTab, setActiveTab, currentUser, onLogout }) {
   return (
@@ -80,6 +80,21 @@ export default function Navbar({ activeTab, setActiveTab, currentUser, onLogout 
           >
             <ShieldAlert size={16} />
             <span>Baja Tensión & Hurto IA</span>
+          </button>
+
+          <button
+            onClick={() => setActiveTab('catalog')}
+            className="glass-pill"
+            style={{
+              cursor: 'pointer',
+              padding: '8px 14px',
+              background: activeTab === 'catalog' ? 'rgba(0, 242, 254, 0.18)' : 'transparent',
+              borderColor: activeTab === 'catalog' ? 'var(--color-primary)' : 'rgba(255, 255, 255, 0.08)',
+              color: activeTab === 'catalog' ? '#00f2fe' : 'var(--text-muted)'
+            }}
+          >
+            <Layers size={16} />
+            <span>20 Soluciones & Roadmaps</span>
           </button>
 
           <button

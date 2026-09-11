@@ -3,6 +3,7 @@ import LoginGateway from './components/LoginGateway';
 import Navbar from './components/Navbar';
 import BlackPumaComparison from './components/BlackPumaComparison';
 import LowVoltageIntelligence from './components/LowVoltageIntelligence';
+import UtilitiesRoadmapCatalog from './components/UtilitiesRoadmapCatalog';
 import TechnicalLossRAG from './components/TechnicalLossRAG';
 import ExecutiveMobileReport from './components/ExecutiveMobileReport';
 
@@ -38,6 +39,10 @@ export default function App() {
           <LowVoltageIntelligence />
         )}
 
+        {activeTab === 'catalog' && (
+          <UtilitiesRoadmapCatalog />
+        )}
+
         {activeTab === 'rag' && (
           <TechnicalLossRAG />
         )}
@@ -56,7 +61,7 @@ export default function App() {
         background: 'rgba(7, 10, 18, 0.8)'
       }}>
         <div>
-          BP Bromteck — Prioridad 1: Baja Tensión EDEMSA | © 2026 Bromteck Inc.
+          BP Bromteck — Catálogo de Soluciones & Roadmaps para Utilities | © 2026 Bromteck Inc.
         </div>
       </footer>
     </div>
