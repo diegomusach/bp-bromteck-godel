@@ -2,7 +2,8 @@
 
 export const VALID_USERS = [
   { username: 'dmusach', name: 'Diego Musach', role: 'Director de Producto & Estrategia', pass: 'BP-dmusach-2026' },
-  { username: 'acubino', name: 'A. Cubino', role: 'Líder Técnico & Arquitectura', pass: 'BP-acubino-2026' }
+  { username: 'alejandro', name: 'Alejandro Cubino', role: 'Líder Técnico & Arquitectura', pass: 'BP-alejandro-2026' },
+  { username: 'acubino', name: 'Alejandro Cubino', role: 'Líder Técnico & Arquitectura', pass: 'BP-acubino-2026' }
 ];
 
 export const BLACK_PUMA_BENCHMARK = {
