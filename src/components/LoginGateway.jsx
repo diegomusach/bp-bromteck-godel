@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
-import { Lock, User, Zap, KeyRound, ChevronRight, AlertCircle } from 'lucide-react';
+import { Lock, User, Zap, KeyRound, ChevronRight, AlertCircle, UserCheck } from 'lucide-react';
 import { VALID_USERS } from '../data/mockData';
 
 export default function LoginGateway({ onLoginSuccess }) {
-  const [username, setUsername] = useState('dmusach');
-  const [password, setPassword] = useState('BP-dmusach-2026');
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
   const [error, setError] = useState('');
 
   const handleLogin = (e) => {
@@ -16,14 +16,12 @@ export default function LoginGateway({ onLoginSuccess }) {
       setError('');
       onLoginSuccess(found);
     } else {
-      setError('Credenciales inválidas. Por favor utiliza los usuarios autorizados (dmusach o acubino).');
+      setError('Credenciales inválidas. Por favor utiliza los usuarios autorizados (dmusach o alejandro).');
     }
   };
 
-  const autofillUser = (u) => {
-    setUsername(u.username);
-    setPassword(u.pass);
-    setError('');
+  const handleDirectLogin = (user) => {
+    onLoginSuccess(user);
   };
 
   return (
@@ -51,7 +49,7 @@ export default function LoginGateway({ onLoginSuccess }) {
 
       <div className="glass-panel" style={{
         width: '100%',
-        maxWidth: '460px',
+        maxWidth: '480px',
         padding: '36px',
         position: 'relative',
         zIndex: 1,
@@ -81,7 +79,74 @@ export default function LoginGateway({ onLoginSuccess }) {
           </p>
         </div>
 
-        <form onSubmit={handleLogin} style={{ display: 'flex', flexDirection: 'column', gap: '18px' }}>
+        {/* PROMINENT QUICK LOGIN CARDS FOR DIEGO AND ALEJANDRO */}
+        <div style={{ marginBottom: '24px' }}>
+          <p style={{ fontSize: '0.8rem', color: 'var(--text-muted)', marginBottom: '10px', textTransform: 'uppercase', letterSpacing: '0.05em', fontWeight: 600 }}>
+            Ingreso Rápido por Perfil Autorizado:
+          </p>
+          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '12px' }}>
+            
+            {/* Diego Card */}
+            <div
+              onClick={() => handleDirectLogin(VALID_USERS[0])}
+              className="glass-panel glass-panel-hover"
+              style={{
+                padding: '14px',
+                cursor: 'pointer',
+                border: '1px solid rgba(0, 242, 254, 0.3)',
+                background: 'rgba(0, 242, 254, 0.05)',
+                borderRadius: '12px',
+                textAlign: 'left'
+              }}
+            >
+              <div style={{ display: 'flex', alignItems: 'center', gap: '6px', fontSize: '0.75rem', color: '#00f2fe', fontWeight: 700 }}>
+                <UserCheck size={14} />
+                <span>Diego Musach</span>
+              </div>
+              <div style={{ fontSize: '0.8rem', color: '#fff', fontWeight: 600, marginTop: '4px' }}>
+                dmusach
+              </div>
+              <div style={{ fontSize: '0.7rem', color: 'var(--text-subtle)', marginTop: '2px' }}>
+                Clave: BP-dmusach-2026
+              </div>
+            </div>
+
+            {/* Alejandro Card */}
+            <div
+              onClick={() => handleDirectLogin(VALID_USERS[1])}
+              className="glass-panel glass-panel-hover"
+              style={{
+                padding: '14px',
+                cursor: 'pointer',
+                border: '1px solid rgba(139, 92, 246, 0.3)',
+                background: 'rgba(139, 92, 246, 0.05)',
+                borderRadius: '12px',
+                textAlign: 'left'
+              }}
+            >
+              <div style={{ display: 'flex', alignItems: 'center', gap: '6px', fontSize: '0.75rem', color: '#c4b5fd', fontWeight: 700 }}>
+                <UserCheck size={14} />
+                <span>Alejandro Cubino</span>
+              </div>
+              <div style={{ fontSize: '0.8rem', color: '#fff', fontWeight: 600, marginTop: '4px' }}>
+                alejandro
+              </div>
+              <div style={{ fontSize: '0.7rem', color: 'var(--text-subtle)', marginTop: '2px' }}>
+                Clave: BP-alejandro-2026
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <div style={{ position: 'relative', textAlign: 'center', margin: '20px 0 16px 0' }}>
+          <div style={{ height: '1px', background: 'rgba(255,255,255,0.08)' }}></div>
+          <span style={{ position: 'relative', top: '-10px', background: '#090d16', padding: '0 10px', fontSize: '0.75rem', color: 'var(--text-subtle)' }}>
+            o escribir credenciales manualmente
+          </span>
+        </div>
+
+        <form onSubmit={handleLogin} style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
           <div>
             <label style={{ display: 'block', fontSize: '0.85rem', color: 'var(--text-muted)', marginBottom: '6px', fontWeight: 500 }}>
               Usuario Autorizado
@@ -92,7 +157,7 @@ export default function LoginGateway({ onLoginSuccess }) {
                 type="text"
                 className="input-glass"
                 style={{ paddingLeft: '40px' }}
-                placeholder="Nombre de usuario"
+                placeholder="Ej. alejandro o dmusach"
                 value={username}
                 onChange={(e) => setUsername(e.target.value)}
                 required
@@ -140,33 +205,6 @@ export default function LoginGateway({ onLoginSuccess }) {
             <ChevronRight size={18} />
           </button>
         </form>
-
-        <div style={{ marginTop: '28px', paddingTop: '20px', borderTop: '1px solid rgba(255, 255, 255, 0.08)' }}>
-          <p style={{ fontSize: '0.75rem', color: 'var(--text-subtle)', marginBottom: '10px', textTransform: 'uppercase', letterSpacing: '0.05em' }}>
-            Seleccionar Usuario Configurado:
-          </p>
-          <div style={{ display: 'flex', gap: '10px' }}>
-            {VALID_USERS.map((u) => (
-              <button
-                key={u.username}
-                type="button"
-                onClick={() => autofillUser(u)}
-                className="glass-pill"
-                style={{
-                  flex: 1,
-                  cursor: 'pointer',
-                  justifyContent: 'center',
-                  padding: '8px 10px',
-                  background: username === u.username ? 'rgba(0, 242, 254, 0.15)' : 'rgba(255, 255, 255, 0.04)',
-                  borderColor: username === u.username ? 'var(--color-primary)' : 'rgba(255, 255, 255, 0.1)'
-                }}
-              >
-                <KeyRound size={14} color="#00f2fe" />
-                <span>{u.username}</span>
-              </button>
-            ))}
-          </div>
-        </div>
       </div>
     </div>
   );
