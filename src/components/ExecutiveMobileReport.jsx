@@ -1,11 +1,10 @@
 import React, { useState } from 'react';
-import { Smartphone, ShieldAlert, CheckCircle, TrendingUp, Users, DollarSign, Download, Share2, Layers } from 'lucide-react';
-import { LOW_VOLTAGE_SUPPLIES } from '../data/mockData';
+import { Smartphone, Users, Download, Share2, Database } from 'lucide-react';
+import { LOW_VOLTAGE_SUPPLIES, DEEP_UTILITIES_IDEAS } from '../data/mockData';
 
 export default function ExecutiveMobileReport() {
   const [deviceType, setDeviceType] = useState('iphone');
   const totalRecovery = LOW_VOLTAGE_SUPPLIES.reduce((acc, curr) => acc + curr.potentialRecoveryUSD, 0);
-  const highRiskCount = LOW_VOLTAGE_SUPPLIES.filter(s => s.theftRiskScore > 70).length;
 
   return (
     <div style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
@@ -18,13 +17,13 @@ export default function ExecutiveMobileReport() {
                 <Smartphone size={14} />
                 Multi-dispositivo iOS & Android Ready
               </span>
-              <span style={{ fontSize: '0.8rem', color: 'var(--text-muted)' }}>Módulo de Reporte Ejecutivo</span>
+              <span style={{ fontSize: '0.8rem', color: 'var(--text-muted)' }}>Módulo de Reporte Ejecutivo & Inputs</span>
             </div>
             <h2 style={{ fontSize: '1.8rem' }} className="gradient-text">
-              Reporte Ejecutivo de Campo — Plataforma Godel
+              Reporte Móvil Exec: Entregables & Inputs Requeridos
             </h2>
             <p style={{ color: 'var(--text-muted)', fontSize: '0.85rem' }}>
-              Visualización optimizada para inspección y toma de decisiones ejecutivas en smartphones y tablets.
+              Especificación en smartphone de las fuentes de datos (en rojo) necesarias para la inspección en campo.
             </p>
           </div>
 
@@ -74,7 +73,7 @@ export default function ExecutiveMobileReport() {
                 <span style={{ fontSize: '0.7rem', color: '#00f2fe', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.05em' }}>
                   BP Bromteck Mobile
                 </span>
-                <h3 style={{ fontSize: '1.1rem', color: '#fff' }}>EDEMSA Reporte</h3>
+                <h3 style={{ fontSize: '1.1rem', color: '#fff' }}>Inputs & Inspección EDEMSA</h3>
               </div>
               <span className="glass-pill badge-warning" style={{ fontSize: '0.65rem' }}>
                 LIVE SYNC
@@ -85,7 +84,7 @@ export default function ExecutiveMobileReport() {
             <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '10px' }}>
               <div className="glass-panel" style={{ padding: '12px', background: 'rgba(239, 68, 68, 0.08)' }}>
                 <div style={{ fontSize: '0.7rem', color: '#fca5a5' }}>Suministros Críticos</div>
-                <div style={{ fontSize: '1.4rem', fontWeight: 800, color: '#ef4444' }}>{highRiskCount}</div>
+                <div style={{ fontSize: '1.4rem', fontWeight: 800, color: '#ef4444' }}>2</div>
                 <div style={{ fontSize: '0.65rem', color: 'var(--text-muted)' }}>Alto riesgo de hurto</div>
               </div>
 
@@ -105,32 +104,39 @@ export default function ExecutiveMobileReport() {
               <div style={{ display: 'flex', flexDirection: 'column', gap: '6px', fontSize: '0.8rem' }}>
                 <div style={{ display: 'flex', justifyContent: 'space-between' }}>
                   <span>Camilo & Enrique:</span>
-                  <strong style={{ color: '#00f2fe' }}>Godel Básico + Baja Tensión</strong>
+                  <strong style={{ color: '#00f2fe' }}>Inspección ET-201 + TDR</strong>
                 </div>
                 <div style={{ display: 'flex', justifyContent: 'space-between' }}>
                   <span>Líder de Producto:</span>
-                  <strong style={{ color: '#8b5cf6' }}>Estrategia & RAG Pérdidas</strong>
+                  <strong style={{ color: '#8b5cf6' }}>Calculadora ECNR</strong>
                 </div>
               </div>
             </div>
 
-            {/* Critical Cases List */}
+            {/* Critical Cases List & Inputs */}
             <div style={{ flex: 1, display: 'flex', flexDirection: 'column', gap: '10px' }}>
               <div style={{ fontSize: '0.75rem', color: 'var(--text-muted)', textTransform: 'uppercase' }}>
-                Acciones Prioridad 1 (Baja Tensión)
+                Inputs Requeridos para Inspección Móvil
               </div>
 
-              {LOW_VOLTAGE_SUPPLIES.map((sup) => (
-                <div key={sup.id} className="glass-panel" style={{ padding: '10px 12px', background: 'rgba(15, 23, 42, 0.6)' }}>
+              {DEEP_UTILITIES_IDEAS.slice(0, 3).map((idea) => (
+                <div key={idea.id} className="glass-panel" style={{ padding: '10px 12px', background: 'rgba(15, 23, 42, 0.8)' }}>
                   <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                    <span style={{ fontSize: '0.75rem', fontWeight: 700, color: '#00f2fe' }}>{sup.id}</span>
-                    <span className={`glass-pill ${sup.theftRiskScore > 70 ? 'badge-danger' : 'badge-success'}`} style={{ fontSize: '0.6rem', padding: '2px 6px' }}>
-                      Riesgo {sup.theftRiskScore}%
-                    </span>
+                    <span style={{ fontSize: '0.75rem', fontWeight: 700, color: '#00f2fe' }}>{idea.title}</span>
                   </div>
-                  <div style={{ fontSize: '0.82rem', color: '#fff', marginTop: '2px' }}>{sup.clientName}</div>
-                  <div style={{ fontSize: '0.7rem', color: 'var(--text-muted)', marginTop: '2px' }}>
-                    {sup.recommendedAction.substring(0, 55)}...
+                  
+                  {/* RED INPUT BADGE MOBILE */}
+                  <div style={{
+                    marginTop: '6px',
+                    padding: '6px 8px',
+                    background: 'rgba(239, 68, 68, 0.15)',
+                    border: '1px solid #ef4444',
+                    borderRadius: '6px',
+                    fontSize: '0.68rem',
+                    color: '#fca5a5',
+                    fontWeight: 700
+                  }}>
+                    {idea.requiredInput}
                   </div>
                 </div>
               ))}

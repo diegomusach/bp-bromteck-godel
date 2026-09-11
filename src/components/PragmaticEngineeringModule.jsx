@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { DEEP_UTILITIES_IDEAS } from '../data/mockData';
-import { Wrench, ShieldAlert, FileText, CheckCircle2, Zap, AlertTriangle, ChevronRight, Scale, Cpu } from 'lucide-react';
+import { Wrench, Zap, AlertTriangle, CheckCircle2, Database, Radio } from 'lucide-react';
 
 export default function PragmaticEngineeringModule() {
   const [selectedIdea, setSelectedIdea] = useState(DEEP_UTILITIES_IDEAS[0]);
@@ -25,17 +25,17 @@ export default function PragmaticEngineeringModule() {
               </span>
             </div>
             <h2 style={{ fontSize: '2.1rem' }} className="gradient-text">
-              Soluciones Técnicas Concretas & Antifraude en Baja Tensión
+              Soluciones Concretas: Inputs & Fuentes de Datos Requeridas
             </h2>
             <p style={{ color: 'var(--text-muted)', fontSize: '0.95rem', marginTop: '6px', maxWidth: '850px', lineHeight: '1.5' }}>
-              Proyectos prácticos de ingeniería eléctrica, liquidación ECNR, especificación de insumos de red (conductores preensamblados Al 3x95/50) y auditoría de campo para Camilo, Enrique y el equipo de Bromteck.
+              Especificación exacta de los <strong>INPUTS (en rojo)</strong>, fuentes de datos (Google Street View, Padrón ERP, TDR, GIS) y requisitos técnicos necesarios para cada implementación.
             </p>
           </div>
 
-          <div className="glass-panel" style={{ padding: '12px 20px', background: 'rgba(0, 242, 254, 0.08)', borderColor: 'rgba(0, 242, 254, 0.3)' }}>
-            <div style={{ fontSize: '0.75rem', color: '#00f2fe', textTransform: 'uppercase', letterSpacing: '0.05em' }}>Foco Operativo</div>
-            <div style={{ fontSize: '1.1rem', fontWeight: 800, color: '#fff', marginTop: '2px' }}>
-              10 Soluciones de Ingeniería Real
+          <div className="glass-panel" style={{ padding: '12px 20px', background: 'rgba(239, 68, 68, 0.08)', borderColor: 'rgba(239, 68, 68, 0.3)' }}>
+            <div style={{ fontSize: '0.75rem', color: '#fca5a5', textTransform: 'uppercase', letterSpacing: '0.05em' }}>Especificación de Inputs</div>
+            <div style={{ fontSize: '1.1rem', fontWeight: 800, color: '#ef4444', marginTop: '2px' }}>
+              10 Módulos Concretos
             </div>
           </div>
         </div>
@@ -71,9 +71,20 @@ export default function PragmaticEngineeringModule() {
               <h4 style={{ fontSize: '0.95rem', color: '#fff', marginBottom: '6px', lineHeight: '1.4' }}>
                 {idea.title}
               </h4>
-              <p style={{ fontSize: '0.8rem', color: 'var(--text-muted)', display: '-webkit-box', WebkitLineClamp: 2, WebkitBoxOrient: 'vertical', overflow: 'hidden' }}>
-                {idea.problem}
-              </p>
+              
+              {/* Highlighted Input Badge in Red */}
+              <div style={{
+                marginTop: '8px',
+                padding: '6px 10px',
+                background: 'rgba(239, 68, 68, 0.12)',
+                border: '1px solid rgba(239, 68, 68, 0.3)',
+                borderRadius: '6px',
+                fontSize: '0.75rem',
+                color: '#fca5a5',
+                fontWeight: 600
+              }}>
+                {idea.requiredInput}
+              </div>
             </div>
           ))}
         </div>
@@ -91,13 +102,33 @@ export default function PragmaticEngineeringModule() {
             </div>
           </div>
 
+          {/* RED HIGHLIGHTED INPUT PANEL */}
+          <div className="glass-panel" style={{
+            padding: '20px',
+            marginBottom: '20px',
+            background: 'rgba(239, 68, 68, 0.08)',
+            border: '2px solid #ef4444',
+            boxShadow: '0 0 20px rgba(239, 68, 68, 0.2)'
+          }}>
+            <h4 style={{ fontSize: '1rem', color: '#ef4444', marginBottom: '8px', display: 'flex', alignItems: 'center', gap: '8px', fontWeight: 800 }}>
+              <Database size={20} />
+              <span>¿QUÉ INPUT SE NECESITA PARA IMPLEMENTARLO?</span>
+            </h4>
+            <div style={{ fontSize: '1.05rem', color: '#ffffff', fontWeight: 700, lineHeight: '1.5', background: 'rgba(9, 13, 22, 0.8)', padding: '12px 16px', borderRadius: '8px', borderLeft: '4px solid #ef4444' }}>
+              {selectedIdea.requiredInput}
+            </div>
+            <div style={{ marginTop: '10px', fontSize: '0.82rem', color: '#fca5a5' }}>
+              Tipo de Fuente: <strong>{selectedIdea.inputSourceType}</strong>
+            </div>
+          </div>
+
           {/* Problem Statement */}
-          <div className="glass-panel" style={{ padding: '20px', marginBottom: '20px', background: 'rgba(239, 68, 68, 0.05)', border: '1px solid rgba(239, 68, 68, 0.2)' }}>
-            <h4 style={{ fontSize: '0.95rem', color: '#fca5a5', marginBottom: '8px', display: 'flex', alignItems: 'center', gap: '8px' }}>
+          <div className="glass-panel" style={{ padding: '20px', marginBottom: '20px', background: 'rgba(15, 23, 42, 0.6)' }}>
+            <h4 style={{ fontSize: '0.95rem', color: '#f59e0b', marginBottom: '8px', display: 'flex', alignItems: 'center', gap: '8px' }}>
               <AlertTriangle size={18} />
               <span>Problema Operativo Real en la Distribuidora</span>
             </h4>
-            <p style={{ fontSize: '0.95rem', color: '#fee2e2', lineHeight: '1.6' }}>
+            <p style={{ fontSize: '0.95rem', color: '#e2e8f0', lineHeight: '1.6' }}>
               {selectedIdea.problem}
             </p>
           </div>

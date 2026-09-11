@@ -66,7 +66,8 @@ export const LOW_VOLTAGE_SUPPLIES = [
       "Google Street View histórico muestra que la propiedad cambió de casa particular a local gastronómico en los últimos 8 meses."
     ],
     recommendedAction: "Despachar inspección de campo inmediata. Normalizar acometida e refacturar por tarifa comercial T1-G con penalización por energía consumida no registrada (ECNR).",
-    potentialRecoveryUSD: 3450
+    potentialRecoveryUSD: 3450,
+    requiredInput: "🔴 Google Street View API + Padrón Comercial ERP (SAP) de EDEMSA + Foto de Frente del Inspector"
   },
   {
     id: "SUM-EDM-10843",
@@ -87,7 +88,8 @@ export const LOW_VOLTAGE_SUPPLIES = [
       "Foto de frente muestra intervención en el pilar de medición."
     ],
     recommendedAction: "Inspección técnica de pilar con laboratorio móvil. Cambio de tarifa a T2 Trifásica Comercial.",
-    potentialRecoveryUSD: 5200
+    potentialRecoveryUSD: 5200,
+    requiredInput: "🔴 Google Street View API + Telemetría de Consumo KWh quinqueminutal de EDEMSA"
   },
   {
     id: "SUM-EDM-11204",
@@ -107,7 +109,8 @@ export const LOW_VOLTAGE_SUPPLIES = [
       "Sin inconsistencias estructurales en Google Street View."
     ],
     recommendedAction: "Mantenimiento preventivo de rutina programado para Q4.",
-    potentialRecoveryUSD: 0
+    potentialRecoveryUSD: 0,
+    requiredInput: "🔴 Google Maps Static API + Base de Datos Comercial T1-R"
   }
 ];
 
@@ -130,7 +133,9 @@ export const DEEP_UTILITIES_IDEAS = [
     problem: "Las actas de fraude tardan meses en liquidarse porque el cálculo de Energía Consumida No Registrada (ECNR) requiere determinar la carga real estimada (kW), las horas de uso de la tarifa (ej. T1-G 300 hs/mes) y los recargos por reincidencia (1.5x o 2x) manualmente.",
     solution: "Módulo automático de liquidación ECNR que toma la foto de la acometida fraudulenta, identifica los artefactos instalados (ej. motor 5 HP + 3 heladeras exhibidoras = 8.5 kW), aplica el cuadro tarifario vigente de EDEMSA y emite el acta de deuda retroactiva (hasta 48 meses) lista para cobro comercial.",
     materialsOrMethod: "Fórmula: ECNR (kWh) = Carga Estimada (kW) × 300 hs/mes × Meses de Irregularidad × Coeficiente de Recargo EPRE.",
-    deliverable: "PDF de Acta ECNR con validez probatoria y liquidación retroactiva instantánea."
+    deliverable: "PDF de Acta ECNR con validez probatoria y liquidación retroactiva instantánea.",
+    requiredInput: "🔴 INPUT USADO: Padrón Comercial ERP (SAP/OpenGIS) + Foto de Acometida tomada por el Inspector en Campo + Cuadro Tarifario EPRE Mendoza Vigente",
+    inputSourceType: "ERP Comercial + App Móvil de Campo"
   },
   {
     id: 2,
@@ -139,7 +144,9 @@ export const DEEP_UTILITIES_IDEAS = [
     problem: "Los usuarios comerciales empetran caños por dentro de la mampostería desviando la acometida antes de ingresar a las bornas 1-3 del medidor, haciendo imposible detectar el puente a simple vista sin romper la pared.",
     solution: "Inyección de señal de radiofrecuencia/reflectometría (TDR) de bajo costo desde la pinza de derivación en la red de calle hacia el pilar. Si la señal encuentra una derivación T antes del medidor, la app móvil alerta 'Puente Empotrado Detectado a 1.2 metros'.",
     materialsOrMethod: "Equipo TDR portátil + App Móvil Android de recepción por Bluetooth.",
-    deliverable: "Localización exacta de la derivación oculta sin necesidad de picar la mampostería preventivamente."
+    deliverable: "Localización exacta de la derivación oculta sin necesidad de picar la mampostería preventivamente.",
+    requiredInput: "🔴 INPUT USADO: Señales de TDR (Reflectometría de Dominio Temporal de Radiofrecuencia) desde Hardware Portátil de Pinza de Red",
+    inputSourceType: "Hardware TDR en Red de Calle + App Móvil Bluetooth"
   },
   {
     id: 3,
@@ -148,7 +155,9 @@ export const DEEP_UTILITIES_IDEAS = [
     problem: "Líneas antiguas de cobre desnudo de 25mm² sujetas a sulfatación y enganches clandestinos tipo 'gancho arrojadizo', generando cortocircuitos y pérdidas por efecto Joule (I²R) superiores al 18%.",
     solution: "Cálculo de ingeniería de red para sustitución por conductor de aluminio preensamblado XLPE antirrobo (3x95/50mm² + neutro portante de 50mm² + alumbrado de 25mm²), incluyendo especificación exacta de conectores de perforación de aislamiento (IPC) y prensacables de retención.",
     materialsOrMethod: "Cable Al Preensamblado 3x95/50mm², Conectores IPC estancos Niled/Sicame, Prensacables de amarre de resina sintética.",
-    deliverable: "Cómputo métrico e inventario de materiales de obra (BOM) para licitación o compra directa."
+    deliverable: "Cómputo métrico e inventario de materiales de obra (BOM) para licitación o compra directa.",
+    requiredInput: "🔴 INPUT USADO: Archivos GIS / SHP de Trazado de Red de EDEMSA + Mediciones de Tensión RMS (Caída ΔV%) en Subestación SET",
+    inputSourceType: "GIS Corporativo EDEMSA + Telemetría de Red"
   },
   {
     id: 4,
@@ -157,7 +166,9 @@ export const DEEP_UTILITIES_IDEAS = [
     problem: "Locales comerciales (rotiserías, talleres metalúrgicos, supermercados de barrio) contratados bajo tarifa T1-R (Residencial) pagando tarifa subsidiada mientras consumen potencias trifásicas superiores a 10 kW.",
     solution: "Cruce automático de imágenes de fachadas en Google Street View (detección de marquesinas, cámaras frigoríficas, persianas comerciales) contra el padrón tarifario de EDEMSA. Emisión de notificación de reclasificación obligatoria a T1-G o T2 Trifásica.",
     materialsOrMethod: "Matching de código de suministro GIS vs API Google Street View + Padrón Comercial.",
-    deliverable: "Listado priorizado de suministros T1-R a re-categorizar con aumento del 25% en ingresos recurrentes por factura."
+    deliverable: "Listado priorizado de suministros T1-R a re-categorizar con aumento del 25% en ingresos recurrentes por factura.",
+    requiredInput: "🔴 INPUT USADO: API Google Street View / Static Maps + Padrón Comercial de Tarifas T1-R de Facturación EDEMSA",
+    inputSourceType: "Google Street View API + Base SQL Comercial"
   },
   {
     id: 5,
@@ -166,7 +177,9 @@ export const DEEP_UTILITIES_IDEAS = [
     problem: "Desequilibrio severo de corrientes en las tres fases (IR = 180A, IS = 90A, IT = 240A) que provoca circulación de corriente por el neutro (IN > 110A), recalentamiento de la barra de neutro y quema frecuente del transformador de distribución.",
     solution: "Algoritmo de optimización que analiza los consumos monofásicos de cada pilar en el ramal y genera la orden exacta para la cuadrilla: 'Mover el Suministro #10492 de Fase T a Fase S en la caja de derivación #14'.",
     materialsOrMethod: "Medición con pinza amperométrica Bluetooth en SET + Algoritmo de permutación combinatoria.",
-    deliverable: "Reducción de la corriente de neutro de 110A a menos de 15A y eliminación del riesgo de sobrecalentamiento del transformador."
+    deliverable: "Reducción de la corriente de neutro de 110A a menos de 15A y eliminación del riesgo de sobrecalentamiento del transformador.",
+    requiredInput: "🔴 INPUT USADO: Lectura de Corrientes RMS por Fase (Ir, Is, It, In) con Pinza Amperométrica Bluetooth + Matriz de Suministros por Ramal",
+    inputSourceType: "Pinza Amperométrica de Campo + Padrón de Acometidas"
   },
   {
     id: 6,
@@ -175,7 +188,9 @@ export const DEEP_UTILITIES_IDEAS = [
     problem: "Manipulación habitual donde el usuario invierte la conexión de entrada de fase y neutro en las bornas 1 y 2 del medidor, frenando o invirtiendo el giro del disco magnético sin dejar huellas visibles.",
     solution: "Testeo rápido de polaridad y corriente de retorno por neutro mediante la app de inspección conectada a un comprobador de enchufe/pilar de baja tensión.",
     materialsOrMethod: "Dispositivo comprobador de impedancia de bucle + App Móvil de acta de fraude.",
-    deliverable: "Identificación inmediata de la inversión de bornes con registro de foto georreferenciada para el expediente legal."
+    deliverable: "Identificación inmediata de la inversión de bornes con registro de foto georreferenciada para el expediente legal.",
+    requiredInput: "🔴 INPUT USADO: Impedancia de Bucle (Fase-Neutro / Neutro-Tierra) medida por comprobador de pilar + Foto del Bornero",
+    inputSourceType: "Comprobador de Enchufe/Pilar + App Móvil"
   },
   {
     id: 7,
@@ -184,7 +199,9 @@ export const DEEP_UTILITIES_IDEAS = [
     problem: "Empresas de Internet (ISPs) y televisión por cable cuelgan kilómetros de fibra óptica sobre los postes de hormigón y madera de la distribuidora/cooperativa sin pagar el canon por poste ni respetar las distancias de seguridad con la baja tensión.",
     solution: "Escaneo fotográfico automatizado de la postación que cuenta los cables no identificados por poste y genera la intimación comercial a las empresas de telecomunicaciones para cobrar el canon mensual en USD por poste utilizado.",
     materialsOrMethod: "Computer Vision sobre fotos de cuadrilla / Street View + Mapeo GIS de postación.",
-    deliverable: "Padrón auditado de postes alquilados y facturación mensual de canon a los ISPs de la zona."
+    deliverable: "Padrón auditado de postes alquilados y facturación mensual de canon a los ISPs de la zona.",
+    requiredInput: "🔴 INPUT USADO: Fotografías de Recorrido de Postes / Google Street View + Capa GIS de Infraestructura de Postación",
+    inputSourceType: "Computer Vision de Fotos de Postes + GIS Corporativo"
   },
   {
     id: 8,
@@ -193,7 +210,9 @@ export const DEEP_UTILITIES_IDEAS = [
     problem: "Inmuebles con pilares clandestinos o fuera de norma (cajas de chapa oxidadas, caños de bajada rotos de PVC, sin puesta a tierra) que generan pérdidas por fuga a tierra y riesgo de electrocución.",
     solution: "Plataforma de kit de normalización que ofrece al usuario el pilar regulado (caja doble aislamiento de policarbonato, caño galvanizado 1 1/4\", interruptor termomagnético 2x25A curva C + disyuntor diferencial 30mA + jabalina de puesta a tierra de 1.5m).",
     materialsOrMethod: "Kit de materiales estandarizado según Norma ET-201 EDEMSA + Convenio de financiamiento en factura.",
-    deliverable: "Regularización del pilar con cobro financiado en 12 cuotas dentro de la boleta de luz."
+    deliverable: "Regularización del pilar con cobro financiado en 12 cuotas dentro de la boleta de luz.",
+    requiredInput: "🔴 INPUT USADO: Foto de Frente del Pilar tomada desde la App Móvil + Matriz de Materiales Homologados Norma ET-201 EDEMSA",
+    inputSourceType: "App Móvil de Inspección + Catálogo Técnico ET-201"
   },
   {
     id: 9,
@@ -202,7 +221,9 @@ export const DEEP_UTILITIES_IDEAS = [
     problem: "Pérdidas masivas de energía en barrios populares o asentamientos informales donde se conectan cientos de familias directamente a la línea aérea sin medidor individual.",
     solution: "Instalación de un medidor totalizador inteligente en la salida del transformador que compara en tiempo real la energía entregada versus la facturada, emitiendo el balance energético por manzana para proyectos de electrificación social.",
     materialsOrMethod: "Medidor totalizador trifásico indirecto con TI 400/5A + Transmisión celular 4G/IoT.",
-    deliverable: "Mapa de calor de pérdidas masivas y proyecto de pilares comunitarios blindados con financiamiento provincial."
+    deliverable: "Mapa de calor de pérdidas masivas y proyecto de pilares comunitarios blindados con financiamiento provincial.",
+    requiredInput: "🔴 INPUT USADO: kWh Entregados por Medidor Totalizador de Subestación vs. Suma de kWh Facturados en Sistema Comercial",
+    inputSourceType: "Medidor Totalizador 4G/IoT + Servidor de Facturación"
   },
   {
     id: 10,
@@ -211,7 +232,9 @@ export const DEEP_UTILITIES_IDEAS = [
     problem: "Vecinos o comercios que construyen balcones, tinglados o losas que quedan a menos de 1 metro de los conductores de baja/media tensión, violando la distancia de seguridad de la AEA y provocando cortocircuitos o electrocuciones.",
     solution: "Mapeo de riesgo geoespacial mediante análisis de imágenes que identifica construcciones invasoras sobre la traza eléctrica e imprime la notificación de intimación legal preventiva.",
     materialsOrMethod: "Algoritmo de medición de distancia de seguridad electromagnética (Norma AEA 95101).",
-    deliverable: "Expediente legal de intimación al propietario para la demolición o aislamiento obligatorio del tramo."
+    deliverable: "Expediente legal de intimación al propietario para la demolición o aislamiento obligatorio del tramo.",
+    requiredInput: "🔴 INPUT USADO: Imágenes Satelitales de Alta Resolución / Street View + Capa Vectorial GIS de Líneas Eléctricas (AEA 95101)",
+    inputSourceType: "Imágenes Satelitales/Street View + GIS de Redes"
   }
 ];
 
@@ -222,8 +245,9 @@ export const UTILITIES_SOLUTIONS_20 = DEEP_UTILITIES_IDEAS.map(idea => ({
   target: idea.area,
   description: `${idea.problem} ${idea.solution}`,
   impact: idea.deliverable,
+  requiredInput: idea.requiredInput,
   roadmap: [
-    `Fase 1: Diagnóstico de problema: ${idea.problem.substring(0, 70)}...`,
+    `Fase 1: Ingesta de Inputs: ${idea.requiredInput}`,
     `Fase 2: Aplicación del método técnico: ${idea.materialsOrMethod}`,
     `Fase 3: Ejecución de la solución: ${idea.solution.substring(0, 70)}...`,
     `Fase 4: Emisión del entregable: ${idea.deliverable}`
