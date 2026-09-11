@@ -117,7 +117,7 @@ export default function BlackPumaComparison({ onNavigate }) {
         </div>
       </div>
 
-      {/* DETAILED PANEL: ¿Cómo lo hace BP (Black Puma) hoy en EDEMSA? */}
+      {/* DETAILED PANEL: ¿Cómo lo hace BP hoy en EDEMSA? */}
       <div className="glass-panel" style={{ padding: '28px', border: '1px solid rgba(245, 158, 11, 0.3)', background: 'rgba(245, 158, 11, 0.02)' }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '16px' }}>
           <div style={{ padding: '10px', borderRadius: '10px', background: 'rgba(245, 158, 11, 0.15)', border: '1px solid rgba(245, 158, 11, 0.3)' }}>
@@ -125,10 +125,10 @@ export default function BlackPumaComparison({ onNavigate }) {
           </div>
           <div>
             <h3 style={{ fontSize: '1.4rem', color: '#fde047' }}>
-              ¿Cómo lo hace BP (Black Puma) hoy en EDEMSA?
+              ¿Cómo lo hace BP hoy en EDEMSA?
             </h3>
             <p style={{ fontSize: '0.85rem', color: 'var(--text-muted)' }}>
-              Desglose paso a paso del flujo de trabajo operativo actual de la competencia
+              Desglose paso a paso del flujo de trabajo operativo actual del competidor BP
             </p>
           </div>
         </div>
@@ -183,6 +183,51 @@ export default function BlackPumaComparison({ onNavigate }) {
               <span><strong>RAG de Pérdidas Técnicas con Insumos Reales</strong>: Le indicamos a EDEMSA *Qué cambia, Dónde y Cómo*, especificando el reemplazo de líneas de cobre desnudo por conductor de aluminio preensamblado 3x95/50mm² y conectores IPC.</span>
             </li>
           </ul>
+        </div>
+      </div>
+
+      {/* Feature Comparison Matrix */}
+      <div className="glass-panel" style={{ padding: '28px' }}>
+        <h3 style={{ fontSize: '1.3rem', marginBottom: '20px', display: 'flex', alignItems: 'center', gap: '10px' }}>
+          <Zap color="#00f2fe" size={22} />
+          Matriz Resumen de Capacidades: BP vs. BP Bromteck
+        </h3>
+
+        <div style={{ overflowX: 'auto' }}>
+          <table style={{ width: '100%', borderCollapse: 'collapse', textAlign: 'left', minWidth: '750px' }}>
+            <thead>
+              <tr style={{ borderBottom: '1px solid rgba(255, 255, 255, 0.12)', color: 'var(--text-muted)', fontSize: '0.85rem' }}>
+                <th style={{ padding: '12px 16px' }}>Funcionalidad Estratégica</th>
+                <th style={{ padding: '12px 16px' }}>¿Cómo lo hace BP hoy?</th>
+                <th style={{ padding: '12px 16px' }}>¿Cómo lo supera BP Bromteck?</th>
+                <th style={{ padding: '12px 16px', textAlign: 'center' }}>Nivel de Ventaja</th>
+              </tr>
+            </thead>
+            <tbody>
+              {BLACK_PUMA_BENCHMARK.capabilities.map((cap, idx) => (
+                <tr key={idx} style={{
+                  borderBottom: '1px solid rgba(255, 255, 255, 0.06)',
+                  background: idx % 2 === 0 ? 'rgba(255,255,255,0.015)' : 'transparent'
+                }}>
+                  <td style={{ padding: '16px', fontWeight: 600, color: '#f8fafc', fontSize: '0.95rem' }}>
+                    {cap.feature}
+                  </td>
+                  <td style={{ padding: '16px', color: 'var(--text-muted)', fontSize: '0.9rem', maxWidth: '240px' }}>
+                    {cap.blackPumaStatus}
+                  </td>
+                  <td style={{ padding: '16px', color: '#e2e8f0', fontSize: '0.9rem', maxWidth: '320px' }}>
+                    {cap.bromteckAdvantage}
+                  </td>
+                  <td style={{ padding: '16px', textAlign: 'center' }}>
+                    <span className={`glass-pill ${cap.statusBadge.includes('Exclusivo') ? 'badge-warning' : 'badge-success'}`}>
+                      <CheckCircle2 size={12} />
+                      {cap.statusBadge}
+                    </span>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
         </div>
       </div>
     </div>
