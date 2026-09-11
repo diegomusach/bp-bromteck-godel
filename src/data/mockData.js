@@ -1,4 +1,4 @@
-// Mock Data for BP Bromteck (EDEMSA Case Study & Utilities Solutions)
+// Mock Data for BP Bromteck (EDEMSA Case Study & 30 Utilities Solutions)
 
 export const VALID_USERS = [
   { username: 'dmusach', name: 'Diego Musach', role: 'Director de Producto & Estrategia', pass: 'BP-dmusach-2026' },
@@ -400,6 +400,146 @@ export const UTILITIES_SOLUTIONS_20 = [
       "Fase 2: Procesamiento de imágenes y video para clasificar la gravedad de la avería.",
       "Fase 3: Generación automática de reclamo georreferenciado en el sistema OMS.",
       "Fase 4: Notificación proactiva al usuario cuando la cuadrilla repara la falla."
+    ]
+  },
+  {
+    id: 21,
+    category: "Smart Grid & Hurto",
+    title: "21. Detección de Manipulación en Medidores Inteligentes por Análisis Armónico",
+    target: "Protección de Ingresos & Medición Inteligente",
+    description: "Análisis de micro-interrupciones y armónicos en Smart Meters para detectar la aplicación de imanes potentes o aperturas de tapa no autorizadas.",
+    impact: "Alerta de fraude electromagnético en menos de 5 minutos.",
+    roadmap: [
+      "Fase 1: Ingesta de eventos del sistema AMI (Smart Metering).",
+      "Fase 2: Clasificación por IA de eventos de manipulación de cubierta.",
+      "Fase 3: Scoring inmediato de sospecha de fraude digital.",
+      "Fase 4: Orden de corte digital remoto e inspección de pilar."
+    ]
+  },
+  {
+    id: 22,
+    category: "Activos & Infraestructura",
+    title: "22. Control de Servidumbre y Construcciones Clandestinas bajo Líneas de Baja y Media",
+    target: "Legales & Mantenimiento de Infraestructura",
+    description: "Identificación geoespacial de tinglados, balcones o construcciones peligrosas levantadas debajo de líneas eléctricas sin respetar la distancia de seguridad.",
+    impact: "Prevención de accidentes fatales por electrocución y demandas legales.",
+    roadmap: [
+      "Fase 1: Cruce de capas GIS de líneas con fotos satelitales y Street View.",
+      "Fase 2: Algoritmo de medición de distancia de seguridad electromagnética.",
+      "Fase 3: Notificación legal preventiva al propietario del inmueble.",
+      "Fase 4: Adecuación técnica o colocación de aislamiento en el tramo."
+    ]
+  },
+  {
+    id: 23,
+    category: "Cooperativas & Nuevos Ingresos",
+    title: "23. Auditoría de Postación para Alquiler de Fibra Óptica (Telecom Sharing)",
+    target: "Gerencia de Nuevos Negocios & Cooperativas",
+    description: "Mapeo automatizado de los postes de la cooperativa/distribuidora para inventariar y cobrar canon por tendido de fibra a empresas de internet y cable.",
+    impact: "Creación de una nueva fuente de ingresos recurrentes en USD por alquiler de postes.",
+    roadmap: [
+      "Fase 1: Inventario fotográfico de postes mediante visión de computadora.",
+      "Fase 2: Conteo de cables de terceros no identificados por poste.",
+      "Fase 3: Intimación comercial a empresas de telecomunicaciones de la zona.",
+      "Fase 4: Facturación mensual automatizada de canon de uso de infraestructura."
+    ]
+  },
+  {
+    id: 24,
+    category: "Pérdidas Técnicas & Redes",
+    title: "24. Geolocalización e Identificación Automática de Fases (R, S, T) por Algoritmo",
+    target: "Ingeniería de Redes",
+    description: "Asignación automática de la fase (R, S o T) a la que está conectada cada vivienda sin enviar técnicos al campo ni cortar el suministro.",
+    impact: "Ahorro de miles de horas de trabajo de campo para actualizar el GIS.",
+    roadmap: [
+      "Fase 1: Correlación matemática de micro-variaciones de tensión instantánea.",
+      "Fase 2: Clustering por k-means agrupando medidores por comportamiento de fase.",
+      "Fase 3: Asignación de fase R/S/T en la base de datos del GIS.",
+      "Fase 4: Actualización del gemelo digital de la red de baja tensión."
+    ]
+  },
+  {
+    id: 25,
+    category: "Smart Grid & Futuro",
+    title: "25. Gestión de Baterías Comunitarias (BESS) para Ahorro en Horario Pico",
+    target: "Planificación & Mercado Mayorista",
+    description: "Orquestación de bancos de baterías comunitarios en subestaciones críticas para inyectar energía en el pico estacional y reducir cargos por potencia máxima.",
+    impact: "Reducción drástica del costo de compra de energía en mercado mayorista (CAMMESA).",
+    roadmap: [
+      "Fase 1: Análisis de la curva de demanda pico en la subestación de distribución.",
+      "Fase 2: Dimensionamiento del sistema de baterías BESS.",
+      "Fase 3: Algoritmo de inyección automática durante los 90 minutos de pico.",
+      "Fase 4: Reducción de la potencia máxima facturada a la distribuidora."
+    ]
+  },
+  {
+    id: 26,
+    category: "Alumbrado Público",
+    title: "26. Auditoría Satelital de Luces Encendidas de Día (Fotocélulas Defectuosas)",
+    target: "Alumbrado Público & Municipios",
+    description: "Detección de circuitos de luminarias de calle que quedan encendidas durante el día por fallas en sensores, desperdiciando energía pagada por el municipio.",
+    impact: "Ahorro directo de hasta 12% en el consumo mensual de alumbrado público.",
+    roadmap: [
+      "Fase 1: Monitoreo de curva de carga en tableros de fotocélula de 10:00 a 16:00 hs.",
+      "Fase 2: Alerta de consumo activo en horario de máxima radiación solar.",
+      "Fase 3: Despacho de cuadrilla de recambio de fotocélula por tecnología fotovoltaica.",
+      "Fase 4: Reporte de ahorro de KWh emitido al municipio."
+    ]
+  },
+  {
+    id: 27,
+    category: "Pérdidas No Técnicas & Grandes Usuarios",
+    title: "27. Auditoría de Gran Usuario Industrial / Comercial (Tarifas T2 y T3)",
+    target: "Grandes Clientes & Inspección Especial",
+    description: "Modelado del consumo industrial relacionando volumen de producción de la fábrica con demanda de potencia y energía reactiva para detectar fraudes mayores.",
+    impact: "Recuperación de montos masivos no registrados en pocos clientes clave.",
+    roadmap: [
+      "Fase 1: Integración con telemedición quinqueminutal T2/T3.",
+      "Fase 2: Detección de caídas anómalas de factor de potencia o demanda fuera de turnos.",
+      "Fase 3: Auditoría técnica de transformadores de medida (TI/TV) en celda.",
+      "Fase 4: Ajuste retroactivo de facturación e intimación comercial."
+    ]
+  },
+  {
+    id: 28,
+    category: "Pérdidas Técnicas & Redes",
+    title: "28. Gemelo Digital de Baja Tensión (Digital Twin) para Simulación de Maniobras",
+    target: "Centro de Control & Distribución",
+    description: "Reconstrucción virtual en tiempo real del estado de la red de baja tensión para simular el impacto de tormentas, sobrecargas o transferencias de alimentación.",
+    impact: "Disminución del tiempo de reposición de servicio (MTTR) en 50%.",
+    roadmap: [
+      "Fase 1: Importación de la topología del GIS y datos de clientes.",
+      "Fase 2: Asignación de curvas de carga típicas por usuario y estación.",
+      "Fase 3: Motor de cálculo de flujo de potencia en tiempo real.",
+      "Fase 4: Simulación interactiva de maniobras de reconexión."
+    ]
+  },
+  {
+    id: 29,
+    category: "Calidad de Red & Eficiencia",
+    title: "29. Corrección Automática de Factor de Potencia (Cos φ) en Comercios e Industrias",
+    target: "Calidad de Servicio & Comercial",
+    description: "Identificación e incentivos para que clientes comerciales instalen bancos de capacitores, eliminando energía reactiva y liberando capacidad en la línea de baja.",
+    impact: "Liberación de capacidad de transporte de hasta 15% en alimentadores saturados.",
+    roadmap: [
+      "Fase 1: Detección de medidores con recargos sistemáticos por energía reactiva.",
+      "Fase 2: Generación automática de propuesta de financiamiento de banco de capacitores.",
+      "Fase 3: Descuento en factura durante 12 meses por corrección del Cos φ > 0.95.",
+      "Fase 4: Reducción de temperatura y sobrecarga en la red de baja."
+    ]
+  },
+  {
+    id: 30,
+    category: "Sustentabilidad & Finanzas",
+    title: "30. Certificación de Reducción de Carbono y Venta de Créditos para Cooperativas",
+    target: "Finanzas & Sustentabilidad Corporativa",
+    description: "Certificación de las toneladas de CO2 evitadas al reducir pérdidas técnicas e incorporar energía limpia para comercializar créditos de carbono internacionalmente.",
+    impact: "Obtención de fondos internacionales para financiar nuevas obras de red.",
+    roadmap: [
+      "Fase 1: Medición de kWh recuperados por reducción de pérdidas técnicas.",
+      "Fase 2: Cálculo del factor de emisión evitado (tCO2e/MWh).",
+      "Fase 3: Registro del proyecto ante estándares internacionales (Verra / Gold Standard).",
+      "Fase 4: Venta de créditos de carbono para reinvertir en la cooperativa."
     ]
   }
 ];
