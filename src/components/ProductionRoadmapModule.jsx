@@ -1,245 +1,177 @@
-import React, { useState } from 'react';
-import { Rocket, CheckCircle2, Circle, ArrowRight, ShieldCheck, Key, Database, Smartphone, HardDrive, FileText, Lock, ChevronRight, Zap } from 'lucide-react';
+import React from 'react';
+import { Rocket, ShieldCheck, Key, Database, Smartphone, HardDrive, FileText, Zap, UserCheck, CheckCircle2, AlertTriangle, ArrowRight } from 'lucide-react';
 
 export default function ProductionRoadmapModule() {
-  const [completedSteps, setCompletedSteps] = useState([1]); // Step 1 prototype done
-
-  const toggleStep = (stepId) => {
-    if (completedSteps.includes(stepId)) {
-      setCompletedSteps(completedSteps.filter(s => s !== stepId));
-    } else {
-      setCompletedSteps([...completedSteps, stepId]);
-    }
-  };
-
-  const steps = [
-    {
-      id: 1,
-      title: "1. Prototipo & Motor de Lógica Regulada (COMPLETADO)",
-      timeframe: "Finalizado",
-      category: "Frontend & Lógica",
-      status: "DONE",
-      icon: ShieldCheck,
-      description: "Plataforma web interactiva en vivo, motor de cálculo Res. EPRE N° 129/18, inputs en rojo, módulo de requisitos y sistema de comentarios compartidos entre Diego y Alejandro.",
-      actions: [
-        "Lógica matemática ECNR (48 meses retroactivos) funcionando.",
-        "Sistema de autenticación y comentarios compartidos Diego & Alejandro.",
-        "Simulador de carga de fotos de campo e interfaz móvil PWA.",
-        "Desplegado en producción en Firebase Hosting."
-      ],
-      requirementsNeeded: "Ninguno adicional (ya desplegado)."
-    },
-    {
-      id: 2,
-      title: "2. Habilitación de API Keys de Nube (Google Cloud Platform)",
-      timeframe: "1 a 2 Días",
-      category: "APIs & Servicios",
-      status: "PENDING",
-      icon: Key,
-      description: "Conexión directa con la API oficial de Google Street View para descargar automáticamente la foto de fachada de cualquier coordenada de Mendoza.",
-      actions: [
-        "Crear / Activar proyecto en Google Cloud Console.",
-        "Habilitar 'Google Street View Static API' y 'Maps JavaScript API'.",
-        "Configurar restricciones de dominio para monitoreo-activos-bromteck.web.app.",
-        "Reemplazar la variable VITE_GCP_API_KEY en el archivo .env."
-      ],
-      requirementsNeeded: "Cuenta en Google Cloud Platform + Crédito API ($200 USD/mes gratis de Google)."
-    },
-    {
-      id: 3,
-      title: "3. Integración con ERP / SAP Comercial de EDEMSA",
-      timeframe: "3 a 5 Días",
-      category: "Backend & Base de Datos",
-      status: "PENDING",
-      icon: Database,
-      description: "Conexión con la base de datos de EDEMSA para que la barra de búsqueda consulte los 450,000 usuarios reales de Mendoza en lugar del padrón demo.",
-      actions: [
-        "Solicitar al área de TI de EDEMSA un endpoint REST / GraphQL o vista SQL de lectura a la tabla de suministros.",
-        "Mapear los campos: Numero_Suministro, Titular, Coordenadas_GIS, Tarifa_Contratada, Historico_Mora.",
-        "Crear conector seguro HTTPS con token Bearer / OAuth2.",
-        "Reemplazar la lista demo por consultas dinámicas a la base de datos."
-      ],
-      requirementsNeeded: "Credenciales de lectura de la base de datos de EDEMSA / SAP ERP."
-    },
-    {
-      id: 4,
-      title: "4. Despliegue de App Móvil PWA en Teléfonos de Cuadrillas",
-      timeframe: "3 a 4 Días",
-      category: "Operaciones de Campo",
-      status: "PENDING",
-      icon: Smartphone,
-      description: "Habilitación de la App Móvil en los smartphones de los linieros (Camilo y Enrique) para captura de fotos de pilares en la casa del cliente.",
-      actions: [
-        "Configurar Service Worker para almacenamiento local offline ( IndexedDB / SQLite ).",
-        "Alta de usuarios de campo (ej: camilo_inspecciones, enrique_inspecciones) en Firebase Auth.",
-        "Probar la captura de foto nativa con timestamp UTC y coordenadas GPS indelebles.",
-        "Instalar acceso directo PWA en las tablets/celulares de cuadrillas."
-      ],
-      requirementsNeeded: "Smartphones Android/iOS con GPS y cámara para los linieros."
-    },
-    {
-      id: 5,
-      title: "5. Emparejamiento de Hardware TDR & Pinzas Bluetooth",
-      timeframe: "5 a 7 Días",
-      category: "Hardware Antifraude",
-      status: "PENDING",
-      icon: HardDrive,
-      description: "Integración con el equipamiento físico de reflectometría TDR y pinzas amperométricas para detección de puentes clandestinos detras de la pared.",
-      actions: [
-        "Adquirir 2 unidades de Reflectómetro TDR de campo (ej. Megger TDR500/3 o Sonel TDR-420).",
-        "Adquirir pinzas amperométricas Bluetooth (Fluke 376 FC).",
-        "Integrar la librería de comunicación Bluetooth Low Energy (BLE) en la app móvil.",
-        "Capacitar a las cuadrillas en la toma de pulsos de reflectometría en pilares ET-201."
-      ],
-      requirementsNeeded: "Hardware TDR portátil + Pinza Amperométrica Bluetooth."
-    },
-    {
-      id: 6,
-      title: "6. Motor de Generación de PDF de Actas ECNR (Res. EPRE 129/18)",
-      timeframe: "2 a 3 Días",
-      category: "Legales & Facturación",
-      status: "PENDING",
-      icon: FileText,
-      description: "Emisión automática del expediente legal de cobro retroactivo con marca de agua GPS e importe en ARS/USD listo para refacturar.",
-      actions: [
-        "Desplegar Cloud Function en Firebase con Puppeteer / PDFKit.",
-        "Diseñar plantilla PDF oficial homologada con los logos de EDEMSA y EPRE.",
-        "Incrustar fotos del pilar con sello digital indeleble de fecha, hora y coordenadas.",
-        "Habilitar botón de envío automático por correo/factura al departamento comercial."
-      ],
-      requirementsNeeded: "Plantilla PDF aprobada por el Departamento Comercial de EDEMSA."
-    }
-  ];
-
-  const progressPercent = Math.round((completedSteps.length / steps.length) * 100);
-
   return (
     <div style={{ display: 'flex', flexDirection: 'column', gap: '28px' }}>
       
       {/* Header Banner */}
       <div className="glass-panel" style={{
         padding: '32px',
-        background: 'linear-gradient(135deg, rgba(15, 23, 42, 0.95) 0%, rgba(16, 185, 129, 0.2) 100%)',
-        border: '1px solid rgba(16, 185, 129, 0.3)',
-        position: 'relative',
-        overflow: 'hidden'
+        background: 'linear-gradient(135deg, rgba(15, 23, 42, 0.95) 0%, rgba(16, 185, 129, 0.18) 100%)',
+        border: '1px solid rgba(16, 185, 129, 0.35)',
+        position: 'relative'
       }}>
-        <div style={{ position: 'relative', zIndex: 2 }}>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '12px' }}>
-            <span className="glass-pill badge-success">
-              <Rocket size={14} />
-              Plan de Puesta en Producción
-            </span>
-            <span style={{ fontSize: '0.85rem', color: 'var(--text-muted)' }}>
-              EDEMSA Operations Roadmap
-            </span>
+        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '16px' }}>
+          <div>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '8px' }}>
+              <span className="glass-pill badge-success">
+                <Rocket size={14} />
+                Informe Ejecutivo de Despliegue Real
+              </span>
+              <span style={{ fontSize: '0.85rem', color: 'var(--text-muted)' }}>
+                Dirección de Producto (Diego Musach) & Arquitectura (Alejandro Cubino)
+              </span>
+            </div>
+
+            <h2 style={{ fontSize: '2.2rem', marginBottom: '10px' }} className="gradient-text">
+              Plan de Producción Real & Conexión EDEMSA
+            </h2>
+            <p style={{ color: '#e2e8f0', fontSize: '1rem', lineHeight: '1.6', maxWidth: '880px' }}>
+              Documento ejecutivo que detalla el estado actual de la plataforma, los <strong>requerimientos reales</strong> y la hoja de ruta técnica para conectar la solución a los 450,000 clientes de la red de EDEMSA en Mendoza.
+            </p>
           </div>
 
-          <h2 style={{ fontSize: '2.2rem', marginBottom: '10px' }} className="gradient-text">
-            Pasos a Seguir para que BP Bromteck sea 100% Real
-          </h2>
-          <p style={{ color: '#e2e8f0', fontSize: '1.05rem', lineHeight: '1.6', maxWidth: '900px', marginBottom: '24px' }}>
-            Guía práctica paso a paso para pasar del prototipo web funcional a la integración completa con los sistemas de datos, hardware de campo y 450,000 clientes reales de EDEMSA en Mendoza.
-          </p>
-
-          {/* Progress Bar */}
-          <div style={{ maxWidth: '600px', background: 'rgba(15,23,42,0.8)', padding: '16px', borderRadius: '12px', border: '1px solid rgba(255,255,255,0.1)' }}>
-            <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.85rem', color: '#fff', marginBottom: '8px', fontWeight: 600 }}>
-              <span>Avance de Implementación Real</span>
-              <span style={{ color: '#10b981' }}>{progressPercent}% Completado</span>
-            </div>
-            <div style={{ width: '100%', height: '10px', background: 'rgba(255,255,255,0.1)', borderRadius: '5px', overflow: 'hidden' }}>
-              <div style={{ width: `${progressPercent}%`, height: '100%', background: 'linear-gradient(90deg, #00f2fe 0%, #10b981 100%)', transition: 'width 0.4s ease' }}></div>
+          <div className="glass-panel" style={{ padding: '16px 20px', background: 'rgba(16, 185, 129, 0.08)', borderColor: 'rgba(16, 185, 129, 0.3)' }}>
+            <div style={{ fontSize: '0.75rem', color: '#6ee7b7', textTransform: 'uppercase', letterSpacing: '0.05em' }}>Estado del Sistema</div>
+            <div style={{ fontSize: '1.2rem', fontWeight: 800, color: '#10b981', marginTop: '2px', display: 'flex', alignItems: 'center', gap: '6px' }}>
+              <CheckCircle2 size={18} />
+              <span>Fase 1 Demo Lista</span>
             </div>
           </div>
         </div>
       </div>
 
-      {/* Steps Grid */}
-      <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
-        <h3 style={{ fontSize: '1.2rem', color: '#fff', display: 'flex', alignItems: 'center', gap: '8px' }}>
-          <Zap color="#10b981" size={20} />
-          <span>Desglose de los 6 Pasos Operativos:</span>
+      {/* SECTION 1: LO QUE YA ESTÁ CONSTRUIDO (ESTADO REAL EN CÓDIGO) */}
+      <div className="glass-panel" style={{ padding: '28px', border: '1px solid rgba(0, 242, 254, 0.3)', background: 'rgba(0, 242, 254, 0.03)' }}>
+        <h3 style={{ fontSize: '1.3rem', color: '#00f2fe', marginBottom: '14px', display: 'flex', alignItems: 'center', gap: '10px' }}>
+          <ShieldCheck size={22} color="#00f2fe" />
+          <span>1. Estado Real del Código: Lo que YA está Construido y Funcionando</span>
+        </h3>
+        <p style={{ fontSize: '0.95rem', color: '#e2e8f0', lineHeight: '1.6', marginBottom: '18px' }}>
+          La base de software actual no es un prototipo estático; contiene los motores de cálculo regulatorio, el almacenamiento de notas compartidas entre usuarios y la simulación interactiva de campo:
+        </p>
+
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '14px' }}>
+          <div style={{ padding: '16px', background: 'rgba(15,23,42,0.8)', borderRadius: '10px', border: '1px solid rgba(255,255,255,0.08)' }}>
+            <div style={{ fontSize: '0.85rem', color: '#00f2fe', fontWeight: 700, marginBottom: '6px' }}>
+              • Motor de Cálculo Res. EPRE N° 129/18
+            </div>
+            <div style={{ fontSize: '0.88rem', color: '#94a3b8', lineHeight: '1.5' }}>
+              Fórmula de Energía Consumida No Registrada (ECNR) a 48 meses retroactivos con recargo del 50% al 100% por reincidencia.
+            </div>
+          </div>
+
+          <div style={{ padding: '16px', background: 'rgba(15,23,42,0.8)', borderRadius: '10px', border: '1px solid rgba(255,255,255,0.08)' }}>
+            <div style={{ fontSize: '0.85rem', color: '#8b5cf6', fontWeight: 700, marginBottom: '6px' }}>
+              • Registro Colaborativo Diego & Alejandro
+            </div>
+            <div style={{ fontSize: '0.88rem', color: '#94a3b8', lineHeight: '1.5' }}>
+              Sistema de notas guardadas con firma de usuario (`dmusach` / `alejandro`) y timestamp indeleble para cada proyecto.
+            </div>
+          </div>
+
+          <div style={{ padding: '16px', background: 'rgba(15,23,42,0.8)', borderRadius: '10px', border: '1px solid rgba(255,255,255,0.08)' }}>
+            <div style={{ fontSize: '0.85rem', color: '#10b981', fontWeight: 700, marginBottom: '6px' }}>
+              • Generador PDF & Captura de Fotos
+            </div>
+            <div style={{ fontSize: '0.88rem', color: '#94a3b8', lineHeight: '1.5' }}>
+              Emisión instantánea de Acta ECNR imprimible y simulador de carga de fotos tomadas por la cámara del celular.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* SECTION 2: HOJA DE RUTA HUMANA DE PRODUCCIÓN REAL (SIN CHECKBOXES FALSOS) */}
+      <div className="glass-panel" style={{ padding: '28px' }}>
+        <h3 style={{ fontSize: '1.3rem', color: '#fff', marginBottom: '18px', display: 'flex', alignItems: 'center', gap: '10px' }}>
+          <Zap size={22} color="#f59e0b" />
+          <span>2. Hoja de Ruta Ejecutiva: Los 5 Pasos Reales para Conectar EDEMSA</span>
         </h3>
 
-        {steps.map((step) => {
-          const isDone = completedSteps.includes(step.id);
-          const StepIcon = step.icon;
-
-          return (
-            <div
-              key={step.id}
-              className="glass-panel"
-              style={{
-                padding: '24px',
-                border: isDone ? '1px solid rgba(16, 185, 129, 0.4)' : '1px solid rgba(255, 255, 255, 0.1)',
-                background: isDone ? 'rgba(16, 185, 129, 0.04)' : 'rgba(15, 23, 42, 0.7)',
-                transition: 'all 0.3s ease'
-              }}
-            >
-              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', flexWrap: 'wrap', gap: '16px', marginBottom: '16px' }}>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '14px' }}>
-                  <button
-                    onClick={() => toggleStep(step.id)}
-                    style={{ background: 'none', border: 'none', cursor: 'pointer', padding: 0 }}
-                  >
-                    {isDone ? (
-                      <CheckCircle2 size={28} color="#10b981" />
-                    ) : (
-                      <Circle size={28} color="var(--text-muted)" />
-                    )}
-                  </button>
-
-                  <div>
-                    <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-                      <h4 style={{ fontSize: '1.15rem', color: '#fff', fontWeight: 700 }}>
-                        {step.title}
-                      </h4>
-                      <span className={`glass-pill ${isDone ? 'badge-success' : 'badge-info'}`} style={{ fontSize: '0.7rem' }}>
-                        {step.category}
-                      </span>
-                    </div>
-                    <p style={{ fontSize: '0.9rem', color: 'var(--text-muted)', marginTop: '4px' }}>
-                      {step.description}
-                    </p>
-                  </div>
-                </div>
-
-                <div style={{ textAlign: 'right' }}>
-                  <span className="glass-pill badge-warning" style={{ fontSize: '0.75rem' }}>
-                    ⏱️ {step.timeframe}
-                  </span>
-                </div>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '18px' }}>
+          
+          {/* Step 1 */}
+          <div className="glass-panel" style={{ padding: '20px', background: 'rgba(15, 23, 42, 0.6)', borderLeft: '4px solid #00f2fe' }}>
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '8px' }}>
+              <div style={{ fontSize: '1rem', fontWeight: 700, color: '#fff' }}>
+                Paso 1: Activación de la API Key Corporativa de Google Cloud (Street View)
               </div>
-
-              {/* Action Details */}
-              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '16px', marginTop: '16px', paddingTop: '16px', borderTop: '1px solid rgba(255, 255, 255, 0.08)' }}>
-                <div>
-                  <h5 style={{ fontSize: '0.82rem', color: '#00f2fe', textTransform: 'uppercase', letterSpacing: '0.05em', marginBottom: '8px' }}>
-                    Acciones Concretas a Ejecutar:
-                  </h5>
-                  <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '6px' }}>
-                    {step.actions.map((act, idx) => (
-                      <li key={idx} style={{ fontSize: '0.85rem', color: '#e2e8f0', display: 'flex', alignItems: 'flex-start', gap: '8px' }}>
-                        <ArrowRight size={14} color="#00f2fe" style={{ flexShrink: 0, marginTop: '2px' }} />
-                        <span>{act}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-
-                <div className="glass-panel" style={{ padding: '14px', background: 'rgba(239, 68, 68, 0.06)', border: '1px solid rgba(239, 68, 68, 0.2)' }}>
-                  <h5 style={{ fontSize: '0.82rem', color: '#ef4444', textTransform: 'uppercase', letterSpacing: '0.05em', marginBottom: '6px', fontWeight: 700 }}>
-                    🔴 Requisito / Credencial Necesaria:
-                  </h5>
-                  <p style={{ fontSize: '0.88rem', color: '#fca5a5', lineHeight: '1.4', fontWeight: 600 }}>
-                    {step.requirementsNeeded}
-                  </p>
-                </div>
-              </div>
+              <span className="glass-pill badge-info">Estimado: 1 a 2 días</span>
             </div>
-          );
-        })}
+            <p style={{ fontSize: '0.9rem', color: '#cbd5e1', lineHeight: '1.5', marginBottom: '12px' }}>
+              Habilitar en Google Cloud Console las APIs <code>Street View Static API</code> y <code>Maps JavaScript API</code> para que al ingresar cualquier número de cuenta de EDEMSA, la plataforma descargue automáticamente el frente actualizado de la casa en Mendoza.
+            </p>
+            <div style={{ fontSize: '0.82rem', color: '#ef4444', fontWeight: 700 }}>
+              🔴 REQUISITO: Dar de alta API Key en GCP ($200 USD/mes gratis de crédito de Google).
+            </div>
+          </div>
+
+          {/* Step 2 */}
+          <div className="glass-panel" style={{ padding: '20px', background: 'rgba(15, 23, 42, 0.6)', borderLeft: '4px solid #3b82f6' }}>
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '8px' }}>
+              <div style={{ fontSize: '1rem', fontWeight: 700, color: '#fff' }}>
+                Paso 2: Conexión con la Base de Datos Comercial SAP / Oracle de EDEMSA
+              </div>
+              <span className="glass-pill badge-info">Estimado: 3 a 5 días</span>
+            </div>
+            <p style={{ fontSize: '0.9rem', color: '#cbd5e1', lineHeight: '1.5', marginBottom: '12px' }}>
+              Solicitar al área de sistemas de EDEMSA un conector REST o vista de lectura a la tabla <code>suministros_bt</code> para consultar datos reales: número de cuenta, titular, coordenadas GIS y meses de impago.
+            </p>
+            <div style={{ fontSize: '0.82rem', color: '#ef4444', fontWeight: 700 }}>
+              🔴 REQUISITO: Credencial de lectura HTTPS a la base de datos de EDEMSA.
+            </div>
+          </div>
+
+          {/* Step 3 */}
+          <div className="glass-panel" style={{ padding: '20px', background: 'rgba(15, 23, 42, 0.6)', borderLeft: '4px solid #8b5cf6' }}>
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '8px' }}>
+              <div style={{ fontSize: '1rem', fontWeight: 700, color: '#fff' }}>
+                Paso 3: Despliegue de la App Móvil PWA en Teléfonos de Cuadrillas
+              </div>
+              <span className="glass-pill badge-info">Estimado: 3 a 4 días</span>
+            </div>
+            <p style={{ fontSize: '0.9rem', color: '#cbd5e1', lineHeight: '1.5', marginBottom: '12px' }}>
+              Instalar la PWA en las tablets de campo de los linieros (Camilo y Enrique). Permite sacar fotos directamente del pilar con sello indeleble de marca de agua con coordenadas GPS y hora UTC, funcionando incluso sin señal 4G.
+            </p>
+            <div style={{ fontSize: '0.82rem', color: '#ef4444', fontWeight: 700 }}>
+              🔴 REQUISITO: Dispositivos Android/iOS con GPS y cámara para los linieros.
+            </div>
+          </div>
+
+          {/* Step 4 */}
+          <div className="glass-panel" style={{ padding: '20px', background: 'rgba(15, 23, 42, 0.6)', borderLeft: '4px solid #f59e0b' }}>
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '8px' }}>
+              <div style={{ fontSize: '1rem', fontWeight: 700, color: '#fff' }}>
+                Paso 4: Adquisición & Emparejamiento de Hardware TDR & Pinzas Bluetooth
+              </div>
+              <span className="glass-pill badge-info">Estimado: 5 a 7 días</span>
+            </div>
+            <p style={{ fontSize: '0.9rem', color: '#cbd5e1', lineHeight: '1.5', marginBottom: '12px' }}>
+              Adquirir 2 unidades de reflectómetro TDR (Megger TDR500 o Sonel TDR-420) y pinzas amperométricas Fluke 376 FC. La app se conecta por Bluetooth y detecta puentes clandestinos empotrados detras del pilar sin romper la pared.
+            </p>
+            <div style={{ fontSize: '0.82rem', color: '#ef4444', fontWeight: 700 }}>
+              🔴 REQUISITO: Compra de 2 reflectómetros TDR + pinza Bluetooth.
+            </div>
+          </div>
+
+          {/* Step 5 */}
+          <div className="glass-panel" style={{ padding: '20px', background: 'rgba(15, 23, 42, 0.6)', borderLeft: '4px solid #10b981' }}>
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '8px' }}>
+              <div style={{ fontSize: '1rem', fontWeight: 700, color: '#fff' }}>
+                Paso 5: Automatización de Expedientes PDF & Facturación Comercial
+              </div>
+              <span className="glass-pill badge-info">Estimado: 2 a 3 días</span>
+            </div>
+            <p style={{ fontSize: '0.9rem', color: '#cbd5e1', lineHeight: '1.5', marginBottom: '12px' }}>
+              Configurar el generador de PDF con la plantilla oficial de EDEMSA y EPRE Mendoza para emitir la notificación legal de deuda ECNR lista para ser cobrada en la boleta de luz.
+            </p>
+            <div style={{ fontSize: '0.82rem', color: '#ef4444', fontWeight: 700 }}>
+              🔴 REQUISITO: Visto bueno del departamento comercial de EDEMSA sobre la plantilla PDF.
+            </div>
+          </div>
+
+        </div>
       </div>
     </div>
   );

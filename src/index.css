@@ -54,6 +54,22 @@ body {
   background-attachment: fixed;
 }
 
+/* Tab & View Fade-in Animation */
+@keyframes fadeInView {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+main > div {
+  animation: fadeInView 0.35s cubic-bezier(0.4, 0, 0.2, 1) ease-out;
+}
+
 /* Custom Scrollbar */
 ::-webkit-scrollbar {
   width: 8px;
@@ -118,6 +134,7 @@ h1, h2, h3, h4, h5, h6 {
   display: inline-flex;
   align-items: center;
   gap: 6px;
+  transition: var(--transition-fast);
 }
 
 /* Status Badges */
