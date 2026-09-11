@@ -1,14 +1,45 @@
 import React from 'react';
 import { BLACK_PUMA_BENCHMARK } from '../data/mockData';
-import { ExternalLink, CheckCircle2, Zap, ArrowRight, ShieldCheck, Sparkles, TrendingUp } from 'lucide-react';
+import { ExternalLink, CheckCircle2, Zap, ArrowRight, ShieldCheck, Sparkles, TrendingUp, HelpCircle, Layers, Cpu, Wrench } from 'lucide-react';
 
 export default function BlackPumaComparison({ onNavigate }) {
   return (
     <div style={{ display: 'flex', flexDirection: 'column', gap: '28px' }}>
+      
+      {/* Guía de Ubicación de Sugerencias Box */}
+      <div className="glass-panel" style={{
+        padding: '20px 24px',
+        background: 'rgba(0, 242, 254, 0.06)',
+        border: '1px solid rgba(0, 242, 254, 0.3)',
+        borderRadius: '14px'
+      }}>
+        <h4 style={{ fontSize: '1rem', color: '#00f2fe', marginBottom: '10px', display: 'flex', alignItems: 'center', gap: '8px' }}>
+          <HelpCircle size={18} />
+          <span>📍 Ubicación de las Sugerencias y Soluciones en el Dashboard</span>
+        </h4>
+        <p style={{ fontSize: '0.88rem', color: 'var(--text-muted)', marginBottom: '12px', lineHeight: '1.5' }}>
+          Puedes encontrar todas las sugerencias operativas organizadas en la barra de navegación superior:
+        </p>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: '10px' }}>
+          <div onClick={() => onNavigate('engineering')} style={{ cursor: 'pointer', padding: '10px 14px', background: 'rgba(15,23,42,0.6)', borderRadius: '8px', border: '1px solid rgba(255,255,255,0.08)' }}>
+            <strong style={{ color: '#00f2fe', fontSize: '0.85rem' }}>1. Soluciones Concretas EPRE & Redes:</strong>
+            <div style={{ fontSize: '0.78rem', color: 'var(--text-subtle)', marginTop: '2px' }}>10 proyectos técnicos con formulas ECNR, ET-201 y cables Al 3x95/50.</div>
+          </div>
+          <div onClick={() => onNavigate('low-voltage')} style={{ cursor: 'pointer', padding: '10px 14px', background: 'rgba(15,23,42,0.6)', borderRadius: '8px', border: '1px solid rgba(255,255,255,0.08)' }}>
+            <strong style={{ color: '#6ee7b7', fontSize: '0.85rem' }}>2. Baja Tensión & Hurto IA:</strong>
+            <div style={{ fontSize: '0.78rem', color: 'var(--text-subtle)', marginTop: '2px' }}>Sugerencias por suministro/casa con fotos de fachada en Street View.</div>
+          </div>
+          <div onClick={() => onNavigate('rag')} style={{ cursor: 'pointer', padding: '10px 14px', background: 'rgba(15,23,42,0.6)', borderRadius: '8px', border: '1px solid rgba(255,255,255,0.08)' }}>
+            <strong style={{ color: '#c4b5fd', fontSize: '0.85rem' }}>3. RAG Pérdidas Técnicas:</strong>
+            <div style={{ fontSize: '0.78rem', color: 'var(--text-subtle)', marginTop: '2px' }}>Asistente IA que responde "Qué cambia, Dónde y Cómo".</div>
+          </div>
+        </div>
+      </div>
+
       {/* Header Banner */}
       <div className="glass-panel" style={{
         padding: '32px',
-        background: 'linear-gradient(135deg, rgba(15, 23, 42, 0.9) 0%, rgba(30, 58, 138, 0.4) 100%)',
+        background: 'linear-gradient(135deg, rgba(15, 23, 42, 0.95) 0%, rgba(30, 58, 138, 0.4) 100%)',
         border: '1px solid rgba(0, 242, 254, 0.3)',
         position: 'relative',
         overflow: 'hidden'
@@ -28,48 +59,87 @@ export default function BlackPumaComparison({ onNavigate }) {
             Ingeniería Inversa: BP vs. BP Bromteck
           </h2>
           <p style={{ color: 'var(--text-muted)', fontSize: '1.05rem', lineHeight: '1.6', marginBottom: '24px' }}>
-            Analizamos la propuesta actual de <strong>BP</strong> (<a href="https://theblackpuma.com/" target="_blank" rel="noreferrer" style={{ color: '#00f2fe', textDecoration: 'none' }}>theblackpuma.com <ExternalLink size={12} /></a>) desarrollada para <strong>EDEMSA</strong> (Baja Tensión) y establecemos el mapa de desarrollo para igualar y superar sus capacidades operativas.
+            Analizamos minuciosamente cómo opera <strong>BP (Black Puma)</strong> hoy con <strong>EDEMSA</strong> en la red de Baja Tensión y cómo la plataforma <strong>BP Bromteck</strong> iguala y supera sus capacidades operativas.
           </p>
 
           <div style={{ display: 'flex', flexWrap: 'wrap', gap: '16px' }}>
-            <button onClick={() => onNavigate('low-voltage')} className="btn-primary">
-              <span>Explorar Baja Tensión & Hurto IA</span>
+            <button onClick={() => onNavigate('engineering')} className="btn-primary">
+              <span>Ver Soluciones Concretas EPRE</span>
               <ArrowRight size={18} />
             </button>
-            <button onClick={() => onNavigate('rag')} className="btn-secondary">
-              <span>Probar RAG de Pérdidas Técnicas</span>
+            <button onClick={() => onNavigate('low-voltage')} className="btn-secondary">
+              <span>Explorar Hurto por IA Visual</span>
             </button>
           </div>
         </div>
       </div>
 
-      {/* Benchmark Summary KPI Cards */}
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '20px' }}>
-        <div className="glass-panel" style={{ padding: '20px' }}>
-          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '12px' }}>
-            <span style={{ color: 'var(--text-muted)', fontSize: '0.85rem' }}>Cliente Objetivo</span>
-            <Zap size={20} color="#00f2fe" />
+      {/* DETAILED PANEL: ¿Cómo lo hace BP (Black Puma) hoy en EDEMSA? */}
+      <div className="glass-panel" style={{ padding: '28px', border: '1px solid rgba(245, 158, 11, 0.3)', background: 'rgba(245, 158, 11, 0.02)' }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '16px' }}>
+          <div style={{ padding: '10px', borderRadius: '10px', background: 'rgba(245, 158, 11, 0.15)', border: '1px solid rgba(245, 158, 11, 0.3)' }}>
+            <Cpu size={24} color="#f59e0b" />
           </div>
-          <h3 style={{ fontSize: '1.4rem', color: '#fff', marginBottom: '4px' }}>EDEMSA Mendoza</h3>
-          <p style={{ color: 'var(--text-muted)', fontSize: '0.85rem' }}>Empresa Distribuidora de Electricidad</p>
+          <div>
+            <h3 style={{ fontSize: '1.4rem', color: '#fde047' }}>
+              ¿Cómo lo hace BP (Black Puma) hoy en EDEMSA?
+            </h3>
+            <p style={{ fontSize: '0.85rem', color: 'var(--text-muted)' }}>
+              Desglose paso a paso del flujo de trabajo operativo actual de la competencia
+            </p>
+          </div>
         </div>
 
-        <div className="glass-panel" style={{ padding: '20px' }}>
-          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '12px' }}>
-            <span style={{ color: 'var(--text-muted)', fontSize: '0.85rem' }}>Foco de Intervención</span>
-            <ShieldCheck size={20} color="#10b981" />
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: '16px', marginBottom: '24px' }}>
+          <div className="glass-panel" style={{ padding: '16px', background: 'rgba(15,23,42,0.8)' }}>
+            <div style={{ fontSize: '0.8rem', color: '#f59e0b', fontWeight: 700, marginBottom: '4px' }}>Paso 1: Extracción de Mora</div>
+            <p style={{ fontSize: '0.85rem', color: '#e2e8f0', lineHeight: '1.5' }}>
+              Extrae el padrón de clientes en Baja Tensión de EDEMSA y filtra los suministros con histórico de impago y morosidad acumulada.
+            </p>
           </div>
-          <h3 style={{ fontSize: '1.4rem', color: '#6ee7b7', marginBottom: '4px' }}>Micro-Nivel Baja Tensión</h3>
-          <p style={{ color: 'var(--text-muted)', fontSize: '0.85rem' }}>Acción centrada en LA CASA / pilar de medición</p>
+
+          <div className="glass-panel" style={{ padding: '16px', background: 'rgba(15,23,42,0.8)' }}>
+            <div style={{ fontSize: '0.8rem', color: '#f59e0b', fontWeight: 700, marginBottom: '4px' }}>Paso 2: Geolocalización en Maps</div>
+            <p style={{ fontSize: '0.85rem', color: '#e2e8f0', lineHeight: '1.5' }}>
+              Ubica los suministros morosos en Google Maps e identifica de forma básica si la zona es comercial, industrial o residencial.
+            </p>
+          </div>
+
+          <div className="glass-panel" style={{ padding: '16px', background: 'rgba(15,23,42,0.8)' }}>
+            <div style={{ fontSize: '0.8rem', color: '#f59e0b', fontWeight: 700, marginBottom: '4px' }}>Paso 3: Análisis de Estructura</div>
+            <p style={{ fontSize: '0.85rem', color: '#e2e8f0', lineHeight: '1.5' }}>
+              Conecta la falta de pago con los cambios estructurales de la zona para determinar si el cliente tiene riesgo de corte.
+            </p>
+          </div>
+
+          <div className="glass-panel" style={{ padding: '16px', background: 'rgba(15,23,42,0.8)' }}>
+            <div style={{ fontSize: '0.8rem', color: '#f59e0b', fontWeight: 700, marginBottom: '4px' }}>Paso 4: Conclusión de Acción</div>
+            <p style={{ fontSize: '0.85rem', color: '#e2e8f0', lineHeight: '1.5' }}>
+              Le indica a EDEMSA por qué tendría que accionar y sugiere el recambio de medidores o la suspensión del servicio.
+            </p>
+          </div>
         </div>
 
-        <div className="glass-panel" style={{ padding: '20px' }}>
-          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '12px' }}>
-            <span style={{ color: 'var(--text-muted)', fontSize: '0.85rem' }}>Índice de Ventaja Competitiva</span>
-            <TrendingUp size={20} color="#8b5cf6" />
-          </div>
-          <h3 style={{ fontSize: '1.4rem' }} className="gradient-text">9.7 / 10</h3>
-          <p style={{ color: 'var(--text-muted)', fontSize: '0.85rem' }}>Supera a BP por IA Visual y RAG</p>
+        {/* COMPARACIÓN: Cómo lo Supera BP Bromteck */}
+        <div style={{ background: 'rgba(0, 242, 254, 0.05)', padding: '20px', borderRadius: '12px', border: '1px solid rgba(0, 242, 254, 0.25)' }}>
+          <h4 style={{ fontSize: '1.05rem', color: '#00f2fe', marginBottom: '10px', display: 'flex', alignItems: 'center', gap: '8px' }}>
+            <ShieldCheck size={18} />
+            <span>¿Cómo lo Superamos en BP Bromteck? (El Valor Agregado)</span>
+          </h4>
+          <ul style={{ fontSize: '0.9rem', color: '#e2e8f0', lineHeight: '1.6', listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '8px' }}>
+            <li style={{ display: 'flex', alignItems: 'flex-start', gap: '8px' }}>
+              <span style={{ color: '#00f2fe', fontWeight: 700 }}>1.</span>
+              <span><strong>IA Visual de Fachadas en Street View</strong>: No solo mapeamos la zona en Google Maps; cuestionamos a la IA comparando fotos del frente de la casa para detectar persianas comerciales no declaradas o caños de acometida desviados antes del pilar (ET-201).</span>
+            </li>
+            <li style={{ display: 'flex', alignItems: 'flex-start', gap: '8px' }}>
+              <span style={{ color: '#00f2fe', fontWeight: 700 }}>2.</span>
+              <span><strong>Liquidación Retroactiva ECNR (Res. EPRE Mendoza N° 129/18)</strong>: Calculamos automáticamente la energía consumida no registrada y la multa retroactiva lista para cobro comercial.</span>
+            </li>
+            <li style={{ display: 'flex', alignItems: 'flex-start', gap: '8px' }}>
+              <span style={{ color: '#00f2fe', fontWeight: 700 }}>3.</span>
+              <span><strong>RAG de Pérdidas Técnicas con Insumos Reales</strong>: Le indicamos a EDEMSA *Qué cambia, Dónde y Cómo*, especificando el reemplazo de líneas de cobre desnudo por conductor de aluminio preensamblado 3x95/50mm² y conectores IPC.</span>
+            </li>
+          </ul>
         </div>
       </div>
 
@@ -77,7 +147,7 @@ export default function BlackPumaComparison({ onNavigate }) {
       <div className="glass-panel" style={{ padding: '28px' }}>
         <h3 style={{ fontSize: '1.3rem', marginBottom: '20px', display: 'flex', alignItems: 'center', gap: '10px' }}>
           <Zap color="#00f2fe" size={22} />
-          Matriz de Capacidades: BP vs. BP Bromteck
+          Matriz Resumen de Capacidades: BP vs. BP Bromteck
         </h3>
 
         <div style={{ overflowX: 'auto' }}>
@@ -85,9 +155,9 @@ export default function BlackPumaComparison({ onNavigate }) {
             <thead>
               <tr style={{ borderBottom: '1px solid rgba(255, 255, 255, 0.12)', color: 'var(--text-muted)', fontSize: '0.85rem' }}>
                 <th style={{ padding: '12px 16px' }}>Funcionalidad Estratégica</th>
-                <th style={{ padding: '12px 16px' }}>Estado Actual en BP</th>
-                <th style={{ padding: '12px 16px' }}>Valor Agregado BP Bromteck</th>
-                <th style={{ padding: '12px 16px', textTransform: 'center' }}>Nivel de Ventaja</th>
+                <th style={{ padding: '12px 16px' }}>¿Cómo lo hace BP hoy?</th>
+                <th style={{ padding: '12px 16px' }}>¿Cómo lo supera BP Bromteck?</th>
+                <th style={{ padding: '12px 16px', textAlign: 'center' }}>Nivel de Ventaja</th>
               </tr>
             </thead>
             <tbody>
@@ -101,15 +171,9 @@ export default function BlackPumaComparison({ onNavigate }) {
                   </td>
                   <td style={{ padding: '16px', color: 'var(--text-muted)', fontSize: '0.9rem', maxWidth: '240px' }}>
                     {cap.blackPumaStatus}
-                    <div style={{ marginTop: '6px', fontSize: '0.75rem', color: '#94a3b8' }}>
-                      Score BP: <strong>{cap.scoreBP}/10</strong>
-                    </div>
                   </td>
                   <td style={{ padding: '16px', color: '#e2e8f0', fontSize: '0.9rem', maxWidth: '320px' }}>
                     {cap.bromteckAdvantage}
-                    <div style={{ marginTop: '6px', fontSize: '0.75rem', color: '#00f2fe' }}>
-                      Score BP Bromteck: <strong>{cap.scoreBromteck}/10</strong>
-                    </div>
                   </td>
                   <td style={{ padding: '16px', textAlign: 'center' }}>
                     <span className={`glass-pill ${cap.statusBadge.includes('Exclusivo') ? 'badge-warning' : 'badge-success'}`}>
