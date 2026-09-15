@@ -196,7 +196,7 @@ export default function ExecutiveMeetingDashboard() {
           <div>
             <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
               <Zap color="#00f2fe" size={24} />
-              <h2 style={{ fontSize: '1.35rem', fontWeight: 700, margin: 0, fontFamily: 'var(--font-heading)' }}>
+              <h2 style={{ fontSize: '1.35rem', fontWeight: '700', margin: 0, fontFamily: 'var(--font-heading)' }}>
                 NUEVO MÓDULO: Simulación de Tabla Dinámica de Clientes (Efecto Qlik Sense)
               </h2>
             </div>
@@ -313,7 +313,7 @@ export default function ExecutiveMeetingDashboard() {
                     background: index % 2 === 0 ? 'rgba(7, 10, 18, 0.4)' : 'rgba(15, 23, 42, 0.3)'
                   }}
                 >
-                  <td style={{ padding: '12px 16px', fontWeight: 700, color: 'var(--text-main)' }}>{row.nic}</td>
+                  <td style={{ padding: '12px 16px', fontWeight: '700', color: 'var(--text-main)' }}>{row.nic}</td>
                   <td style={{ padding: '12px 16px', color: 'var(--text-muted)' }}>{row.cliente}</td>
                   <td style={{ padding: '12px 16px', color: 'var(--text-main)' }}>{row.calle}</td>
                   <td style={{ padding: '12px 16px' }}>
@@ -339,7 +339,7 @@ export default function ExecutiveMeetingDashboard() {
                     </span>
                   </td>
                   <td style={{ padding: '12px 16px', color: 'var(--text-subtle)', fontFamily: 'monospace' }}>{row.os}</td>
-                  <td style={{ padding: '12px 16px', textAlign: 'right', fontWeight: 700, color: '#f59e0b' }}>{row.perdidasMwh}</td>
+                  <td style={{ padding: '12px 16px', textAlign: 'right', fontWeight: '700', color: '#f59e0b' }}>{row.perdidasMwh}</td>
                 </tr>
               ))}
             </tbody>
@@ -357,14 +357,14 @@ export default function ExecutiveMeetingDashboard() {
         
         {/* Column 1: Puntos Clave de la Reunión & Lo que Busca EDEMSA */}
         <div className="glass-panel" style={{ padding: '24px' }}>
-          <h3 style={{ fontSize: '1.15rem', fontWeight: 700, margin: '0 0 16px 0', display: 'flex', alignItems: 'center', gap: '10px' }} className="gradient-text">
+          <h3 style={{ fontSize: '1.15rem', fontWeight: '700', margin: '0 0 16px 0', display: 'flex', alignItems: 'center', gap: '10px' }} className="gradient-text">
             <UserCheck size={20} color="#00f2fe" />
             De lo que se habló & Necesidades Directas de Nico Palmucci
           </h3>
 
           <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
             <div className="glass-panel" style={{ padding: '14px', background: 'rgba(15, 23, 42, 0.6)' }}>
-              <div style={{ fontWeight: 700, color: '#00f2fe', marginBottom: '4px', display: 'flex', alignItems: 'center', gap: '8px' }}>
+              <div style={{ fontWeight: '700', color: '#00f2fe', marginBottom: '4px', display: 'flex', alignItems: 'center', gap: '8px' }}>
                 <CheckCircle2 size={16} /> 1. Drill-Down de Clientes a 1-Click (Exportable a Excel)
               </div>
               <div style={{ fontSize: '0.85rem', color: 'var(--text-subtle)' }}>
@@ -373,7 +373,7 @@ export default function ExecutiveMeetingDashboard() {
             </div>
 
             <div className="glass-panel" style={{ padding: '14px', background: 'rgba(15, 23, 42, 0.6)' }}>
-              <div style={{ fontWeight: 700, color: '#10b981', marginBottom: '4px', display: 'flex', alignItems: 'center', gap: '8px' }}>
+              <div style={{ fontWeight: '700', color: '#10b981', marginBottom: '4px', display: 'flex', alignItems: 'center', gap: '8px' }}>
                 <CheckCircle2 size={16} /> 2. Restauración del Filtro "Baja Tensión (BT)" en Balance
               </div>
               <div style={{ fontSize: '0.85rem', color: 'var(--text-subtle)' }}>
@@ -382,7 +382,7 @@ export default function ExecutiveMeetingDashboard() {
             </div>
 
             <div className="glass-panel" style={{ padding: '14px', background: 'rgba(15, 23, 42, 0.6)' }}>
-              <div style={{ fontWeight: 700, color: '#f59e0b', marginBottom: '4px', display: 'flex', alignItems: 'center', gap: '8px' }}>
+              <div style={{ fontWeight: '700', color: '#f59e0b', marginBottom: '4px', display: 'flex', alignItems: 'center', gap: '8px' }}>
                 <CheckCircle2 size={16} /> 3. Automatización de Tramos en DWG para Luis Alegre
               </div>
               <div style={{ fontSize: '0.85rem', color: 'var(--text-subtle)' }}>
@@ -391,7 +391,7 @@ export default function ExecutiveMeetingDashboard() {
             </div>
 
             <div className="glass-panel" style={{ padding: '14px', background: 'rgba(15, 23, 42, 0.6)' }}>
-              <div style={{ fontWeight: 700, color: '#a855f7', marginBottom: '4px', display: 'flex', alignItems: 'center', gap: '8px' }}>
+              <div style={{ fontWeight: '700', color: '#a855f7', marginBottom: '4px', display: 'flex', alignItems: 'center', gap: '8px' }}>
                 <CheckCircle2 size={16} /> 4. Explicación de la Incidencia de 5 CAR sobre 502 Inspecciones
               </div>
               <div style={{ fontSize: '0.85rem', color: 'var(--text-subtle)' }}>
@@ -403,7 +403,7 @@ export default function ExecutiveMeetingDashboard() {
 
         {/* Column 2: Oportunidades Comerciales & Próximos Pasos San Rafael */}
         <div className="glass-panel" style={{ padding: '24px' }}>
-          <h3 style={{ fontSize: '1.15rem', fontWeight: 700, margin: '0 0 16px 0', display: 'flex', alignItems: 'center', gap: '10px' }} className="gradient-text">
+          <h3 style={{ fontSize: '1.15rem', fontWeight: '700', margin: '0 0 16px 0', display: 'flex', alignItems: 'center', gap: '10px' }} className="gradient-text">
             <Award size={20} color="#10b981" />
             Oportunidades Comerciales & Plan San Rafael (Martes 22)
           </h3>
@@ -412,7 +412,7 @@ export default function ExecutiveMeetingDashboard() {
             
             {/* Oportunidad 1 */}
             <div className="glass-panel" style={{ padding: '14px', background: 'rgba(16, 185, 129, 0.1)', borderColor: 'rgba(16, 185, 129, 0.3)' }}>
-              <div style={{ fontWeight: 700, color: '#10b981', marginBottom: '4px', display: 'flex', alignItems: 'center', gap: '8px' }}>
+              <div style={{ fontWeight: '700', color: '#10b981', marginBottom: '4px', display: 'flex', alignItems: 'center', gap: '8px' }}>
                 <Rocket size={16} /> Colocación de los 10 Sensores Pendientes (Sur + Centro)
               </div>
               <div style={{ fontSize: '0.85rem', color: 'var(--text-subtle)' }}>
@@ -422,7 +422,7 @@ export default function ExecutiveMeetingDashboard() {
 
             {/* Oportunidad 2 */}
             <div className="glass-panel" style={{ padding: '14px', background: 'rgba(0, 242, 254, 0.1)', borderColor: 'rgba(0, 242, 254, 0.3)' }}>
-              <div style={{ fontWeight: 700, color: '#00f2fe', marginBottom: '4px', display: 'flex', alignItems: 'center', gap: '8px' }}>
+              <div style={{ fontWeight: '700', color: '#00f2fe', marginBottom: '4px', display: 'flex', alignItems: 'center', gap: '8px' }}>
                 <Cpu size={16} /> Estrategia de Cierre Comercial (Licencia 1.000 Puntos)
               </div>
               <div style={{ fontSize: '0.85rem', color: 'var(--text-subtle)' }}>
@@ -432,7 +432,7 @@ export default function ExecutiveMeetingDashboard() {
 
             {/* Oportunidad 3 */}
             <div className="glass-panel" style={{ padding: '14px', background: 'rgba(245, 158, 11, 0.1)', borderColor: 'rgba(245, 158, 11, 0.3)' }}>
-              <div style={{ fontWeight: 700, color: '#f59e0b', marginBottom: '4px', display: 'flex', alignItems: 'center', gap: '8px' }}>
+              <div style={{ fontWeight: '700', color: '#f59e0b', marginBottom: '4px', display: 'flex', alignItems: 'center', gap: '8px' }}>
                 <Calendar size={16} /> Hoja de Ruta para San Rafael (Martes 22 / Miércoles 23)
               </div>
               <div style={{ fontSize: '0.85rem', color: 'var(--text-subtle)' }}>
@@ -442,7 +442,7 @@ export default function ExecutiveMeetingDashboard() {
 
             {/* Oportunidad 4 */}
             <div className="glass-panel" style={{ padding: '14px', background: 'rgba(239, 68, 68, 0.1)', borderColor: 'rgba(239, 68, 68, 0.3)' }}>
-              <div style={{ fontWeight: 700, color: '#ef4444', marginBottom: '4px', display: 'flex', alignItems: 'center', gap: '8px' }}>
+              <div style={{ fontWeight: '700', color: '#ef4444', marginBottom: '4px', display: 'flex', alignItems: 'center', gap: '8px' }}>
                 <PieIcon size={16} /> Presentación a Marta (Comité Antipérdidas de 70 personas)
               </div>
               <div style={{ fontSize: '0.85rem', color: 'var(--text-subtle)' }}>
@@ -462,7 +462,7 @@ export default function ExecutiveMeetingDashboard() {
         border: '1px solid rgba(0, 242, 254, 0.3)',
         borderRadius: '16px'
       }}>
-        <div style={{ fontSize: '1rem', fontWeight: 700, color: '#00f2fe', marginBottom: '4px' }}>
+        <div style={{ fontSize: '1rem', fontWeight: '700', color: '#00f2fe', marginBottom: '4px' }}>
           BP Bromteck — Excelencia Operativa & Desarrollo Continuo para EDEMSA
         </div>
         <div style={{ fontSize: '0.85rem', color: 'var(--text-subtle)' }}>
