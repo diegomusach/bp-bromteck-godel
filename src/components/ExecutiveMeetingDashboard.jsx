@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { 
   FileSpreadsheet, Download, Filter, Search, CheckCircle2, AlertTriangle, 
   TrendingUp, Layers, MapPin, Zap, UserCheck, ShieldAlert, Cpu, Award, 
-  Calendar, ArrowRight, DollarSign, Activity, PieChart as PieIcon, RefreshCw
+  Calendar, ArrowRight, DollarSign, Activity, PieChart as PieIcon, RefreshCw, Rocket
 } from 'lucide-react';
 
 export default function ExecutiveMeetingDashboard() {
@@ -77,7 +77,7 @@ export default function ExecutiveMeetingDashboard() {
                 EDEMSA Sur & Bromteck Leadership
               </span>
             </div>
-            <h1 style={{ fontSize: '2rem', fontWeight: 800, margin: '6px 0 8px 0', fontFamily: 'var(--font-heading)' }} className="gradient-text">
+            <h1 style={{ fontSize: '2rem', fontWeight: '800', margin: '6px 0 8px 0', fontFamily: 'var(--font-heading)' }} className="gradient-text">
               Tablero Ejecutivo: Síntesis EDEMSA & Oportunidades de Negocio
             </h1>
             <p style={{ color: 'var(--text-subtle)', fontSize: '0.95rem', maxWidth: '900px', margin: 0 }}>
@@ -124,7 +124,7 @@ export default function ExecutiveMeetingDashboard() {
             <span>Pérdida NO Reconocida (Neto)</span>
             <DollarSign size={18} color="#ef4444" />
           </div>
-          <div style={{ fontSize: '1.8rem', fontWeight: 800, color: '#ef4444', margin: '8px 0 4px 0' }}>
+          <div style={{ fontSize: '1.8rem', fontWeight: '800', color: '#ef4444', margin: '8px 0 4px 0' }}>
             $56.453 M
           </div>
           <div style={{ fontSize: '0.78rem', color: 'var(--text-subtle)' }}>
@@ -138,7 +138,7 @@ export default function ExecutiveMeetingDashboard() {
             <span>Meta Comité: Bajar 2% TAM</span>
             <TrendingUp size={18} color="#10b981" />
           </div>
-          <div style={{ fontSize: '1.8rem', fontWeight: 800, color: '#10b981', margin: '8px 0 4px 0' }}>
+          <div style={{ fontSize: '1.8rem', fontWeight: '800', color: '#10b981', margin: '8px 0 4px 0' }}>
             2x Inversión
           </div>
           <div style={{ fontSize: '0.78rem', color: 'var(--text-subtle)' }}>
@@ -152,7 +152,7 @@ export default function ExecutiveMeetingDashboard() {
             <span>Campaña Gödel Ejecutada</span>
             <Activity size={18} color="#00f2fe" />
           </div>
-          <div style={{ fontSize: '1.8rem', fontWeight: 800, color: '#00f2fe', margin: '8px 0 4px 0' }}>
+          <div style={{ fontSize: '1.8rem', fontWeight: '800', color: '#00f2fe', margin: '8px 0 4px 0' }}>
             502 OS (76%)
           </div>
           <div style={{ fontSize: '0.78rem', color: 'var(--text-subtle)' }}>
@@ -166,7 +166,7 @@ export default function ExecutiveMeetingDashboard() {
             <span>Hotspot Malargüe (Alimentador #1)</span>
             <MapPin size={18} color="#f59e0b" />
           </div>
-          <div style={{ fontSize: '1.8rem', fontWeight: 800, color: '#f59e0b', margin: '8px 0 4px 0' }}>
+          <div style={{ fontSize: '1.8rem', fontWeight: '800', color: '#f59e0b', margin: '8px 0 4px 0' }}>
             1.062 MWh/mes
           </div>
           <div style={{ fontSize: '0.78rem', color: 'var(--text-subtle)' }}>
@@ -180,7 +180,7 @@ export default function ExecutiveMeetingDashboard() {
             <span>Causa Raíz Revelada</span>
             <ShieldAlert size={18} color="#a855f7" />
           </div>
-          <div style={{ fontSize: '1.8rem', fontWeight: 800, color: '#a855f7', margin: '8px 0 4px 0' }}>
+          <div style={{ fontSize: '1.8rem', fontWeight: '800', color: '#a855f7', margin: '8px 0 4px 0' }}>
             18 Comunitarios
           </div>
           <div style={{ fontSize: '0.78rem', color: 'var(--text-subtle)' }}>

@@ -12,6 +12,43 @@ import PublicLightingAuditModule from './components/PublicLightingAuditModule';
 import BranchingTrunkModule from './components/BranchingTrunkModule';
 import ExecutiveMeetingDashboard from './components/ExecutiveMeetingDashboard';
 
+class ErrorBoundary extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { hasError: false, error: null };
+  }
+
+  static getDerivedStateFromError(error) {
+    return { hasError: true, error };
+  }
+
+  componentDidCatch(error, errorInfo) {
+    console.error("BP Bromteck App Error:", error, errorInfo);
+  }
+
+  render() {
+    if (this.state.hasError) {
+      return (
+        <div className="glass-panel" style={{ padding: '40px', margin: '40px auto', maxWidth: '600px', textAlign: 'center' }}>
+          <h2 style={{ color: '#ef4444', marginBottom: '16px' }}>Ocurrió un inconveniente visual</h2>
+          <p style={{ color: 'var(--text-subtle)', marginBottom: '20px' }}>
+            Se detectó una excepción en el renderizado. Presioná el botón para restablecer el tablero.
+          </p>
+          <button 
+            onClick={() => { this.setState({ hasError: false }); window.location.reload(); }}
+            className="btn-primary" 
+            style={{ padding: '10px 20px' }}
+          >
+            Recargar Aplicación
+          </button>
+        </div>
+      );
+    }
+
+    return this.props.children;
+  }
+}
+
 export default function App() {
   const [currentUser, setCurrentUser] = useState(null);
   const [activeTab, setActiveTab] = useState('executive-meeting-14sep');
@@ -30,45 +67,47 @@ export default function App() {
       />
 
       <main className="app-main-content">
-        {activeTab === 'executive-meeting-14sep' && (
-          <ExecutiveMeetingDashboard />
-        )}
+        <ErrorBoundary>
+          {activeTab === 'executive-meeting-14sep' && (
+            <ExecutiveMeetingDashboard />
+          )}
 
-        {activeTab === 'production-roadmap' && (
-          <ProductionRoadmapModule />
-        )}
+          {activeTab === 'production-roadmap' && (
+            <ProductionRoadmapModule />
+          )}
 
-        {activeTab === 'public-lighting' && (
-          <PublicLightingAuditModule />
-        )}
+          {activeTab === 'public-lighting' && (
+            <PublicLightingAuditModule />
+          )}
 
-        {activeTab === 'branches' && (
-          <BranchingTrunkModule currentUser={currentUser} />
-        )}
+          {activeTab === 'branches' && (
+            <BranchingTrunkModule currentUser={currentUser} />
+          )}
 
-        {activeTab === 'benchmark' && (
-          <BlackPumaComparison onNavigate={(tab) => setActiveTab(tab)} />
-        )}
+          {activeTab === 'benchmark' && (
+            <BlackPumaComparison onNavigate={(tab) => setActiveTab(tab)} />
+          )}
 
-        {activeTab === 'low-voltage' && (
-          <LowVoltageIntelligence />
-        )}
+          {activeTab === 'low-voltage' && (
+            <LowVoltageIntelligence />
+          )}
 
-        {activeTab === 'engineering' && (
-          <PragmaticEngineeringModule currentUser={currentUser} />
-        )}
+          {activeTab === 'engineering' && (
+            <PragmaticEngineeringModule currentUser={currentUser} />
+          )}
 
-        {activeTab === 'catalog' && (
-          <UtilitiesRoadmapCatalog />
-        )}
+          {activeTab === 'catalog' && (
+            <UtilitiesRoadmapCatalog />
+          )}
 
-        {activeTab === 'rag' && (
-          <TechnicalLossRAG />
-        )}
+          {activeTab === 'rag' && (
+            <TechnicalLossRAG />
+          )}
 
-        {activeTab === 'mobile' && (
-          <ExecutiveMobileReport />
-        )}
+          {activeTab === 'mobile' && (
+            <ExecutiveMobileReport />
+          )}
+        </ErrorBoundary>
       </main>
 
       <footer style={{
