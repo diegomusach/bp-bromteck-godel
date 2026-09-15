@@ -346,59 +346,70 @@ export default function ExecutiveMeetingDashboard() {
           </table>
         </div>
 
-        {/* Section 1.1: Exact EDEMSA Qlik Financial Table & Sensor Rankings from Captures */}
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(420px, 1fr))', gap: '20px', marginTop: '20px' }}>
-          
-          {/* Box 1: Tabla Exacta Qlik - Tipos de Pérdida en Pesos (TAM $90.736M) */}
+          {/* Box 1: Tabla Exacta Qlik - Tipos de Pérdida (Volumen MWh & Equivalente Financiero) */}
           <div className="glass-panel" style={{ padding: '20px', background: 'rgba(15, 23, 42, 0.8)', borderColor: 'rgba(0, 242, 254, 0.2)' }}>
-            <h4 style={{ fontSize: '1rem', color: '#00f2fe', marginBottom: '14px', display: 'flex', alignItems: 'center', gap: '8px' }}>
-              <DollarSign size={18} />
-              <span>Desglose Financiero Oficial Qlik EDEMSA (TAM $90.736 Millones)</span>
-            </h4>
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '14px', flexWrap: 'wrap', gap: '8px' }}>
+              <h4 style={{ fontSize: '1rem', color: '#00f2fe', margin: 0, display: 'flex', alignItems: 'center', gap: '8px' }}>
+                <DollarSign size={18} />
+                <span>Tipos de Pérdida Qlik EDEMSA: MWh Físicos vs. Montos ARS</span>
+              </h4>
+              <span className="glass-pill badge-success" style={{ fontSize: '0.75rem', fontWeight: 700 }}>
+                EPRE Reconocido: ~$42,3M ARS (9,45% TAM)
+              </span>
+            </div>
             
             <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: '0.82rem' }}>
               <thead>
                 <tr style={{ borderBottom: '1px solid rgba(255,255,255,0.1)', color: 'var(--text-subtle)' }}>
                   <th style={{ padding: '8px', textAlign: 'left' }}>Tipo de Pérdida</th>
                   <th style={{ padding: '8px', textAlign: 'right' }}>% TAM</th>
-                  <th style={{ padding: '8px', textAlign: 'right' }}>M$ ARS (Pesos)</th>
+                  <th style={{ padding: '8px', textAlign: 'right' }}>Volumen (MWh)</th>
+                  <th style={{ padding: '8px', textAlign: 'right' }}>Est. ARS (Pesos)</th>
                 </tr>
               </thead>
               <tbody>
                 <tr style={{ borderBottom: '1px solid rgba(255,255,255,0.05)', color: '#10b981' }}>
-                  <td style={{ padding: '8px', fontWeight: 600 }}>Pérdida Reconocida EPRE</td>
+                  <td style={{ padding: '8px', fontWeight: 600 }}>Pérdida Reconocida por Tarifa (EPRE)</td>
                   <td style={{ padding: '8px', textAlign: 'right' }}>9,43 %</td>
-                  <td style={{ padding: '8px', textAlign: 'right', fontWeight: 700 }}>$ 34.093 M</td>
+                  <td style={{ padding: '8px', textAlign: 'right', fontWeight: 700 }}>34.093 MWh</td>
+                  <td style={{ padding: '8px', textAlign: 'right', fontWeight: 700, color: '#10b981' }}>$ 42.298 M</td>
                 </tr>
                 <tr style={{ borderBottom: '1px solid rgba(255,255,255,0.05)', color: '#ef4444' }}>
                   <td style={{ padding: '8px', fontWeight: 600 }}>1. Pérdida en BAJAS (Clientes Cortados)</td>
                   <td style={{ padding: '8px', textAlign: 'right' }}>2,77 %</td>
-                  <td style={{ padding: '8px', textAlign: 'right', fontWeight: 700 }}>$ 20.780 M</td>
+                  <td style={{ padding: '8px', textAlign: 'right', fontWeight: 700 }}>20.780 MWh</td>
+                  <td style={{ padding: '8px', textAlign: 'right' }}>$ 20.780 M</td>
                 </tr>
                 <tr style={{ borderBottom: '1px solid rgba(255,255,255,0.05)', color: '#f59e0b' }}>
                   <td style={{ padding: '8px', fontWeight: 600 }}>2. Pérdida en ACTIVOS (Medidores Viejos)</td>
                   <td style={{ padding: '8px', textAlign: 'right' }}>2,13 %</td>
-                  <td style={{ padding: '8px', textAlign: 'right', fontWeight: 700 }}>$ 15.971 M</td>
+                  <td style={{ padding: '8px', textAlign: 'right', fontWeight: 700 }}>15.971 MWh</td>
+                  <td style={{ padding: '8px', textAlign: 'right' }}>$ 15.971 M</td>
                 </tr>
                 <tr style={{ borderBottom: '1px solid rgba(255,255,255,0.05)', color: '#a855f7' }}>
                   <td style={{ padding: '8px', fontWeight: 600 }}>3. Pérdida en B° POPULARES (RENEBAP)</td>
                   <td style={{ padding: '8px', textAlign: 'right' }}>1,51 %</td>
-                  <td style={{ padding: '8px', textAlign: 'right', fontWeight: 700 }}>$ 11.360 M</td>
+                  <td style={{ padding: '8px', textAlign: 'right', fontWeight: 700 }}>11.360 MWh</td>
+                  <td style={{ padding: '8px', textAlign: 'right' }}>$ 11.360 M</td>
                 </tr>
                 <tr style={{ borderBottom: '1px solid rgba(255,255,255,0.05)', color: 'var(--text-subtle)' }}>
                   <td style={{ padding: '8px' }}>4. Pérdida en Loteos Irregulares</td>
                   <td style={{ padding: '8px', textAlign: 'right' }}>0,89 %</td>
+                  <td style={{ padding: '8px', textAlign: 'right' }}>6.696 MWh</td>
                   <td style={{ padding: '8px', textAlign: 'right' }}>$ 6.696 M</td>
                 </tr>
                 <tr style={{ borderBottom: '1px solid rgba(255,255,255,0.05)', color: 'var(--text-subtle)' }}>
                   <td style={{ padding: '8px' }}>5. Pérdida en Cortados Re-conectados</td>
                   <td style={{ padding: '8px', textAlign: 'right' }}>0,24 %</td>
+                  <td style={{ padding: '8px', textAlign: 'right' }}>1.835 MWh</td>
                   <td style={{ padding: '8px', textAlign: 'right' }}>$ 1.835 M</td>
                 </tr>
                 <tr style={{ background: 'rgba(239, 68, 68, 0.15)', color: '#fca5a5', fontWeight: 700 }}>
-                  <td style={{ padding: '10px' }}>TOTAL PÉRDIDA NO RECONOCIDA (EBITDA)</td>
-                  <td style={{ padding: '10px', textAlign: 'right' }}>7,54 %</td>
-                  <td style={{ padding: '10px', textAlign: 'right' }}>$ 56.643 M</td>
+                  <td style={{ padding: '10px' }}>TOTAL TAM PÉRDIDA GLOBAL (EDEMSA)</td>
+                  <td style={{ padding: '10px', textAlign: 'right' }}>16,97 %</td>
+                  <td style={{ padding: '10px', textAlign: 'right' }}>90.736 MWh</td>
+                  <td style={{ padding: '10px', textAlign: 'right' }}>$ 98.752 M</td>
                 </tr>
               </tbody>
             </table>
