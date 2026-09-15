@@ -290,7 +290,7 @@ export default function ExecutiveMeetingDashboard() {
         </div>
 
         {/* Data Grid Table */}
-        <div style={{ overflowX: 'auto', borderRadius: '12px', border: '1px solid rgba(255, 255, 255, 0.08)' }}>
+        <div style={{ overflowX: 'auto', borderRadius: '12px', border: '1px solid rgba(255, 255, 255, 0.08)', marginBottom: '24px' }}>
           <table style={{ width: '100%', borderCollapse: 'collapse', textAlign: 'left', fontSize: '0.85rem' }}>
             <thead>
               <tr style={{ background: 'rgba(15, 23, 42, 0.95)', borderBottom: '2px solid rgba(0, 242, 254, 0.3)', color: '#00f2fe' }}>
@@ -344,6 +344,102 @@ export default function ExecutiveMeetingDashboard() {
               ))}
             </tbody>
           </table>
+        </div>
+
+        {/* Section 1.1: Exact EDEMSA Qlik Financial Table & Sensor Rankings from Captures */}
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(420px, 1fr))', gap: '20px', marginTop: '20px' }}>
+          
+          {/* Box 1: Tabla Exacta Qlik - Tipos de Pérdida en Pesos (TAM $90.736M) */}
+          <div className="glass-panel" style={{ padding: '20px', background: 'rgba(15, 23, 42, 0.8)', borderColor: 'rgba(0, 242, 254, 0.2)' }}>
+            <h4 style={{ fontSize: '1rem', color: '#00f2fe', marginBottom: '14px', display: 'flex', alignItems: 'center', gap: '8px' }}>
+              <DollarSign size={18} />
+              <span>Desglose Financiero Oficial Qlik EDEMSA (TAM $90.736 Millones)</span>
+            </h4>
+            
+            <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: '0.82rem' }}>
+              <thead>
+                <tr style={{ borderBottom: '1px solid rgba(255,255,255,0.1)', color: 'var(--text-subtle)' }}>
+                  <th style={{ padding: '8px', textAlign: 'left' }}>Tipo de Pérdida</th>
+                  <th style={{ padding: '8px', textAlign: 'right' }}>% TAM</th>
+                  <th style={{ padding: '8px', textAlign: 'right' }}>M$ ARS (Pesos)</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr style={{ borderBottom: '1px solid rgba(255,255,255,0.05)', color: '#10b981' }}>
+                  <td style={{ padding: '8px', fontWeight: 600 }}>Pérdida Reconocida EPRE</td>
+                  <td style={{ padding: '8px', textAlign: 'right' }}>9,43 %</td>
+                  <td style={{ padding: '8px', textAlign: 'right', fontWeight: 700 }}>$ 34.093 M</td>
+                </tr>
+                <tr style={{ borderBottom: '1px solid rgba(255,255,255,0.05)', color: '#ef4444' }}>
+                  <td style={{ padding: '8px', fontWeight: 600 }}>1. Pérdida en BAJAS (Clientes Cortados)</td>
+                  <td style={{ padding: '8px', textAlign: 'right' }}>2,77 %</td>
+                  <td style={{ padding: '8px', textAlign: 'right', fontWeight: 700 }}>$ 20.780 M</td>
+                </tr>
+                <tr style={{ borderBottom: '1px solid rgba(255,255,255,0.05)', color: '#f59e0b' }}>
+                  <td style={{ padding: '8px', fontWeight: 600 }}>2. Pérdida en ACTIVOS (Medidores Viejos)</td>
+                  <td style={{ padding: '8px', textAlign: 'right' }}>2,13 %</td>
+                  <td style={{ padding: '8px', textAlign: 'right', fontWeight: 700 }}>$ 15.971 M</td>
+                </tr>
+                <tr style={{ borderBottom: '1px solid rgba(255,255,255,0.05)', color: '#a855f7' }}>
+                  <td style={{ padding: '8px', fontWeight: 600 }}>3. Pérdida en B° POPULARES (RENEBAP)</td>
+                  <td style={{ padding: '8px', textAlign: 'right' }}>1,51 %</td>
+                  <td style={{ padding: '8px', textAlign: 'right', fontWeight: 700 }}>$ 11.360 M</td>
+                </tr>
+                <tr style={{ borderBottom: '1px solid rgba(255,255,255,0.05)', color: 'var(--text-subtle)' }}>
+                  <td style={{ padding: '8px' }}>4. Pérdida en Loteos Irregulares</td>
+                  <td style={{ padding: '8px', textAlign: 'right' }}>0,89 %</td>
+                  <td style={{ padding: '8px', textAlign: 'right' }}>$ 6.696 M</td>
+                </tr>
+                <tr style={{ borderBottom: '1px solid rgba(255,255,255,0.05)', color: 'var(--text-subtle)' }}>
+                  <td style={{ padding: '8px' }}>5. Pérdida en Cortados Re-conectados</td>
+                  <td style={{ padding: '8px', textAlign: 'right' }}>0,24 %</td>
+                  <td style={{ padding: '8px', textAlign: 'right' }}>$ 1.835 M</td>
+                </tr>
+                <tr style={{ background: 'rgba(239, 68, 68, 0.15)', color: '#fca5a5', fontWeight: 700 }}>
+                  <td style={{ padding: '10px' }}>TOTAL PÉRDIDA NO RECONOCIDA (EBITDA)</td>
+                  <td style={{ padding: '10px', textAlign: 'right' }}>7,54 %</td>
+                  <td style={{ padding: '10px', textAlign: 'right' }}>$ 56.643 M</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          {/* Box 2: Ranking de Sensores Críticos (Pérdida No Técnica % y MWh de Captura 7) */}
+          <div className="glass-panel" style={{ padding: '20px', background: 'rgba(15, 23, 42, 0.8)', borderColor: 'rgba(245, 158, 11, 0.2)' }}>
+            <h4 style={{ fontSize: '1rem', color: '#f59e0b', marginBottom: '14px', display: 'flex', alignItems: 'center', gap: '8px' }}>
+              <Layers size={18} />
+              <span>Ranking Oficial de Sensores TOP (Volumen MWh vs. %)</span>
+            </h4>
+
+            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px' }}>
+              <div>
+                <div style={{ fontSize: '0.75rem', color: 'var(--text-subtle)', marginBottom: '8px', fontWeight: 700 }}>
+                  TOP % PÉRDIDA NO TÉCNICA:
+                </div>
+                <ul style={{ listStyle: 'none', padding: 0, margin: 0, fontSize: '0.8rem', display: 'flex', flexDirection: 'column', gap: '6px' }}>
+                  <li style={{ display: 'flex', justifyContent: 'space-between', color: '#ef4444', fontWeight: 700 }}><span>Sensor 90303</span><span>41,07 %</span></li>
+                  <li style={{ display: 'flex', justifyContent: 'space-between', color: '#f59e0b' }}><span>Sensor 7474</span><span>39,02 %</span></li>
+                  <li style={{ display: 'flex', justifyContent: 'space-between' }}><span>Sensor 90305</span><span>37,10 %</span></li>
+                  <li style={{ display: 'flex', justifyContent: 'space-between' }}><span>Sensor 90301</span><span>26,05 %</span></li>
+                  <li style={{ display: 'flex', justifyContent: 'space-between', color: '#00f2fe', fontWeight: 700 }}><span>Sensor 7464 (Estudio)</span><span>13,03 %</span></li>
+                </ul>
+              </div>
+
+              <div>
+                <div style={{ fontSize: '0.75rem', color: 'var(--text-subtle)', marginBottom: '8px', fontWeight: 700 }}>
+                  TOP VOLUMEN MWH PERDIDOS:
+                </div>
+                <ul style={{ listStyle: 'none', padding: 0, margin: 0, fontSize: '0.8rem', display: 'flex', flexDirection: 'column', gap: '6px' }}>
+                  <li style={{ display: 'flex', justifyContent: 'space-between', color: '#ef4444', fontWeight: 700 }}><span>Sensor 7472</span><span>618,26 MWh</span></li>
+                  <li style={{ display: 'flex', justifyContent: 'space-between', color: '#f59e0b', fontWeight: 700 }}><span>Sensor 7485</span><span>611,52 MWh</span></li>
+                  <li style={{ display: 'flex', justifyContent: 'space-between' }}><span>Sensor 7484</span><span>367,66 MWh</span></li>
+                  <li style={{ display: 'flex', justifyContent: 'space-between' }}><span>Sensor 90306</span><span>321,58 MWh</span></li>
+                  <li style={{ display: 'flex', justifyContent: 'space-between', color: '#00f2fe', fontWeight: 700 }}><span>Sensor 7464 (179 clts)</span><span>147,73 MWh</span></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
         </div>
 
         <div style={{ marginTop: '16px', display: 'flex', justifyContent: 'space-between', alignItems: 'center', color: 'var(--text-subtle)', fontSize: '0.8rem' }}>
