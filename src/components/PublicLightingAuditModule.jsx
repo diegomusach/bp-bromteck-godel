@@ -33,7 +33,7 @@ export default function PublicLightingAuditModule() {
               </span>
             </div>
             <h2 style={{ fontSize: '2.1rem' }} className="gradient-text">
-              Auditoría & Quantificación de Pérdidas en Alumbrado Público
+              Auditoría & Cuantificación de Pérdidas en Alumbrado Público
             </h2>
             <p style={{ color: 'var(--text-muted)', fontSize: '0.95rem', marginTop: '6px', maxWidth: '850px', lineHeight: '1.5' }}>
               Identificación y facturación de luminarias colgadas directamente a la red de Baja Tensión sin fotocélula (encendidas 24hs) o sin medidor municipal.

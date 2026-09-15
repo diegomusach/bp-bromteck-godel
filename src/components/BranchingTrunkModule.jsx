@@ -49,7 +49,7 @@ export default function BranchingTrunkModule({ currentUser }) {
   const handleMerge = (branchId) => {
     const res = mergeBranchToTrunk(branchId, currentUser);
     if (res.success) {
-      setNotification({ type: 'success', message: `Rama fusionada exitosamente con Main Trunk por ${res.branch.mergedBy}` });
+      setNotification({ type: 'success', message: `Rama fusionada exitosamente con el Tronco Principal por ${res.branch.mergedBy}` });
       loadBranches();
       setSelectedBranch(res.trunk);
     } else {
@@ -72,17 +72,17 @@ export default function BranchingTrunkModule({ currentUser }) {
             <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '8px' }}>
               <span className="glass-pill badge-info">
                 <FolderGit2 size={14} />
-                Gestión DB Trunks & Branches
+                Gestión DB Troncos & Ramas
               </span>
               <span style={{ fontSize: '0.8rem', color: 'var(--text-muted)' }}>
                 Arquitectura de Ramas & Control de Versiones EPRE
               </span>
             </div>
             <h2 style={{ fontSize: '2rem' }} className="gradient-text">
-              Trunks, Branches & Control de Datos EDEMSA
+              Troncos, Ramas & Control de Datos EDEMSA
             </h2>
             <p style={{ color: 'var(--text-muted)', fontSize: '0.95rem', marginTop: '4px', maxWidth: '850px' }}>
-              Administrá ramas de prueba para soluciones técnicas de Baja Tensión y Alumbrado Público. Compará cambios antes de integrar (*merge*) a la rama de producción **Main Trunk**.
+              Administrá ramas de prueba para soluciones técnicas de Baja Tensión y Alumbrado Público. Compará cambios antes de integrar (*fusionar*) a la rama de producción **Tronco Principal**.
             </p>
           </div>
 
@@ -134,8 +134,8 @@ export default function BranchingTrunkModule({ currentUser }) {
                     <GitBranch size={18} color={b.isTrunk ? '#10b981' : '#00f2fe'} />
                     <span style={{ fontWeight: 700, fontSize: '0.95rem', color: '#fff' }}>{b.name}</span>
                   </div>
-                  <span className={`glass-pill ${b.isTrunk ? 'badge-success' : b.status === 'MERGED' ? 'badge-info' : 'badge-warning'}`}>
-                    {b.isTrunk ? 'MAIN TRUNK' : b.status}
+                  <span className={`glass-pill ${b.isTrunk ? 'badge-success' : b.status === 'FUSIONADA' ? 'badge-info' : 'badge-warning'}`}>
+                    {b.isTrunk ? 'TRONCO PRINCIPAL' : b.status}
                   </span>
                 </div>
                 <p style={{ fontSize: '0.82rem', color: 'var(--text-muted)', marginBottom: '8px' }}>
@@ -164,14 +164,14 @@ export default function BranchingTrunkModule({ currentUser }) {
                 </span>
               </div>
 
-              {!selectedBranch.isTrunk && selectedBranch.status === 'OPEN' && (
+              {!selectedBranch.isTrunk && selectedBranch.status === 'ABIERTA' && (
                 <button
                   onClick={() => handleMerge(selectedBranch.id)}
                   className="btn-primary"
                   style={{ background: 'linear-gradient(135deg, #10b981 0%, #059669 100%)', boxShadow: '0 4px 15px rgba(16, 185, 129, 0.3)' }}
                 >
                   <GitMerge size={16} />
-                  <span>Fusionar a Main Trunk</span>
+                  <span>Fusionar a Tronco Principal</span>
                 </button>
               )}
             </div>
@@ -179,7 +179,7 @@ export default function BranchingTrunkModule({ currentUser }) {
             {/* Commit Detail Card */}
             <div className="glass-panel" style={{ padding: '16px', background: 'rgba(9, 13, 22, 0.9)' }}>
               <div style={{ fontSize: '0.75rem', color: '#00f2fe', textTransform: 'uppercase', letterSpacing: '0.05em', marginBottom: '6px', fontWeight: 600 }}>
-                Último Commit Registrado
+                Último Registro de Cambio (Commit)
               </div>
               <div style={{ fontSize: '0.9rem', color: '#fff', fontFamily: 'monospace' }}>
                 {selectedBranch.lastCommit}
@@ -190,7 +190,7 @@ export default function BranchingTrunkModule({ currentUser }) {
             <div>
               <h4 style={{ fontSize: '0.95rem', color: 'var(--text-muted)', marginBottom: '12px', display: 'flex', alignItems: 'center', gap: '6px' }}>
                 <Cpu size={16} color="#00f2fe" />
-                <span>Diferencial de Datos respecto a Main Trunk (Diff View)</span>
+                <span>Vista Diferencial de Datos respecto al Tronco Principal</span>
               </h4>
 
               <div className="table-scroll-wrapper">
@@ -198,7 +198,7 @@ export default function BranchingTrunkModule({ currentUser }) {
                   <thead>
                     <tr style={{ borderBottom: '1px solid var(--border-glass)', color: 'var(--text-subtle)' }}>
                       <th style={{ padding: '10px', textAlign: 'left' }}>Módulo Afectado</th>
-                      <th style={{ padding: '10px', textAlign: 'left' }}>Estado en Trunk</th>
+                      <th style={{ padding: '10px', textAlign: 'left' }}>Estado en Tronco Principal</th>
                       <th style={{ padding: '10px', textAlign: 'left' }}>Cambio en {selectedBranch.name}</th>
                     </tr>
                   </thead>

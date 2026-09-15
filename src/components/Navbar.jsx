@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Zap, ShieldAlert, Cpu, Bot, Smartphone, LogOut, UserCheck, Layers, Wrench, Rocket, Lightbulb, Menu, X, GitBranch } from 'lucide-react';
+import { Zap, ShieldAlert, Cpu, Bot, Smartphone, LogOut, UserCheck, Layers, Wrench, Rocket, Lightbulb, Menu, X, GitBranch, Activity } from 'lucide-react';
 
 export default function Navbar({ activeTab, setActiveTab, currentUser, onLogout }) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -10,15 +10,16 @@ export default function Navbar({ activeTab, setActiveTab, currentUser, onLogout 
   };
 
   const navItems = [
-    { id: 'production-roadmap', label: '🚀 Pasos a Producción Real', icon: Rocket, color: '#10b981', isHighlighted: true },
+    { id: 'executive-meeting-14sep', label: '📊 Tablero Minuta Call 14/09 (Nuevo)', icon: Activity, color: '#00f2fe', isHighlighted: true },
+    { id: 'production-roadmap', label: '🚀 Pasos a Producción Real', icon: Rocket, color: '#10b981' },
     { id: 'engineering', label: 'Soluciones Concretas EPRE & Redes', icon: Wrench },
     { id: 'public-lighting', label: 'Alumbrado Público (AP)', icon: Lightbulb, color: '#fde047' },
     { id: 'low-voltage', label: 'Baja Tensión & Hurto IA', icon: ShieldAlert },
-    { id: 'branches', label: 'Trunks & Branches DB', icon: GitBranch, color: '#a855f7' },
-    { id: 'benchmark', label: 'BP Benchmark', icon: Cpu },
-    { id: 'catalog', label: '30 Soluciones & Roadmaps', icon: Layers },
+    { id: 'branches', label: 'Ramas & Troncos DB', icon: GitBranch, color: '#a855f7' },
+    { id: 'benchmark', label: 'Comparativa BP', icon: Cpu },
+    { id: 'catalog', label: '30 Soluciones & Hitos', icon: Layers },
     { id: 'rag', label: 'RAG Pérdidas Técnicas', icon: Bot },
-    { id: 'mobile', label: 'Reporte Móvil Exec', icon: Smartphone }
+    { id: 'mobile', label: 'Reporte Móvil Ejecutivo', icon: Smartphone }
   ];
 
   return (

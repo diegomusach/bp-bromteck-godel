@@ -10,10 +10,11 @@ import ExecutiveMobileReport from './components/ExecutiveMobileReport';
 import ProductionRoadmapModule from './components/ProductionRoadmapModule';
 import PublicLightingAuditModule from './components/PublicLightingAuditModule';
 import BranchingTrunkModule from './components/BranchingTrunkModule';
+import ExecutiveMeetingDashboard from './components/ExecutiveMeetingDashboard';
 
 export default function App() {
   const [currentUser, setCurrentUser] = useState(null);
-  const [activeTab, setActiveTab] = useState('production-roadmap');
+  const [activeTab, setActiveTab] = useState('executive-meeting-14sep');
 
   if (!currentUser) {
     return <LoginGateway onLoginSuccess={(user) => setCurrentUser(user)} />;
@@ -29,6 +30,10 @@ export default function App() {
       />
 
       <main className="app-main-content">
+        {activeTab === 'executive-meeting-14sep' && (
+          <ExecutiveMeetingDashboard />
+        )}
+
         {activeTab === 'production-roadmap' && (
           <ProductionRoadmapModule />
         )}
