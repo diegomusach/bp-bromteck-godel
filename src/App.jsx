@@ -12,7 +12,6 @@ import PublicLightingAuditModule from './components/PublicLightingAuditModule';
 import BranchingTrunkModule from './components/BranchingTrunkModule';
 import ExecutiveMeetingDashboard from './components/ExecutiveMeetingDashboard';
 import NotionCardsManagement from './components/NotionCardsManagement';
-import MiningRigiProspects from './components/MiningRigiProspects';
 
 class ErrorBoundary extends React.Component {
   constructor(props) {
@@ -72,10 +71,6 @@ export default function App() {
         <ErrorBoundary>
           {activeTab === 'executive-meeting-14sep' && (
             <ExecutiveMeetingDashboard />
-          )}
-
-          {activeTab === 'mining-rigi' && (
-            <MiningRigiProspects />
           )}
 
           {activeTab === 'notion-cards' && (

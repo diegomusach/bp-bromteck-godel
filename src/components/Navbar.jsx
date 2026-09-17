@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Zap, ShieldAlert, Cpu, Bot, Smartphone, LogOut, UserCheck, Layers, Wrench, Rocket, Lightbulb, Menu, X, GitBranch, Activity, CheckSquare, Pickaxe } from 'lucide-react';
+import { Zap, ShieldAlert, Cpu, Bot, Smartphone, LogOut, UserCheck, Layers, Wrench, Rocket, Lightbulb, Menu, X, GitBranch, Activity, CheckSquare } from 'lucide-react';
 
 export default function Navbar({ activeTab, setActiveTab, currentUser, onLogout }) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -11,8 +11,7 @@ export default function Navbar({ activeTab, setActiveTab, currentUser, onLogout 
 
   const navItems = [
     { id: 'executive-meeting-14sep', label: '📊 Tablero Minuta Call 14/09', icon: Activity, color: '#00f2fe' },
-    { id: 'mining-rigi', label: '⛏️ 20 Mineras RIGI (Objetivo)', icon: Pickaxe, color: '#f59e0b', isHighlighted: true },
-    { id: 'notion-cards', label: '📌 Tarjetas Notion & Cierre (Mario)', icon: CheckSquare, color: '#10b981' },
+    { id: 'notion-cards', label: '📌 Tarjetas Notion & Cierre (Mario)', icon: CheckSquare, color: '#10b981', isHighlighted: true },
     { id: 'production-roadmap', label: '🚀 Pasos a Producción Real', icon: Rocket, color: '#10b981' },
     { id: 'engineering', label: 'Soluciones Concretas EPRE & Redes', icon: Wrench },
     { id: 'public-lighting', label: 'Alumbrado Público (AP)', icon: Lightbulb, color: '#fde047' },
