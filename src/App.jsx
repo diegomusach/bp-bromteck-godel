@@ -13,6 +13,7 @@ import BranchingTrunkModule from './components/BranchingTrunkModule';
 import ExecutiveMeetingDashboard from './components/ExecutiveMeetingDashboard';
 import NotionCardsManagement from './components/NotionCardsManagement';
 import OjosDeLaRedModule from './components/OjosDeLaRedModule';
+import EventsAgendaModule from './components/EventsAgendaModule';
 
 class ErrorBoundary extends React.Component {
   constructor(props) {
@@ -53,7 +54,7 @@ class ErrorBoundary extends React.Component {
 
 export default function App() {
   const [currentUser, setCurrentUser] = useState(null);
-  const [activeTab, setActiveTab] = useState('ojos-de-la-red');
+  const [activeTab, setActiveTab] = useState('eventos');
 
   if (!currentUser) {
     return <LoginGateway onLoginSuccess={(user) => setCurrentUser(user)} />;
@@ -70,6 +71,9 @@ export default function App() {
 
       <main className="app-main-content">
         <ErrorBoundary>
+          {activeTab === 'eventos' && (
+            <EventsAgendaModule />
+          )}
           {activeTab === 'ojos-de-la-red' && (
             <OjosDeLaRedModule />
           )}

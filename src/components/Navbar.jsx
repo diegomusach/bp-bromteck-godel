@@ -1,16 +1,19 @@
 import React, { useState } from 'react';
-import { Zap, ShieldAlert, Cpu, Bot, Smartphone, LogOut, UserCheck, Layers, Wrench, Rocket, Lightbulb, Menu, X, GitBranch, Activity, CheckSquare, Eye } from 'lucide-react';
+import { Zap, ShieldAlert, Cpu, Bot, Smartphone, LogOut, UserCheck, Layers, Wrench, Rocket, Lightbulb, Menu, X, GitBranch, Activity, CheckSquare, Eye, Calendar, ChevronDown } from 'lucide-react';
 
 export default function Navbar({ activeTab, setActiveTab, currentUser, onLogout }) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [eventDropdownOpen, setEventDropdownOpen] = useState(false);
 
   const handleTabSelect = (tab) => {
     setActiveTab(tab);
     setMobileMenuOpen(false);
+    setEventDropdownOpen(false);
   };
 
   const navItems = [
-    { id: 'ojos-de-la-red', label: '👀 Ojos de la Red (Sensores CTO)', icon: Eye, color: '#00f2fe', isHighlighted: true },
+    { id: 'eventos', label: '📅 Eventos (AILAT 2026)', icon: Calendar, color: '#f59e0b', isHighlighted: true },
+    { id: 'ojos-de-la-red', label: '👀 Ojos de la Red (Sensores CTO)', icon: Eye, color: '#00f2fe' },
     { id: 'executive-meeting-14sep', label: '📊 Tablero Minuta Call 14/09', icon: Activity, color: '#00f2fe' },
     { id: 'notion-cards', label: '📌 Tarjetas Notion & Cierre (Mario)', icon: CheckSquare, color: '#10b981' },
     { id: 'production-roadmap', label: '🚀 Pasos a Producción Real', icon: Rocket, color: '#10b981' },
