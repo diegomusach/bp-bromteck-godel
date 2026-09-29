@@ -173,6 +173,105 @@ export default function ProductionRoadmapModule() {
 
         </div>
       </div>
+
+      {/* SECTION 3: PLAN DE AUDITORÍA DE ALGORITMO & AISLAMIENTO DE FALLAS (CHARLA CON NICO) */}
+      <div className="glass-panel" style={{
+        padding: '28px',
+        border: '2px solid #a855f7',
+        background: 'rgba(168, 85, 247, 0.04)',
+        boxShadow: '0 0 30px rgba(168, 85, 247, 0.15)'
+      }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '18px' }}>
+          <div style={{ padding: '10px', borderRadius: '10px', background: 'rgba(168, 85, 247, 0.15)', border: '1px solid rgba(168, 85, 247, 0.3)' }}>
+            <AlertTriangle size={24} color="#c4b5fd" />
+          </div>
+          <div>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+              <span className="glass-pill badge-warning" style={{ fontSize: '0.7rem' }}>
+                Prioridad Estratégica
+              </span>
+              <span style={{ fontSize: '0.8rem', color: '#c4b5fd' }}>Insight de Ingeniería & Auditoría Algorítmica</span>
+            </div>
+            <h3 style={{ fontSize: '1.4rem', color: '#c4b5fd', fontWeight: 800 }}>
+              3. Plan de Auditoría de Algoritmo: Aislamiento de Fallas (PNT vs. PT)
+            </h3>
+            <p style={{ fontSize: '0.88rem', color: '#e2e8f0', marginTop: '2px' }}>
+              Fundamento técnico sobre cómo evitar que el algoritmo atribuya erróneamente pérdidas técnicas a pérdidas no técnicas (hurto).
+            </p>
+          </div>
+        </div>
+
+        {/* Diagnóstico de los 3 Puntos Críticos */}
+        <div className="responsive-grid" style={{ marginBottom: '24px' }}>
+          
+          <div className="glass-panel" style={{ padding: '16px', background: 'rgba(9, 13, 22, 0.85)', border: '1px solid rgba(255,255,255,0.08)' }}>
+            <div style={{ fontSize: '0.85rem', color: '#f59e0b', fontWeight: 700, marginBottom: '6px' }}>
+              1. La Trampa Matemática del Cálculo por Residuo
+            </div>
+            <p style={{ fontSize: '0.85rem', color: '#cbd5e1', lineHeight: '1.5' }}>
+              En baja tensión la Pérdida No Técnica (PNT) se calcula por residuo: <code style={{ color: '#00f2fe' }}>PNT = Inyectada - PT Teórica</code>. Si el GIS tiene cables de menor sección a la real, empalmes sulfatados o desbalance de fases, la PT real es 11-12% (no 6,77%), por lo que el sistema <strong>infla artificialmente la PNT (el 9,009% en pantalla)</strong>.
+            </p>
+          </div>
+
+          <div className="glass-panel" style={{ padding: '16px', background: 'rgba(9, 13, 22, 0.85)', border: '1px solid rgba(255,255,255,0.08)' }}>
+            <div style={{ fontSize: '0.85rem', color: '#f59e0b', fontWeight: 700, marginBottom: '6px' }}>
+              2. Asimetría Temporal y Ciclos de Facturación
+            </div>
+            <p style={{ fontSize: '0.85rem', color: '#cbd5e1', lineHeight: '1.5' }}>
+              La inyección se mide en tiempo real o diario, mientras que la facturación residencial se lee en ciclos bimestrales con estimaciones. Si el motor no desestacionaliza con precisión los 10.154 clientes contra la ventana del alimentador, genera una <strong>"pérdida aparente"</strong> que no existe en el cable.
+            </p>
+          </div>
+
+          <div className="glass-panel" style={{ padding: '16px', background: 'rgba(9, 13, 22, 0.85)', border: '1px solid rgba(255,255,255,0.08)' }}>
+            <div style={{ fontSize: '0.85rem', color: '#f59e0b', fontWeight: 700, marginBottom: '6px' }}>
+              3. Balance de Masa a Nivel Transformador
+            </div>
+            <p style={{ fontSize: '0.85rem', color: '#cbd5e1', lineHeight: '1.5' }}>
+              En BT falta telemedición real aguas abajo del transformador (solo hay en cabecera y lecturas comerciales dispersas). Sin telemedición abajo, el salto entre alimentador y cliente final es una <strong>aproximación estadística, no un dato duro</strong>.
+            </p>
+          </div>
+
+        </div>
+
+        {/* PLAN DE ACCIÓN CONCRETO (LOS 3 PASOS DE AUDITORÍA) */}
+        <div style={{ background: 'rgba(168, 85, 247, 0.1)', padding: '20px', borderRadius: '12px', border: '1px solid rgba(168, 85, 247, 0.3)' }}>
+          <h4 style={{ fontSize: '1.05rem', color: '#c4b5fd', marginBottom: '14px', display: 'flex', alignItems: 'center', gap: '8px' }}>
+            <ShieldCheck size={18} />
+            <span>Plan de Acción Inmediato para Auditar el Algoritmo (Antes de Quedar Expuesto)</span>
+          </h4>
+
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
+            
+            <div style={{ padding: '12px 16px', background: 'rgba(15,23,42,0.8)', borderRadius: '8px', borderLeft: '4px solid #a855f7' }}>
+              <div style={{ fontWeight: 700, color: '#fff', fontSize: '0.9rem', marginBottom: '4px' }}>
+                • Paso A: Auditar la Base de Cálculo con Luis
+              </div>
+              <p style={{ fontSize: '0.85rem', color: '#cbd5e1', lineHeight: '1.5' }}>
+                Sentarse con Luis a contrastar qué fórmula de pérdidas técnicas en BT usa internamente EDEMSA contra los supuestos del algoritmo. Si los supuestos de impedancia y caída de tensión difieren, el 9% está distorsionado de entrada.
+              </p>
+            </div>
+
+            <div style={{ padding: '12px 16px', background: 'rgba(15,23,42,0.8)', borderRadius: '8px', borderLeft: '4px solid #a855f7' }}>
+              <div style={{ fontWeight: 700, color: '#fff', fontSize: '0.9rem', marginBottom: '4px' }}>
+                • Paso B: Seguimiento del Recambio de Medidores en Alimentador Malargüe
+              </div>
+              <p style={{ fontSize: '0.85rem', color: '#cbd5e1', lineHeight: '1.5' }}>
+                Medir el alimentador Malargüe a 30 y 60 días del recambio de los 187 medidores electromecánicos. Si la inyección y el consumo facturado no se acercan (la PNT no baja), la causa es estructural de red (pérdida técnica) y el modelo debe re-calibrarse para no mandar a las cuadrillas a buscar fantasmas.
+              </p>
+            </div>
+
+            <div style={{ padding: '12px 16px', background: 'rgba(15,23,42,0.8)', borderRadius: '8px', borderLeft: '4px solid #a855f7' }}>
+              <div style={{ fontWeight: 700, color: '#fff', fontSize: '0.9rem', marginBottom: '4px' }}>
+                • Paso C: Enfoque en Zonas de Alta Densidad de Fraude Real
+              </div>
+              <p style={{ fontSize: '0.85rem', color: '#cbd5e1', lineHeight: '1.5' }}>
+                Probar el sistema en zonas con tasa de hurto histórica real alta (como Las Heras o San Rafael centro), y no en Malargüe, donde la tasa de fraude intrínseca es de apenas 1% a 3% y cualquier desvío del algoritmo resalta de inmediato.
+              </p>
+            </div>
+
+          </div>
+        </div>
+      </div>
     </div>
   );
 }
